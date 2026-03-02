@@ -7,7 +7,8 @@ const footerLinks = {
     { href: "/gaming-speed-test", label: "Gaming Speed Test" },
     { href: "/streaming-speed-test", label: "Streaming Speed Test" },
     { href: "/mobile-speed-test", label: "Mobile Speed Test" },
-    { href: "/internet-speed-test-india", label: "Speed Test India" },
+    // { href: "/internet-speed-test-india", label: "Speed Test India" },
+    { href: "/broadband-speed-test", label: "Broadband Speed Test" },
   ],
   "Learn More": [
     {

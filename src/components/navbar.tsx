@@ -102,9 +102,17 @@ const navLinks = [
   { href: "/gaming-speed-test", label: "Gaming" },
   { href: "/streaming-speed-test", label: "Streaming" },
   { href: "/mobile-speed-test", label: "Mobile" },
-  { href: "/internet-speed-test-india", label: "India" },
-  { href: "/how-to-increase-wifi-speed", label: "Guides" },
-  { href: "/what-is-good-internet-speed", label: "Learn" },
+  // { href: "/internet-speed-test-india", label: "Broadband Speed Test" },
+  { href: "/broadband-speed-test", label: "Broadband Speed Test" },
+  // { href: "/how-to-increase-wifi-speed", label: "Guides" },
+  {
+    href: "/how-to-increase-wifi-speed",
+    label: "How to Increase WiFi Speed",
+  },
+  {
+    href: "/what-is-good-internet-speed",
+    label: "What Is a Good Internet Speed?",
+  },
 ];
 
 export function Navbar() {
