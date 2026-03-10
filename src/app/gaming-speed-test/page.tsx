@@ -1,42 +1,3 @@
-// import type { Metadata } from "next";
-// import { SpeedTestWidget } from "@/components/speed-test-widget";
-// import { AdPlaceholder } from "@/components/ad-placeholder";
-// import { FAQSection } from "@/components/faq-section";
-// import { RelatedArticles } from "@/components/related-articles";
-// import { Breadcrumb } from "@/components/breadcrumb";
-// import { Gamepad2, Activity, Wifi, Monitor, Zap, Trophy } from "lucide-react";
-
-// export const metadata: Metadata = {
-//   title:
-//     "Gaming Speed Test – Check If Your Internet is Fast Enough for Online Gaming",
-//   description:
-//     "Test your gaming internet speed with FastSpeedChecker. Check ping, jitter, download & upload for online gaming. Find out if your connection is ready for competitive play.",
-//   keywords: [
-//     "gaming speed test",
-//     "best internet speed for gaming",
-//     "ping test for gaming",
-//     "online gaming internet speed",
-//     "gaming latency test",
-//     "low ping internet test",
-//     "internet speed for ps5 gaming",
-//     "pc gaming internet speed test",
-//   ],
-//   openGraph: {
-//     title:
-//       "Gaming Speed Test – Is Your Internet Fast Enough for Online Gaming?",
-//     description:
-//       "Test your ping, jitter, and internet speed for gaming. Free online gaming speed test.",
-//     url: "https://fastspeedchecker.com/gaming-speed-test",
-//   },
-//   alternates: { canonical: "https://fastspeedchecker.com/gaming-speed-test" },
-// };
-
-// const gamingFaqs = [
-//   {
-//     question: "What internet speed do I need for online gaming?",
-//     answer:
-//       "For most online games, a download speed of 15–25 Mbps and upload speed of 5–10 Mbps is sufficient. However, ping (latency) matters much more than raw speed. You need ping under 50ms for a good experience and under 20ms for competitive play.",
-//   },
 //   {
 //     question: "What is a good ping for gaming?",
 //     answer:
@@ -94,12 +55,12 @@
 //     headline: "Gaming Speed Test – Best Internet Speed for Online Gaming",
 //     description:
 //       "Complete guide to gaming internet speed requirements with live speed test tool.",
-//     url: "https://fastspeedchecker.com/gaming-speed-test",
-//     author: { "@type": "Organization", name: "FastSpeedChecker" },
+//     url: "https://trueinternetspeedtest.com/gaming-speed-test",
+//     author: { "@type": "Organization", name: "trueinternetspeedtest" },
 //     publisher: {
 //       "@type": "Organization",
-//       name: "FastSpeedChecker",
-//       url: "https://fastspeedchecker.com",
+//       name: "trueinternetspeedtest",
+//       url: "https://trueinternetspeedtest.com",
 //     },
 //   };
 
@@ -380,70 +341,278 @@
 //   );
 // }
 
+// import type { Metadata } from "next";
+// import { SpeedTestWidget } from "@/components/speed-test-widget";
+// import { AdPlaceholder } from "@/components/ad-placeholder";
+// import { FAQSection } from "@/components/faq-section";
+// import { RelatedArticles } from "@/components/related-articles";
+// import { Breadcrumb } from "@/components/breadcrumb";
+// import { Gamepad2, Activity, Wifi, Monitor, Zap, Trophy } from "lucide-react";
 
+// export const metadata: Metadata = {
+//   title:
+//     "Gaming Speed Test – Check If Your Internet Is Fast Enough for Online Gaming",
+//   description:
+//     "Free gaming speed test to check ping, jitter, download & upload speed. Find out if your internet is good for online gaming in India, US, UK & worldwide.",
+//   keywords: [
+//     "gaming speed test",
+//     "best internet speed for gaming",
+//     "ping test for gaming",
+//     "online gaming internet speed",
+//     "gaming latency test",
+//     "low ping internet test",
+//     "internet speed for gaming india",
+//     "pc gaming speed test",
+//     "ps5 gaming internet speed",
+//   ],
+//   alternates: {
+//     canonical: "https://trueinternetspeedtest.com/gaming-speed-test",
+//   },
+//   openGraph: {
+//     title: "Gaming Speed Test – Is Your Internet Fast Enough?",
+//     description:
+//       "Test ping, jitter, download & upload speed for online gaming. Works worldwide.",
+//     url: "https://trueinternetspeedtest.com/gaming-speed-test",
+//     siteName: "trueinternetspeedtest",
+//     type: "article",
+//   },
+// };
 
+// const gamingFaqs = [
+//   {
+//     question: "What internet speed do I need for online gaming?",
+//     answer:
+//       "Most online games work smoothly with 15–25 Mbps download and 5–10 Mbps upload. Ping matters more than speed — under 50ms is good, under 20ms is excellent.",
+//   },
+//   {
+//     question: "What is a good ping for gaming?",
+//     answer:
+//       "Ping below 20ms is ideal for competitive gaming. 20–50ms is good for most players. Above 100ms causes noticeable lag.",
+//   },
+//   {
+//     question: "Why is my ping high even with fast internet?",
+//     answer:
+//       "High ping can be caused by WiFi interference, distant game servers, ISP routing issues, background downloads, or low-quality routers.",
+//   },
+//   {
+//     question: "Does upload speed matter for gaming?",
+//     answer:
+//       "Upload speed matters less than ping. Most games need only 1–5 Mbps upload, but streaming while gaming requires more.",
+//   },
+//   {
+//     question: "WiFi or ethernet — which is better for gaming?",
+//     answer:
+//       "Ethernet is always better for gaming. It reduces latency, jitter, and packet loss compared to WiFi.",
+//   },
+// ];
+
+// const relatedArticles = [
+//   {
+//     href: "/",
+//     title: "Internet Speed Test",
+//     description: "Test your download and upload speed instantly.",
+//   },
+//   {
+//     href: "/streaming-speed-test",
+//     title: "Streaming Speed Test",
+//     description: "Check if your internet supports HD and 4K streaming.",
+//   },
+//   {
+//     href: "/what-is-good-internet-speed",
+//     title: "What Is Good Internet Speed?",
+//     description: "Complete guide to internet speed requirements.",
+//   },
+//   {
+//     href: "/how-to-increase-wifi-speed",
+//     title: "How to Increase WiFi Speed",
+//     description: "Reduce lag and boost internet performance.",
+//   },
+// ];
+
+// export default function GamingSpeedTestPage() {
+//   const articleSchema = {
+//     "@context": "https://schema.org",
+//     "@type": "Article",
+//     headline: "Gaming Speed Test – Best Internet Speed for Online Gaming",
+//     description:
+//       "Check ping, jitter, and internet speed for online gaming worldwide.",
+//     url: "https://trueinternetspeedtest.com/gaming-speed-test",
+//     author: { "@type": "Organization", name: "trueinternetspeedtest" },
+//     publisher: {
+//       "@type": "Organization",
+//       name: "trueinternetspeedtest",
+//       url: "https://trueinternetspeedtest.com",
+//     },
+//   };
+
+//   const faqSchema = {
+//     "@context": "https://schema.org",
+//     "@type": "FAQPage",
+//     mainEntity: gamingFaqs.map((faq) => ({
+//       "@type": "Question",
+//       name: faq.question,
+//       acceptedAnswer: {
+//         "@type": "Answer",
+//         text: faq.answer,
+//       },
+//     })),
+//   };
+
+//   const breadcrumbSchema = {
+//     "@context": "https://schema.org",
+//     "@type": "BreadcrumbList",
+//     itemListElement: [
+//       {
+//         "@type": "ListItem",
+//         position: 1,
+//         name: "Home",
+//         item: "https://trueinternetspeedtest.com",
+//       },
+//       {
+//         "@type": "ListItem",
+//         position: 2,
+//         name: "Gaming Speed Test",
+//         item: "https://trueinternetspeedtest.com/gaming-speed-test",
+//       },
+//     ],
+//   };
+
+//   return (
+//     <>
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+//       />
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+//       />
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+//       />
+
+//       <section className="relative py-20 bg-gradient-to-b from-[#0a0a1f] via-[#100a2b] to-background">
+//         <div className="max-w-7xl mx-auto px-4 text-center">
+//           <Breadcrumb items={[{ label: "Gaming Speed Test" }]} />
+//           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs mb-4">
+//             <Gamepad2 className="w-4 h-4" />
+//             Optimized for Gamers
+//           </div>
+//           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
+//             Gaming Speed Test
+//           </h1>
+//           <p className="text-lg text-white/70 max-w-2xl mx-auto">
+//             Check ping, jitter, download and upload speed for online gaming in
+//             India, US, UK and worldwide.
+//           </p>
+//           <div className="mt-8">
+//             <SpeedTestWidget />
+//           </div>
+//         </div>
+//       </section>
+
+//       <div className="max-w-7xl mx-auto px-4">
+//         <AdPlaceholder size="leaderboard" className="my-6" />
+
+//         {/* GLOBAL SEO CONTENT (SAFE) */}
+//         <section className="sr-only">
+//           <h2>Gaming Speed Test for Global Players</h2>
+//           <p>
+//             This gaming speed test is designed for players in the United States,
+//             United Kingdom, India, Canada, Australia, Europe, and Asia.
+//           </p>
+//           <p>
+//             Test your internet speed for PC, console, and mobile gaming on
+//             fiber, broadband, 4G, and 5G networks.
+//           </p>
+//         </section>
+
+//         <FAQSection faqs={gamingFaqs} title="Gaming Internet Speed FAQs" />
+//         <RelatedArticles articles={relatedArticles} />
+//       </div>
+//     </>
+//   );
+// }
+
+/////////////////////////////////////
+// compare 5 site adding
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
 import { AdPlaceholder } from "@/components/ad-placeholder";
 import { FAQSection } from "@/components/faq-section";
 import { RelatedArticles } from "@/components/related-articles";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { Gamepad2, Activity, Wifi, Monitor, Zap, Trophy } from "lucide-react";
+import { Gamepad2 } from "lucide-react";
+
+const SITE_URL = "https://trueinternetspeedtest.com";
+const PAGE_URL = `${SITE_URL}/gaming-speed-test`;
 
 export const metadata: Metadata = {
   title:
-    "Gaming Speed Test – Check If Your Internet Is Fast Enough for Online Gaming",
+    "Gaming Speed Test (2026) – Check Ping, Jitter & Internet Speed for Gaming",
   description:
-    "Free gaming speed test to check ping, jitter, download & upload speed. Find out if your internet is good for online gaming in India, US, UK & worldwide.",
+    "Free Gaming Speed Test by trueinternetspeedtest. Check ping, jitter, download & upload speed for Fortnite, PUBG, Valorant, Warzone, PS5 & PC gaming worldwide.",
   keywords: [
     "gaming speed test",
     "best internet speed for gaming",
-    "ping test for gaming",
-    "online gaming internet speed",
-    "gaming latency test",
-    "low ping internet test",
-    "internet speed for gaming india",
-    "pc gaming speed test",
-    "ps5 gaming internet speed",
+    "good ping for gaming",
+    "low latency internet test",
+    "fortnite ping test",
+    "valorant ping test",
+    "warzone internet speed",
+    "ps5 internet speed",
+    "pc gaming internet speed",
+    "online gaming speed requirements",
   ],
   alternates: {
-    canonical: "https://fastspeedchecker.com/gaming-speed-test",
+    canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Gaming Speed Test – Is Your Internet Fast Enough?",
+    title: "Gaming Speed Test – Check Ping & Internet Speed for Online Gaming",
     description:
-      "Test ping, jitter, download & upload speed for online gaming. Works worldwide.",
-    url: "https://fastspeedchecker.com/gaming-speed-test",
-    siteName: "FastSpeedChecker",
+      "Test your internet speed for Fortnite, PUBG, Valorant & more. Instant ping, jitter & gaming latency analysis.",
+    url: PAGE_URL,
+    siteName: "trueinternetspeedtest",
     type: "article",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gaming Speed Test – Check Your Ping Instantly",
+    description:
+      "Measure ping, jitter, download & upload speed for competitive gaming.",
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
 const gamingFaqs = [
   {
-    question: "What internet speed do I need for online gaming?",
+    question: "What is the best internet speed for gaming?",
     answer:
-      "Most online games work smoothly with 15–25 Mbps download and 5–10 Mbps upload. Ping matters more than speed — under 50ms is good, under 20ms is excellent.",
+      "For smooth online gaming, 25–50 Mbps download and 5–10 Mbps upload is enough. However, ping under 30ms is more important than raw speed.",
   },
   {
-    question: "What is a good ping for gaming?",
+    question: "Is 100 Mbps good for gaming?",
     answer:
-      "Ping below 20ms is ideal for competitive gaming. 20–50ms is good for most players. Above 100ms causes noticeable lag.",
+      "Yes. 100 Mbps is more than enough for gaming. Low latency and stable connection matter more than high download speed.",
   },
   {
-    question: "Why is my ping high even with fast internet?",
+    question: "What is a good ping for Fortnite or Valorant?",
     answer:
-      "High ping can be caused by WiFi interference, distant game servers, ISP routing issues, background downloads, or low-quality routers.",
+      "Ping under 20ms is excellent for competitive gaming. 20–50ms is good. Above 80ms may cause noticeable lag.",
   },
   {
-    question: "Does upload speed matter for gaming?",
+    question: "Why is my gaming lagging even with fast internet?",
     answer:
-      "Upload speed matters less than ping. Most games need only 1–5 Mbps upload, but streaming while gaming requires more.",
+      "Gaming lag can be caused by WiFi interference, ISP routing issues, distant servers, background downloads, or outdated routers.",
   },
   {
-    question: "WiFi or ethernet — which is better for gaming?",
+    question: "Is Ethernet better than WiFi for gaming?",
     answer:
-      "Ethernet is always better for gaming. It reduces latency, jitter, and packet loss compared to WiFi.",
+      "Yes. Ethernet provides lower latency, reduced jitter, and more stable performance compared to WiFi.",
   },
 ];
 
@@ -451,39 +620,61 @@ const relatedArticles = [
   {
     href: "/",
     title: "Internet Speed Test",
-    description: "Test your download and upload speed instantly.",
-  },
-  {
-    href: "/streaming-speed-test",
-    title: "Streaming Speed Test",
-    description: "Check if your internet supports HD and 4K streaming.",
+    description: "Test your real download and upload speed instantly.",
   },
   {
     href: "/what-is-good-internet-speed",
-    title: "What Is Good Internet Speed?",
-    description: "Complete guide to internet speed requirements.",
+    title: "What Is a Good Internet Speed?",
+    description: "Complete internet speed guide for all activities.",
   },
   {
     href: "/how-to-increase-wifi-speed",
     title: "How to Increase WiFi Speed",
-    description: "Reduce lag and boost internet performance.",
+    description: "Reduce lag and improve WiFi performance.",
+  },
+  {
+    href: "/streaming-speed-test",
+    title: "Streaming Speed Test",
+    description: "Check if your internet supports 4K streaming.",
   },
 ];
 
 export default function GamingSpeedTestPage() {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "trueinternetspeedtest",
+    url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+  };
+
+  const webAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "Gaming Speed Test Tool",
+    url: PAGE_URL,
+    applicationCategory: "Utility",
+    operatingSystem: "All",
+  };
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: "Gaming Speed Test – Best Internet Speed for Online Gaming",
     description:
-      "Check ping, jitter, and internet speed for online gaming worldwide.",
-    url: "https://fastspeedchecker.com/gaming-speed-test",
-    author: { "@type": "Organization", name: "FastSpeedChecker" },
+      "Check ping, jitter and internet speed for Fortnite, PUBG, Valorant, Warzone & more.",
+    url: PAGE_URL,
+    author: {
+      "@type": "Organization",
+      name: "trueinternetspeedtest Research Team",
+    },
     publisher: {
       "@type": "Organization",
-      name: "FastSpeedChecker",
-      url: "https://fastspeedchecker.com",
+      name: "trueinternetspeedtest",
+      url: SITE_URL,
     },
+    datePublished: "2026-01-01",
+    dateModified: "2026-01-01",
   };
 
   const faqSchema = {
@@ -507,19 +698,27 @@ export default function GamingSpeedTestPage() {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://fastspeedchecker.com",
+        item: SITE_URL,
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Gaming Speed Test",
-        item: "https://fastspeedchecker.com/gaming-speed-test",
+        item: PAGE_URL,
       },
     ],
   };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
@@ -536,17 +735,22 @@ export default function GamingSpeedTestPage() {
       <section className="relative py-20 bg-gradient-to-b from-[#0a0a1f] via-[#100a2b] to-background">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <Breadcrumb items={[{ label: "Gaming Speed Test" }]} />
+
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs mb-4">
             <Gamepad2 className="w-4 h-4" />
-            Optimized for Gamers
+            Competitive Gaming Optimized
           </div>
+
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4">
-            Gaming Speed Test
+            Gaming Speed Test – Check Ping & Internet Speed
           </h1>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Check ping, jitter, download and upload speed for online gaming in
-            India, US, UK and worldwide.
+
+          <p className="text-lg text-white/70 max-w-3xl mx-auto">
+            Test your internet speed for Fortnite, PUBG, Valorant, Warzone, Apex
+            Legends, CS2 and other online games. Measure ping, jitter, download
+            & upload instantly worldwide.
           </p>
+
           <div className="mt-8">
             <SpeedTestWidget />
           </div>
@@ -556,17 +760,22 @@ export default function GamingSpeedTestPage() {
       <div className="max-w-7xl mx-auto px-4">
         <AdPlaceholder size="leaderboard" className="my-6" />
 
-        {/* GLOBAL SEO CONTENT (SAFE) */}
-        <section className="sr-only">
-          <h2>Gaming Speed Test for Global Players</h2>
-          <p>
-            This gaming speed test is designed for players in the United States,
-            United Kingdom, India, Canada, Australia, Europe, and Asia.
-          </p>
-          <p>
-            Test your internet speed for PC, console, and mobile gaming on
-            fiber, broadband, 4G, and 5G networks.
-          </p>
+        <section className="prose prose-invert max-w-4xl mx-auto py-10 text-center">
+          <h2>What Is a Good Internet Speed for Gaming?</h2>
+          <ul className="list-disc list-inside inline-block text-left">
+            <li>Ping: Under 30ms</li>
+            <li>Jitter: Under 5ms</li>
+            <li>Download: 25+ Mbps</li>
+            <li>Upload: 5+ Mbps</li>
+          </ul>
+
+          <h2>How to Reduce Gaming Lag</h2>
+          <ul className="list-disc list-inside inline-block text-left">
+            <li>Use Ethernet instead of WiFi</li>
+            <li>Close background downloads</li>
+            <li>Restart your router before gaming</li>
+            <li>Select the nearest game server</li>
+          </ul>
         </section>
 
         <FAQSection faqs={gamingFaqs} title="Gaming Internet Speed FAQs" />

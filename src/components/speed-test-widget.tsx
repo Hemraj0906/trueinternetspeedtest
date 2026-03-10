@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
+import Image from "next/image";
 import {
   runSpeedTest,
   getSpeedRating,
@@ -9,6 +10,7 @@ import {
   type SpeedTestResult,
 } from "@/lib/speed-test";
 import { SpeedGauge } from "./speed-gauge";
+import { NoInternetAlert, useInternetConnection } from "./no-internet-alert";
 import {
   Download,
   Upload,
@@ -33,38 +35,55 @@ const initialState: SpeedTestState = {
 export function SpeedTestWidget() {
   const [state, setState] = useState<SpeedTestState>(initialState);
   const [testCount, setTestCount] = useState(0);
+  const [showNoInternet, setShowNoInternet] = useState(false);
   const isRunning = state.phase !== "idle" && state.phase !== "complete";
   const abortRef = useRef<AbortController | null>(null);
   const testInProgressRef = useRef(false);
 
+  // Internet connection detection
+  const { isOnline } = useInternetConnection();
+
+  // Monitor internet connection
   useEffect(() => {
-    if (state.result) {
-      console.log("FINAL RESULT:", state.result);
+    if (!isOnline && state.phase === "idle") {
+      setShowNoInternet(true);
     }
-  }, [state.result]);
+  }, [isOnline, state.phase]);
 
-  function getFlagEmoji(code?: string): string {
-    if (!code) return "";
+  const handleRetry = useCallback(() => {
+    setShowNoInternet(false);
+    // Small delay to allow connection to stabilize
+    setTimeout(() => {
+      if (navigator.onLine) {
+        setShowNoInternet(false);
+      }
+    }, 1000);
+  }, []);
 
-    return code
-      .toUpperCase()
-      .replace(/./g, (char: string) =>
-        String.fromCodePoint(127397 + char.charCodeAt(0))
-      );
-  }
+  const handleCloseNoInternet = useCallback(() => {
+    setShowNoInternet(false);
+  }, []);
 
   // const updateState = useCallback((update: Partial<SpeedTestState>) => {
-  //   if (!abortRef.current) {
-  //     setState((prev) => ({ ...prev, ...update }));
-  //   }
+  //   setState((prev) => ({ ...prev, ...update }));
   // }, []);
 
   const updateState = useCallback((update: Partial<SpeedTestState>) => {
-  setState((prev) => ({ ...prev, ...update }));
-}, []);
+    console.log("STATE UPDATE:", update);
+
+    setState((prev) => {
+      const newState = { ...prev, ...update };
+
+      console.log("NEW STATE:", newState);
+
+      return newState;
+    });
+  }, []);
 
   const startTest = useCallback(async () => {
     // Prevent multiple concurrent tests
+    console.log("START BUTTON CLICKED");
+
     if (testInProgressRef.current) {
       return;
     }
@@ -129,32 +148,6 @@ export function SpeedTestWidget() {
             phase={state.phase}
             size={280}
           />
-
-          {/* Center value overlay */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-            <div className="mt-8 text-center">
-              {state.phase === "idle" ? (
-                <div className="text-muted-foreground text-sm font-medium">
-                  Mbps
-                </div>
-              ) : (
-                <>
-                  <div
-                    className="text-4xl font-bold tabular-nums leading-none"
-                    style={{
-                      color: "#fff",
-                      textShadow: "0 0 20px rgba(99,102,241,0.5)",
-                    }}
-                  >
-                    {state.phase === "complete" && state.result
-                      ? state.result.download.toFixed(1)
-                      : state.currentSpeed.toFixed(1)}
-                  </div>
-                  <div className="text-xs text-white/60 mt-1">Mbps</div>
-                </>
-              )}
-            </div>
-          </div>
         </div>
 
         {/* Phase indicator */}
@@ -174,7 +167,6 @@ export function SpeedTestWidget() {
 
         <div className="mt-6">
           {state.phase === "idle" ? (
-           
             <button
               onClick={startTest}
               className="cursor-pointer relative group px-10 py-4 rounded-full font-bold text-lg text-white bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 shadow-xl shadow-blue-500/30 transition-all duration-300 hover:scale-105 hover:shadow-blue-500/50 pulse-glow"
@@ -260,7 +252,7 @@ export function SpeedTestWidget() {
             }
             unit="ms"
             active={state.phase === "ping"}
-            done={state.phase !== "ping" && state.phase !== "idle"}
+            done={state.phase !== "ping"}
             rating={state.result ? getPingRating(state.result.ping) : undefined}
           />
           <ResultCard
@@ -273,6 +265,13 @@ export function SpeedTestWidget() {
           />
         </div>
       )}
+
+      {/* No Internet Connection Alert */}
+      <NoInternetAlert
+        isOpen={showNoInternet}
+        onClose={handleCloseNoInternet}
+        onRetry={handleRetry}
+      />
 
       {/* Connection info */}
       {state.result && (
@@ -323,10 +322,12 @@ export function SpeedTestWidget() {
                 {/* Country Flag - Only show flag image, remove duplicate countryCode text */}
                 <span className="inline-flex items-center ml-1">
                   {state.result.countryCode && (
-                    <img
+                    <Image
                       src={`https://flagcdn.com/w40/${state.result.countryCode.toLowerCase()}.png`}
                       alt={state.result.country || "Country"}
-                      className="w-5 h-3 object-cover rounded-b-none mt-1"
+                      width={20}
+                      height={12}
+                      className="object-cover rounded-b-none mt-1"
                     />
                   )}
                 </span>
@@ -360,7 +361,7 @@ export function SpeedTestWidget() {
                       navigator.share({
                         title: "My Internet Speed Test",
                         text: `Download: ${state.result.download} Mbps | Upload: ${state.result.upload} Mbps | Ping: ${state.result.ping} ms`,
-                        url: "https://fastspeedchecker.com",
+                        url: "https://trueinternetspeedtest.com",
                       });
                     }
                   }}
@@ -429,12 +430,3 @@ function ResultCard({
     </div>
   );
 }
-
-
-
-
-
-
-
-
-

@@ -54,13 +54,13 @@ export function WebsiteSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "FastSpeedChecker",
-    url: "https://fastspeedchecker.com",
+    name: "trueinternetspeedtest",
+    url: "https://trueinternetspeedtest.com",
     description:
       "Free internet speed test tool — check download speed, upload speed, ping and jitter instantly.",
     potentialAction: {
       "@type": "SearchAction",
-      target: "https://fastspeedchecker.com/?q={search_term_string}",
+      target: "https://trueinternetspeedtest.com/?q={search_term_string}",
       "query-input": "required name=search_term_string",
     },
   };
@@ -93,13 +93,13 @@ export function ArticleSchema({
     url,
     datePublished,
     dateModified,
-    author: { "@type": "Organization", name: "FastSpeedChecker" },
+    author: { "@type": "Organization", name: "trueinternetspeedtest" },
     publisher: {
       "@type": "Organization",
-      name: "FastSpeedChecker",
+      name: "trueinternetspeedtest",
       logo: {
         "@type": "ImageObject",
-        url: "https://fastspeedchecker.com/logo.png",
+        url: "https://trueinternetspeedtest.com/logo.png",
       },
     },
   };

@@ -14,7 +14,7 @@ interface RelatedArticlesProps {
 
 export function RelatedArticles({
   articles,
-  title = "Related Speed Test Guides",
+  title = "Popular Internet Speed Test Tools & Performance Guides",
 }: RelatedArticlesProps) {
   return (
     <section className="py-12 border-t border-border/40">

@@ -1,26 +1,5 @@
-// import type { Metadata } from "next";
-// import { SpeedTestWidget } from "@/components/speed-test-widget";
-// import { AdPlaceholder } from "@/components/ad-placeholder";
-// import { FAQSection } from "@/components/faq-section";
-// import { RelatedArticles } from "@/components/related-articles";
-// import {
-//   Download,
-//   Upload,
-//   Activity,
-//   Monitor,
-//   Gamepad2,
-//   Tv,
-//   Smartphone,
-//   Wifi,
-//   TrendingUp,
-//   CheckCircle,
-//   Globe,
-// } from "lucide-react";
-
-// export const metadata: Metadata = {
-//   title: "Internet Speed Test – Check Your WiFi Speed Instantly",
 //   description:
-//     "Check your internet speed instantly with FastSpeedChecker. Get accurate download speed, upload speed, ping, jitter, and ISP info. Free broadband speed test — no signup required.",
+//     "Check your internet speed instantly with trueinternetspeedtest. Get accurate download speed, upload speed, ping, jitter, and ISP info. Free broadband speed test — no signup required.",
 //   keywords: [
 //     "internet speed test",
 //     "wifi speed test",
@@ -35,17 +14,17 @@
 //     title: "Internet Speed Test – Check Your WiFi Speed Instantly",
 //     description:
 //       "Free online internet speed test. Check download, upload, ping, jitter and ISP instantly.",
-//     url: "https://fastspeedchecker.com",
+//     url: "https://trueinternetspeedtest.com",
 //     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
 //   },
-//   alternates: { canonical: "https://fastspeedchecker.com" },
+//   alternates: { canonical: "https://trueinternetspeedtest.com" },
 // };
 
 // const homepageFaqs = [
 //   {
-//     question: "How does FastSpeedChecker measure internet speed?",
+//     question: "How does trueinternetspeedtest measure internet speed?",
 //     answer:
-//       "FastSpeedChecker uses a server-side measurement engine based on LibreSpeed. It downloads and uploads test files of varying sizes to our CDN servers and measures throughput in Mbps. The test measures download speed, upload speed, ping (latency), and jitter — giving you a complete picture of your internet performance.",
+//       "trueinternetspeedtest uses a server-side measurement engine based on LibreSpeed. It downloads and uploads test files of varying sizes to our CDN servers and measures throughput in Mbps. The test measures download speed, upload speed, ping (latency), and jitter — giving you a complete picture of your internet performance.",
 //   },
 //   {
 //     question: "What is a good internet speed?",
@@ -121,13 +100,13 @@
 //   const websiteSchema = {
 //     "@context": "https://schema.org",
 //     "@type": "WebSite",
-//     name: "FastSpeedChecker",
-//     url: "https://fastspeedchecker.com",
+//     name: "trueinternetspeedtest",
+//     url: "https://trueinternetspeedtest.com",
 //     description:
 //       "Free internet speed test tool. Check download, upload, ping, jitter and ISP.",
 //     potentialAction: {
 //       "@type": "SearchAction",
-//       target: "https://fastspeedchecker.com/?q={search_term_string}",
+//       target: "https://trueinternetspeedtest.com/?q={search_term_string}",
 //       "query-input": "required name=search_term_string",
 //     },
 //   };
@@ -135,7 +114,7 @@
 //   const softwareSchema = {
 //     "@context": "https://schema.org",
 //     "@type": "SoftwareApplication",
-//     name: "FastSpeedChecker Internet Speed Test",
+//     name: "trueinternetspeedtest Internet Speed Test",
 //     applicationCategory: "UtilitiesApplication",
 //     operatingSystem: "Web",
 //     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
@@ -714,13 +693,552 @@
 //   );
 // }
 
-// my previous version of code 
+// my previous version of code
 ///////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// import type { Metadata } from "next";
+// import { SpeedTestWidget } from "@/components/speed-test-widget";
+// import { AdPlaceholder } from "@/components/ad-placeholder";
+// import { FAQSection } from "@/components/faq-section";
+// import { RelatedArticles } from "@/components/related-articles";
+// import {
+//   Download,
+//   Upload,
+//   Activity,
+//   TrendingUp,
+//   CheckCircle,
+//   Globe,
+// } from "lucide-react";
+
+// /* =========================
+//    GLOBAL SEO METADATA
+// ========================= */
+// export const metadata: Metadata = {
+//   title: "Internet Speed Test – Check WiFi Speed Instantly (India, US, UK)",
+//   description:
+//     "Free internet speed test to check download speed, upload speed, ping, and jitter. Accurate results for India, United States, United Kingdom, and worldwide.",
+//   keywords: [
+//     "internet speed test",
+//     "wifi speed test",
+//     "speed test india",
+//     "speed test usa",
+//     "speed test uk",
+//     "check internet speed",
+//     "broadband speed test",
+//     "download speed test",
+//     "upload speed test",
+//     "ping test online",
+//   ],
+//   alternates: {
+//     canonical: "https://trueinternetspeedtest.com",
+//   },
+//   openGraph: {
+//     title: "Internet Speed Test – Global WiFi Speed Checker",
+//     description:
+//       "Check your internet speed instantly. Works accurately in India, US, UK and worldwide.",
+//     url: "https://trueinternetspeedtest.com",
+//     siteName: "trueinternetspeedtest",
+//     images: [
+//       {
+//         url: "/og-image.png",
+//         width: 1200,
+//         height: 630,
+//         alt: "Internet Speed Test Tool",
+//       },
+//     ],
+//     type: "website",
+//   },
+//   robots: {
+//     index: true,
+//     follow: true,
+//   },
+// };
+
+// /* =========================
+//    PAGE
+// ========================= */
+// export default function HomePage() {
+//   /* ---------- SCHEMA ---------- */
+//   const schema = {
+//     "@context": "https://schema.org",
+//     "@graph": [
+//       {
+//         "@type": "WebSite",
+//         name: "trueinternetspeedtest",
+//         url: "https://trueinternetspeedtest.com",
+//       },
+//       {
+//         "@type": "SoftwareApplication",
+//         name: "trueinternetspeedtest Internet Speed Test",
+//         applicationCategory: "UtilitiesApplication",
+//         operatingSystem: "Web",
+//         offers: {
+//           "@type": "Offer",
+//           price: "0",
+//           priceCurrency: "USD",
+//         },
+//         description:
+//           "Free online internet speed test for India, US, UK and worldwide users.",
+//       },
+//       {
+//         "@type": "FAQPage",
+//         mainEntity: [
+//           {
+//             "@type": "Question",
+//             name: "What is a good internet speed?",
+//             acceptedAnswer: {
+//               "@type": "Answer",
+//               text: "A good internet speed is 25 Mbps for browsing and HD streaming, 50–100 Mbps for gaming and work from home, and 100+ Mbps for multiple users and 4K streaming.",
+//             },
+//           },
+//           {
+//             "@type": "Question",
+//             name: "Is this speed test accurate in India, US and UK?",
+//             acceptedAnswer: {
+//               "@type": "Answer",
+//               text: "Yes. trueinternetspeedtest uses globally distributed servers to provide accurate results in India, the United States, the United Kingdom, and other countries.",
+//             },
+//           },
+//         ],
+//       },
+//     ],
+//   };
+
+//   return (
+//     <>
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+//       />
+
+//       {/* ================= HERO ================= */}
+//       <section className="relative min-h-[85vh] flex items-center justify-center bg-gradient-to-b from-slate-950 to-background">
+//         <div className="max-w-5xl px-4 text-center">
+//           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-4">
+//             <Globe className="w-3.5 h-3.5" />
+//             Global Speed Test Servers Online
+//           </div>
+
+//           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+//             Internet Speed Test
+//           </h1>
+
+//           <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
+//             Test your internet speed instantly. Measure download speed, upload
+//             speed, ping, and jitter — optimized for India, United States, United
+//             Kingdom, and worldwide users.
+//           </p>
+
+//           <SpeedTestWidget />
+
+//           {/* ✅ FIXED BADGES (LIGHT + DARK MODE) */}
+//           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-slate-700 dark:text-white/70">
+//             {[
+//               "100% Free",
+//               "No Signup",
+//               "Works Worldwide",
+//               "Accurate Results",
+//             ].map((item) => (
+//               <div
+//                 key={item}
+//                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full
+//                            bg-slate-100 text-slate-800
+//                            dark:bg-white/10 dark:text-white/80"
+//               >
+//                 <CheckCircle className="w-4 h-4 text-green-500 dark:text-green-400" />
+//                 <span>{item}</span>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* ================= MAIN CONTENT ================= */}
+//       <main className="max-w-7xl mx-auto px-4 py-14">
+//         <section className="mb-14">
+//           <h2 className="text-3xl font-bold mb-4">
+//             What Is a Good Internet Speed?
+//           </h2>
+//           <p className="text-muted-foreground max-w-3xl">
+//             Internet speed requirements vary by country and usage. In India,
+//             average broadband speeds range between 50–100 Mbps. In the US and
+//             UK, households often require 100–300 Mbps for streaming, gaming, and
+//             remote work.
+//           </p>
+//         </section>
+
+//         <section className="grid md:grid-cols-3 gap-6 mb-14">
+//           <div className="p-5 border rounded-xl bg-card">
+//             <Download className="w-6 h-6 mb-3 text-blue-500" />
+//             <h3 className="font-bold mb-2">Download Speed</h3>
+//             <p className="text-sm text-muted-foreground">
+//               Important for streaming and browsing. 25 Mbps is good, 100 Mbps is
+//               excellent.
+//             </p>
+//           </div>
+//           <div className="p-5 border rounded-xl bg-card">
+//             <Upload className="w-6 h-6 mb-3 text-indigo-500" />
+//             <h3 className="font-bold mb-2">Upload Speed</h3>
+//             <p className="text-sm text-muted-foreground">
+//               Needed for video calls, gaming, and cloud uploads. Aim for at
+//               least 10 Mbps.
+//             </p>
+//           </div>
+//           <div className="p-5 border rounded-xl bg-card">
+//             <Activity className="w-6 h-6 mb-3 text-purple-500" />
+//             <h3 className="font-bold mb-2">Ping & Jitter</h3>
+//             <p className="text-sm text-muted-foreground">
+//               Lower latency means smoother gaming and calls. Under 30ms ping is
+//               ideal.
+//             </p>
+//           </div>
+//         </section>
+
+//         <AdPlaceholder size="leaderboard" />
+
+//         <FAQSection
+//           title="Internet Speed Test – FAQs"
+//           faqs={[
+//             {
+//               question: "Is this speed test free?",
+//               answer:
+//                 "Yes. trueinternetspeedtest is completely free and requires no registration.",
+//             },
+//             {
+//               question: "Does this work on mobile networks?",
+//               answer:
+//                 "Yes. You can test 4G, 5G, and WiFi speeds on any smartphone.",
+//             },
+//             {
+//               question: "Is this speed test accurate worldwide?",
+//               answer:
+//                 "Yes. Our servers are optimized for users in India, US, UK, and other countries.",
+//             },
+//           ]}
+//         />
+
+//         <RelatedArticles
+//           title="More Internet Speed Guides"
+//           articles={[
+//             {
+//               href: "/what-is-good-internet-speed",
+//               title: "What Is a Good Internet Speed?",
+//               description:
+//                 "Complete guide for streaming, gaming, and work from home.",
+//             },
+//             // {
+//             //   href: "/internet-speed-test-india",
+//             //   title: "Internet Speed Test India",
+//             //   description: "Check Airtel, Jio, BSNL broadband speeds.",
+//             // },
+//             {
+//               href: "/broadband-speed-test",
+//               title: "Broadband Speed Test",
+//               description:
+//                 "Check your broadband internet speed worldwide. Test download, upload & ping instantly.",
+//             },
+//             {
+//               href: "/gaming-speed-test",
+//               title: "Gaming Speed Test",
+//               description: "Check ping and latency for online gaming.",
+//             },
+//           ]}
+//         />
+//       </main>
+//     </>
+//   );
+// }
+
+///////////////////////////////////////////////////////////////////////////////////
+//chatgpt comparison 5 site
+
+// import type { Metadata } from "next";
+// import { SpeedTestWidget } from "@/components/speed-test-widget";
+// import { AdPlaceholder } from "@/components/ad-placeholder";
+// import { FAQSection } from "@/components/faq-section";
+// import { RelatedArticles } from "@/components/related-articles";
+// import {
+//   Download,
+//   Upload,
+//   Activity,
+//   TrendingUp,
+//   CheckCircle,
+//   Globe,
+//   ShieldCheck,
+//   BarChart3,
+// } from "lucide-react";
+
+// /* =========================
+//    GLOBAL SEO METADATA – trueinternetspeedtest
+// ========================= */
+// export const metadata: Metadata = {
+//   title:
+//     "trueinternetspeedtest™ – Free Internet Speed Test (India, USA, UK & Global)",
+//   description:
+//     "trueinternetspeedtest™ is a free global internet speed test tool to check download speed, upload speed, ping, jitter and broadband performance. Accurate results for India, USA, UK and worldwide users.",
+//   keywords: [
+//     "trueinternetspeedtest",
+//     "internet speed test",
+//     "speed test",
+//     "wifi speed test",
+//     "broadband speed test",
+//     "check internet speed",
+//     "download speed test",
+//     "upload speed test",
+//     "ping test",
+//     "5G speed test",
+//     "fiber internet speed test",
+//     "mobile speed test",
+//     "global speed test",
+//     "internet speed test india",
+//     "internet speed test usa",
+//     "internet speed test uk",
+//   ],
+//   alternates: {
+//     canonical: "https://trueinternetspeedtest.com",
+//   },
+//   metadataBase: new URL("https://trueinternetspeedtest.com"),
+//   openGraph: {
+//     title: "trueinternetspeedtest™ – Global Internet Speed Test Tool",
+//     description:
+//       "Test your internet speed instantly. Check download, upload, ping & jitter worldwide.",
+//     url: "https://trueinternetspeedtest.com",
+//     siteName: "trueinternetspeedtest",
+//     images: [
+//       {
+//         url: "/og-image.png",
+//         width: 1200,
+//         height: 630,
+//         alt: "trueinternetspeedtest Global Speed Test",
+//       },
+//     ],
+//     locale: "en_US",
+//     type: "website",
+//   },
+//   robots: {
+//     index: true,
+//     follow: true,
+//     googleBot: {
+//       index: true,
+//       follow: true,
+//       "max-video-preview": -1,
+//       "max-image-preview": "large",
+//       "max-snippet": -1,
+//     },
+//   },
+// };
+
+// /* =========================
+//    PAGE
+// ========================= */
+// export default function HomePage() {
+//   const schema = {
+//     "@context": "https://schema.org",
+//     "@graph": [
+//       {
+//         "@type": "Organization",
+//         name: "trueinternetspeedtest",
+//         url: "https://trueinternetspeedtest.com",
+//         logo: "https://trueinternetspeedtest.com/logo.png",
+//         sameAs: [],
+//       },
+//       {
+//         "@type": "WebSite",
+//         name: "trueinternetspeedtest",
+//         url: "https://trueinternetspeedtest.com",
+//       },
+//       {
+//         "@type": "BreadcrumbList",
+//         itemListElement: [
+//           {
+//             "@type": "ListItem",
+//             position: 1,
+//             name: "Home",
+//             item: "https://trueinternetspeedtest.com",
+//           },
+//         ],
+//       },
+//       {
+//         "@type": "SoftwareApplication",
+//         name: "trueinternetspeedtest Speed Test",
+//         applicationCategory: "UtilitiesApplication",
+//         operatingSystem: "Web",
+//         offers: {
+//           "@type": "Offer",
+//           price: "0",
+//           priceCurrency: "USD",
+//         },
+//         aggregateRating: {
+//           "@type": "AggregateRating",
+//           ratingValue: "4.8",
+//           reviewCount: "12850",
+//         },
+//         description:
+//           "Free global internet speed test tool to measure download speed, upload speed, ping and jitter.",
+//       },
+//     ],
+//   };
+
+//   return (
+//     <>
+//       <script
+//         type="application/ld+json"
+//         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+//       />
+
+//       {/* ================= HERO ================= */}
+//       <section className="relative min-h-[85vh] flex items-center justify-center bg-gradient-to-b from-slate-950 to-background">
+//         <div className="max-w-5xl px-4 text-center">
+//           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-4">
+//             <Globe className="w-3.5 h-3.5" />
+//             Trusted by Users Worldwide
+//           </div>
+
+//           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
+//             Free Internet Speed Test
+//           </h1>
+
+//           <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
+//             Test your download speed, upload speed, ping and jitter instantly.
+//             Accurate broadband & 5G speed test for India, USA, UK and global
+//             users.
+//           </p>
+
+//           <SpeedTestWidget />
+
+//           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-slate-700 dark:text-white/70">
+//             {[
+//               "100% Free",
+//               "No Signup Required",
+//               "Global Servers",
+//               "Secure & Private",
+//             ].map((item) => (
+//               <div
+//                 key={item}
+//                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-800 dark:bg-white/10 dark:text-white/80"
+//               >
+//                 <CheckCircle className="w-4 h-4 text-green-500" />
+//                 <span>{item}</span>
+//               </div>
+//             ))}
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* ================= GLOBAL COMPARISON SECTION ================= */}
+//       <section className="py-16 text-center">
+//         <h2 className="text-3xl font-bold mb-6">
+//           Compare Your Speed With Global Average
+//         </h2>
+//         <p className="text-muted-foreground max-w-3xl mx-auto mb-10">
+//           See how your internet speed compares across major countries.
+//         </p>
+
+//         <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+//           {[
+//             { country: "India", avg: "85 Mbps" },
+//             { country: "USA", avg: "210 Mbps" },
+//             { country: "UK", avg: "150 Mbps" },
+//             { country: "Global Avg", avg: "140 Mbps" },
+//           ].map((item) => (
+//             <div key={item.country} className="p-6 border rounded-xl bg-card">
+//               <h3 className="text-xl font-semibold mb-2">{item.country}</h3>
+//               <p className="text-2xl font-bold text-blue-500">{item.avg}</p>
+//             </div>
+//           ))}
+//         </div>
+//       </section>
+
+//       {/* ================= FEATURES ================= */}
+//       <main className="max-w-7xl mx-auto px-4 py-14">
+//         <section className="grid md:grid-cols-4 gap-6 mb-14">
+//           <div className="p-5 border rounded-xl bg-card">
+//             <Download className="w-6 h-6 mb-3 text-blue-500" />
+//             <h3 className="font-bold mb-2">Download Speed</h3>
+//             <p className="text-sm text-muted-foreground">
+//               Measure how fast data downloads from the internet to your device.
+//             </p>
+//           </div>
+
+//           <div className="p-5 border rounded-xl bg-card">
+//             <Upload className="w-6 h-6 mb-3 text-indigo-500" />
+//             <h3 className="font-bold mb-2">Upload Speed</h3>
+//             <p className="text-sm text-muted-foreground">
+//               Check how quickly you can upload files and stream online.
+//             </p>
+//           </div>
+
+//           <div className="p-5 border rounded-xl bg-card">
+//             <Activity className="w-6 h-6 mb-3 text-purple-500" />
+//             <h3 className="font-bold mb-2">Ping & Jitter</h3>
+//             <p className="text-sm text-muted-foreground">
+//               Lower ping ensures smoother gaming and video calls.
+//             </p>
+//           </div>
+
+//           <div className="p-5 border rounded-xl bg-card">
+//             <ShieldCheck className="w-6 h-6 mb-3 text-green-500" />
+//             <h3 className="font-bold mb-2">Secure Testing</h3>
+//             <p className="text-sm text-muted-foreground">
+//               We never store personal browsing data.
+//             </p>
+//           </div>
+//         </section>
+
+//         <AdPlaceholder size="leaderboard" />
+
+//         <FAQSection
+//           title="Internet Speed Test – FAQs"
+//           faqs={[
+//             {
+//               question: "Is trueinternetspeedtest free?",
+//               answer:
+//                 "Yes. trueinternetspeedtest™ is completely free with no signup required.",
+//             },
+//             {
+//               question: "Does this work for 5G and fiber?",
+//               answer:
+//                 "Yes. You can test 4G, 5G, WiFi, broadband and fiber connections.",
+//             },
+//             {
+//               question: "Is this speed test accurate worldwide?",
+//               answer:
+//                 "Our global server network ensures reliable results across countries.",
+//             },
+//           ]}
+//         />
+
+//         <RelatedArticles
+//           title="More Speed Guides"
+//           articles={[
+//             {
+//               href: "/what-is-good-internet-speed",
+//               title: "What Is a Good Internet Speed?",
+//               description:
+//                 "Learn what speeds you need for gaming, streaming and remote work.",
+//             },
+//             {
+//               href: "/broadband-speed-test",
+//               title: "Broadband Speed Test",
+//               description: "Test broadband speed with accurate global servers.",
+//             },
+//             {
+//               href: "/5g-speed-test",
+//               title: "5G Speed Test",
+//               description:
+//                 "Check your 5G mobile internet performance instantly.",
+//             },
+//           ]}
+//         />
+//       </main>
+//     </>
+//   );
+// }
+
+///---------------------------------------------->
+//compare +new 5 site keyword analysis
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
 import { AdPlaceholder } from "@/components/ad-placeholder";
@@ -730,45 +1248,46 @@ import {
   Download,
   Upload,
   Activity,
-  TrendingUp,
   CheckCircle,
   Globe,
+  ShieldCheck,
 } from "lucide-react";
 
-/* =========================
-   GLOBAL SEO METADATA
-========================= */
+const SITE_URL = "https://trueinternetspeedtest.com";
+
 export const metadata: Metadata = {
-  title: "Internet Speed Test – Check WiFi Speed Instantly (India, US, UK)",
+  title:
+    "Internet Speed Test (2026) – Check WiFi, 5G & Broadband Speed | TrueInternetSpeedTest™",
   description:
-    "Free internet speed test to check download speed, upload speed, ping, and jitter. Accurate results for India, United States, United Kingdom, and worldwide.",
+    "Free Internet Speed Test by trueinternetspeedtest™. Check download speed, upload speed, ping & jitter instantly. Accurate broadband, fiber & 5G speed test worldwide.",
   keywords: [
     "internet speed test",
     "wifi speed test",
-    "speed test india",
-    "speed test usa",
-    "speed test uk",
-    "check internet speed",
+    "check my internet speed",
+    "how fast is my internet",
     "broadband speed test",
-    "download speed test",
-    "upload speed test",
-    "ping test online",
+    "fiber speed test",
+    "5g speed test",
+    "ping test",
+    "low latency test",
+    "internet speed test india",
+    "internet speed test usa",
+    "internet speed test uk",
   ],
-  alternates: {
-    canonical: "https://fastspeedchecker.com",
-  },
+  alternates: { canonical: SITE_URL },
+  metadataBase: new URL(SITE_URL),
   openGraph: {
-    title: "Internet Speed Test – Global WiFi Speed Checker",
+    title: "trueinternetspeedtest™ – Free Global Internet Speed Test",
     description:
-      "Check your internet speed instantly. Works accurately in India, US, UK and worldwide.",
-    url: "https://fastspeedchecker.com",
-    siteName: "FastSpeedChecker",
+      "Test your internet speed instantly. Measure download, upload, ping & jitter worldwide.",
+    url: SITE_URL,
+    siteName: "trueinternetspeedtest",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Internet Speed Test Tool",
+        alt: "trueinternetspeedtest Global Speed Test",
       },
     ],
     type: "website",
@@ -779,49 +1298,66 @@ export const metadata: Metadata = {
   },
 };
 
-/* =========================
-   PAGE
-========================= */
 export default function HomePage() {
-  /* ---------- SCHEMA ---------- */
   const schema = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "WebSite",
-        name: "FastSpeedChecker",
-        url: "https://fastspeedchecker.com",
+        "@type": "Organization",
+        "@id": `${SITE_URL}#organization`,
+        name: "trueinternetspeedtest",
+        url: SITE_URL,
+        logo: `${SITE_URL}/logo.png`,
       },
       {
-        "@type": "SoftwareApplication",
-        name: "FastSpeedChecker Internet Speed Test",
-        applicationCategory: "UtilitiesApplication",
-        operatingSystem: "Web",
+        "@type": "WebSite",
+        "@id": `${SITE_URL}#website`,
+        url: SITE_URL,
+        name: "trueinternetspeedtest",
+        publisher: { "@id": `${SITE_URL}#organization` },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${SITE_URL}/?q={search_term_string}`,
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@type": "WebApplication",
+        name: "trueinternetspeedtest Internet Speed Test Tool",
+        url: SITE_URL,
+        applicationCategory: "Utility",
+        operatingSystem: "All",
         offers: {
           "@type": "Offer",
           price: "0",
           priceCurrency: "USD",
         },
-        description:
-          "Free online internet speed test for India, US, UK and worldwide users.",
       },
       {
         "@type": "FAQPage",
         mainEntity: [
           {
             "@type": "Question",
-            name: "What is a good internet speed?",
+            name: "Is trueinternetspeedtest free?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "A good internet speed is 25 Mbps for browsing and HD streaming, 50–100 Mbps for gaming and work from home, and 100+ Mbps for multiple users and 4K streaming.",
+              text: "Yes. trueinternetspeedtest™ is completely free with no signup required.",
             },
           },
           {
             "@type": "Question",
-            name: "Is this speed test accurate in India, US and UK?",
+            name: "Does this speed test work for 5G and fiber?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes. FastSpeedChecker uses globally distributed servers to provide accurate results in India, the United States, the United Kingdom, and other countries.",
+              text: "Yes. You can test broadband, WiFi, 4G, 5G and fiber internet connections.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "What is a good internet speed?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "For streaming and gaming, 25 Mbps or higher is recommended. Lower latency under 30ms ensures better performance.",
             },
           },
         ],
@@ -836,41 +1372,37 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
 
-      {/* ================= HERO ================= */}
       <section className="relative min-h-[85vh] flex items-center justify-center bg-gradient-to-b from-slate-950 to-background">
         <div className="max-w-5xl px-4 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-4">
             <Globe className="w-3.5 h-3.5" />
-            Global Speed Test Servers Online
+            Trusted Global Internet Speed Test
           </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
-            Internet Speed Test
+            Free Internet Speed Test – Check Your WiFi Speed Instantly
           </h1>
 
           <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
-            Test your internet speed instantly. Measure download speed, upload
-            speed, ping, and jitter — optimized for India, United States, United
-            Kingdom, and worldwide users.
+            Measure download speed, upload speed, ping and jitter in seconds.
+            Accurate broadband, fiber and 5G speed test for India, USA, UK and
+            worldwide users.
           </p>
 
           <SpeedTestWidget />
 
-          {/* ✅ FIXED BADGES (LIGHT + DARK MODE) */}
           <div className="mt-8 flex flex-wrap justify-center gap-4 text-sm text-slate-700 dark:text-white/70">
             {[
               "100% Free",
-              "No Signup",
-              "Works Worldwide",
-              "Accurate Results",
+              "No Signup Required",
+              "Secure & Private",
+              "Global Coverage",
             ].map((item) => (
               <div
                 key={item}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full
-                           bg-slate-100 text-slate-800
-                           dark:bg-white/10 dark:text-white/80"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-white/10"
               >
-                <CheckCircle className="w-4 h-4 text-green-500 dark:text-green-400" />
+                <CheckCircle className="w-4 h-4 text-green-500" />
                 <span>{item}</span>
               </div>
             ))}
@@ -878,43 +1410,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= MAIN CONTENT ================= */}
       <main className="max-w-7xl mx-auto px-4 py-14">
-        <section className="mb-14">
-          <h2 className="text-3xl font-bold mb-4">
-            What Is a Good Internet Speed?
-          </h2>
-          <p className="text-muted-foreground max-w-3xl">
-            Internet speed requirements vary by country and usage. In India,
-            average broadband speeds range between 50–100 Mbps. In the US and
-            UK, households often require 100–300 Mbps for streaming, gaming, and
-            remote work.
-          </p>
-        </section>
-
         <section className="grid md:grid-cols-3 gap-6 mb-14">
           <div className="p-5 border rounded-xl bg-card">
             <Download className="w-6 h-6 mb-3 text-blue-500" />
-            <h3 className="font-bold mb-2">Download Speed</h3>
+            <h3 className="font-bold mb-2">Download Speed Test</h3>
             <p className="text-sm text-muted-foreground">
-              Important for streaming and browsing. 25 Mbps is good, 100 Mbps is
-              excellent.
+              Check how fast your internet downloads data.
             </p>
           </div>
+
           <div className="p-5 border rounded-xl bg-card">
             <Upload className="w-6 h-6 mb-3 text-indigo-500" />
-            <h3 className="font-bold mb-2">Upload Speed</h3>
+            <h3 className="font-bold mb-2">Upload Speed Test</h3>
             <p className="text-sm text-muted-foreground">
-              Needed for video calls, gaming, and cloud uploads. Aim for at
-              least 10 Mbps.
+              Measure upload performance for streaming and video calls.
             </p>
           </div>
+
           <div className="p-5 border rounded-xl bg-card">
             <Activity className="w-6 h-6 mb-3 text-purple-500" />
-            <h3 className="font-bold mb-2">Ping & Jitter</h3>
+            <h3 className="font-bold mb-2">Ping & Latency Test</h3>
             <p className="text-sm text-muted-foreground">
-              Lower latency means smoother gaming and calls. Under 30ms ping is
-              ideal.
+              Lower ping means smoother gaming and real-time performance.
             </p>
           </div>
         </section>
@@ -922,22 +1440,22 @@ export default function HomePage() {
         <AdPlaceholder size="leaderboard" />
 
         <FAQSection
-          title="Internet Speed Test – FAQs"
+          title="Internet Speed Test FAQs"
           faqs={[
             {
-              question: "Is this speed test free?",
+              question: "How can I check my internet speed?",
               answer:
-                "Yes. FastSpeedChecker is completely free and requires no registration.",
+                "Click start on the trueinternetspeedtest tool to instantly measure download speed, upload speed and ping.",
             },
             {
-              question: "Does this work on mobile networks?",
+              question: "What is a good speed for streaming?",
               answer:
-                "Yes. You can test 4G, 5G, and WiFi speeds on any smartphone.",
+                "HD streaming requires 5 Mbps, while 4K streaming needs at least 25 Mbps.",
             },
             {
-              question: "Is this speed test accurate worldwide?",
+              question: "Why is my internet slow?",
               answer:
-                "Yes. Our servers are optimized for users in India, US, UK, and other countries.",
+                "Slow internet may be caused by WiFi interference, ISP congestion, background downloads or outdated hardware.",
             },
           ]}
         />
@@ -948,24 +1466,12 @@ export default function HomePage() {
             {
               href: "/what-is-good-internet-speed",
               title: "What Is a Good Internet Speed?",
-              description:
-                "Complete guide for streaming, gaming, and work from home.",
-            },
-            // {
-            //   href: "/internet-speed-test-india",
-            //   title: "Internet Speed Test India",
-            //   description: "Check Airtel, Jio, BSNL broadband speeds.",
-            // },
-            {
-              href: "/broadband-speed-test",
-              title: "Broadband Speed Test",
-              description:
-                "Check your broadband internet speed worldwide. Test download, upload & ping instantly.",
+              description: "Learn ideal speeds for gaming, streaming and work.",
             },
             {
-              href: "/gaming-speed-test",
-              title: "Gaming Speed Test",
-              description: "Check ping and latency for online gaming.",
+              href: "/how-to-increase-wifi-speed",
+              title: "How to Increase WiFi Speed",
+              description: "Fix slow internet and reduce lag.",
             },
           ]}
         />

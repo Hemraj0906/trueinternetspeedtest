@@ -1,0 +1,75 @@
+# Robots.txt for trueinternetspeedtest
+# https://trueinternetspeedtest.com
+
+User-agent: *
+Allow: /
+Allow: /about-us/
+Allow: /contact-us/
+Allow: /privacy-policy/
+Allow: /terms-conditions/
+Allow: /disclaimer/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://trueinternetspeedtest.com/sitemap.xml
+
+
+# -----------------------------
+# Search Engine Crawlers
+# -----------------------------
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+
+# -----------------------------
+# AI / LLM Crawlers
+# -----------------------------
+
+# OpenAI (ChatGPT)
+User-agent: GPTBot
+Allow: /
+
+# Google AI (Gemini)
+User-agent: Google-Extended
+Allow: /
+
+# Anthropic Claude
+User-agent: ClaudeBot
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Microsoft AI / Copilot
+User-agent: Bingbot
+Allow: /
+
+# Apple AI
+User-agent: Applebot
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Amazon AI
+User-agent: Amazonbot
+Allow: /

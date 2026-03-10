@@ -1,23 +1,3 @@
-// import type { Metadata } from "next";
-// import { SpeedTestWidget } from "@/components/speed-test-widget";
-// import { AdPlaceholder } from "@/components/ad-placeholder";
-// import { FAQSection } from "@/components/faq-section";
-// import { RelatedArticles } from "@/components/related-articles";
-// import { Breadcrumb } from "@/components/breadcrumb";
-// import { Globe, Wifi, TrendingUp } from "lucide-react";
-
-// export const metadata: Metadata = {
-//   title: "Internet Speed Test India – Check Airtel, Jio, BSNL & ACT Speed",
-//   description:
-//     "Free internet speed test for India. Check your Airtel, Jio, BSNL, ACT, Hathway, or Excitel broadband speed. Compare your ISP speed against India's average broadband speed.",
-//   keywords: [
-//     "internet speed test india",
-//     "broadband speed test india",
-//     "jio speed test",
-//     "airtel speed test",
-//     "bsnl speed test",
-//     "act fibernet speed test",
-//     "india broadband test",
 //     "wifi speed test india",
 //     "check internet speed india",
 //   ],
@@ -25,10 +5,10 @@
 //     title: "Internet Speed Test India – Jio, Airtel, BSNL Speed Check",
 //     description:
 //       "Free broadband speed test for India. Compare your ISP speed with national averages.",
-//     url: "https://fastspeedchecker.com/internet-speed-test-india",
+//     url: "https://trueinternetspeedtest.com/internet-speed-test-india",
 //   },
 //   alternates: {
-//     canonical: "https://fastspeedchecker.com/internet-speed-test-india",
+//     canonical: "https://trueinternetspeedtest.com/internet-speed-test-india",
 //   },
 // };
 
@@ -46,7 +26,7 @@
 //   {
 //     question: "How to check Jio fiber speed?",
 //     answer:
-//       "Use FastSpeedChecker.com to test your Jio Fiber speed. Connect your device to JioFiber WiFi, click 'Start Speed Test', and you'll get accurate download, upload, ping, and jitter readings. For best results, use a wired connection to the JioFiber ONT device.",
+//       "Use trueinternetspeedtest.com to test your Jio Fiber speed. Connect your device to JioFiber WiFi, click 'Start Speed Test', and you'll get accurate download, upload, ping, and jitter readings. For best results, use a wired connection to the JioFiber ONT device.",
 //   },
 //   {
 //     question: "What broadband speed should I get from Airtel Xstream?",
@@ -309,7 +289,190 @@
 //   );
 // }
 
+// import type { Metadata } from "next";
+// import { SpeedTestWidget } from "@/components/speed-test-widget";
+// import { AdPlaceholder } from "@/components/ad-placeholder";
+// import { FAQSection } from "@/components/faq-section";
+// import { RelatedArticles } from "@/components/related-articles";
+// import { Breadcrumb } from "@/components/breadcrumb";
+// import { Globe, Wifi } from "lucide-react";
 
+// export const metadata: Metadata = {
+//   title: "Broadband Speed Test – Worldwide Internet Speed Check",
+//   description:
+//     "Free broadband speed test to check your internet speed worldwide. Measure download speed, upload speed, ping, and WiFi performance for fiber, cable, DSL, and mobile networks in any country.",
+//   keywords: [
+//     "broadband speed test",
+//     "internet speed test",
+//     "wifi speed test",
+//     "check internet speed",
+//     "global internet speed test",
+//     "worldwide broadband test",
+//     "online speed test",
+//   ],
+//   openGraph: {
+//     title: "Broadband Speed Test – Worldwide Internet Speed Check",
+//     description:
+//       "Test your internet speed online anywhere in the world. Accurate broadband and WiFi speed test for all networks.",
+//     url: "https://trueinternetspeedtest.com/broadband-speed-test",
+//     siteName: "trueinternetspeedtest",
+//     type: "website",
+//   },
+//   alternates: {
+//     canonical: "https://trueinternetspeedtest.com/broadband-speed-test",
+//   },
+// };
+
+// const faqs = [
+//   {
+//     question: "What is a broadband speed test?",
+//     answer:
+//       "A broadband speed test measures how fast your internet connection is by checking download speed, upload speed, ping, and network stability. It works for fiber, cable, DSL, WiFi, and mobile networks worldwide.",
+//   },
+//   {
+//     question: "What is a good internet speed?",
+//     answer:
+//       "For basic browsing, 10–25 Mbps is sufficient. HD streaming and video calls require 25–50 Mbps. For 4K streaming, gaming, and work-from-home, 100 Mbps or higher is recommended.",
+//   },
+//   {
+//     question: "Does this speed test work worldwide?",
+//     answer:
+//       "Yes. This broadband speed test works globally and supports users in the USA, UK, India, Europe, Asia, Africa, and all other regions.",
+//   },
+//   {
+//     question: "Why is my WiFi speed slower than my broadband plan?",
+//     answer:
+//       "WiFi speeds may be slower due to router limitations, distance from the router, interference, older devices, or network congestion. A wired Ethernet connection usually gives the most accurate result.",
+//   },
+//   {
+//     question: "How often should I test my internet speed?",
+//     answer:
+//       "You should test your internet speed at different times of the day, especially during peak hours, to understand your real-world connection performance.",
+//   },
+// ];
+
+// const relatedArticles = [
+//   {
+//     href: "/",
+//     title: "Internet Speed Test",
+//     description: "Check your overall internet speed online.",
+//   },
+//   {
+//     href: "/mobile-speed-test",
+//     title: "Mobile Speed Test",
+//     description: "Test your 4G and 5G mobile internet speed.",
+//   },
+//   {
+//     href: "/what-is-good-internet-speed",
+//     title: "What Is a Good Internet Speed?",
+//     description: "Learn how much speed you really need.",
+//   },
+//   {
+//     href: "/how-to-increase-wifi-speed",
+//     title: "How to Increase WiFi Speed",
+//     description: "Improve your WiFi performance at home.",
+//   },
+// ];
+
+// export default function BroadbandSpeedTestPage() {
+//   return (
+//     <>
+//       {/* HERO SECTION */}
+//       <section className="relative py-20 bg-gradient-to-b from-slate-50 to-background dark:from-[#0a0f05] dark:via-[#080f12] overflow-hidden">
+//         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//           <Breadcrumb items={[{ label: "Broadband Speed Test" }]} />
+
+//           <div className="text-center mb-10">
+//             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-medium mb-4">
+//               <Globe className="w-3.5 h-3.5" />
+//               Worldwide Internet Test
+//             </div>
+
+//             <h1 className="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
+//               Broadband Speed Test –{" "}
+//               <span className="bg-gradient-to-r from-blue-500 via-green-500 to-orange-500 bg-clip-text text-transparent">
+//                 Worldwide Internet Check
+//               </span>
+//             </h1>
+
+//             <p className="text-lg text-slate-600 dark:text-white/70 max-w-3xl mx-auto">
+//               Instantly test your broadband or WiFi internet speed anywhere in
+//               the world. Measure download speed, upload speed, ping, and network
+//               stability for fiber, cable, DSL, and mobile connections.
+//             </p>
+//           </div>
+
+//           <AdPlaceholder size="leaderboard" className="mb-8 hidden md:flex" />
+
+//           <SpeedTestWidget />
+
+//           {/* SEO SUPPORTING PARAGRAPH */}
+//           <p className="mt-8 text-slate-700 dark:text-muted-foreground max-w-3xl mx-auto text-center">
+//             This global broadband speed test helps users worldwide check real
+//             internet performance. Whether you are in the United States, United
+//             Kingdom, India, Europe, or any other country, you can accurately
+//             measure your internet speed online in seconds.
+//           </p>
+//         </div>
+//       </section>
+
+//       {/* CONTENT */}
+//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <AdPlaceholder size="leaderboard" className="my-6" />
+
+//         {/* WHAT IS GOOD SPEED */}
+//         <section className="py-14">
+//           <h2 className="text-3xl font-bold mb-4">
+//             What Is a Good Broadband Speed?
+//           </h2>
+//           <p className="text-muted-foreground max-w-3xl mb-8">
+//             Internet speed requirements vary depending on usage, number of
+//             devices, and country infrastructure.
+//           </p>
+
+//           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+//             {[
+//               {
+//                 title: "Basic Usage",
+//                 speed: "10–25 Mbps",
+//                 desc: "Web browsing, email, social media, and SD streaming.",
+//               },
+//               {
+//                 title: "Streaming & Work",
+//                 speed: "25–50 Mbps",
+//                 desc: "HD streaming, video calls, and online work.",
+//               },
+//               {
+//                 title: "Advanced Users",
+//                 speed: "100+ Mbps",
+//                 desc: "4K streaming, gaming, cloud work, and multiple devices.",
+//               },
+//             ].map((item) => (
+//               <div
+//                 key={item.title}
+//                 className="p-6 rounded-2xl border border-border/50 bg-card text-center"
+//               >
+//                 <div className="text-3xl font-extrabold text-blue-500 mb-2">
+//                   {item.speed}
+//                 </div>
+//                 <h3 className="font-bold mb-2">{item.title}</h3>
+//                 <p className="text-sm text-muted-foreground">{item.desc}</p>
+//               </div>
+//             ))}
+//           </div>
+//         </section>
+
+//         <AdPlaceholder size="medium-rectangle" className="my-6" />
+
+//         <FAQSection faqs={faqs} title="Broadband Speed Test FAQs" />
+//         <RelatedArticles articles={relatedArticles} />
+//       </div>
+//     </>
+//   );
+// }
+
+//////////////////////////////////////////////////////
+// compare and add 5 site top seo strong
 
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
@@ -317,31 +480,49 @@ import { AdPlaceholder } from "@/components/ad-placeholder";
 import { FAQSection } from "@/components/faq-section";
 import { RelatedArticles } from "@/components/related-articles";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { Globe, Wifi } from "lucide-react";
+import { Globe } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Broadband Speed Test – Worldwide Internet Speed Check",
+  title:
+    "Broadband Speed Test – Check Internet Speed Worldwide | trueinternetspeedtest",
   description:
-    "Free broadband speed test to check your internet speed worldwide. Measure download speed, upload speed, ping, and WiFi performance for fiber, cable, DSL, and mobile networks in any country.",
+    "Use trueinternetspeedtest to check your broadband and WiFi speed worldwide. Measure download speed, upload speed, ping, latency, and network stability for fiber, DSL, cable, and mobile connections.",
   keywords: [
     "broadband speed test",
-    "internet speed test",
+    "internet speed test online",
     "wifi speed test",
-    "check internet speed",
-    "global internet speed test",
-    "worldwide broadband test",
-    "online speed test",
+    "ping test",
+    "latency test",
+    "upload speed test",
+    "fiber speed test",
+    "DSL speed test",
+    "check internet speed worldwide",
   ],
   openGraph: {
-    title: "Broadband Speed Test – Worldwide Internet Speed Check",
+    title:
+      "Broadband Speed Test – Worldwide Internet Check | trueinternetspeedtest",
     description:
-      "Test your internet speed online anywhere in the world. Accurate broadband and WiFi speed test for all networks.",
-    url: "https://fastspeedchecker.com/broadband-speed-test",
-    siteName: "FastSpeedChecker",
+      "Test broadband and WiFi speed instantly. Accurate download, upload, and ping test worldwide.",
+    url: "https://trueinternetspeedtest.com/broadband-speed-test",
+    siteName: "trueinternetspeedtest",
     type: "website",
   },
   alternates: {
-    canonical: "https://fastspeedchecker.com/broadband-speed-test",
+    canonical: "https://trueinternetspeedtest.com/broadband-speed-test",
+  },
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "Broadband Speed Test",
+  url: "https://trueinternetspeedtest.com/broadband-speed-test",
+  description:
+    "Free broadband speed test to check download speed, upload speed, ping, and latency worldwide.",
+  publisher: {
+    "@type": "Organization",
+    name: "trueinternetspeedtest",
+    url: "https://trueinternetspeedtest.com",
   },
 };
 
@@ -349,27 +530,17 @@ const faqs = [
   {
     question: "What is a broadband speed test?",
     answer:
-      "A broadband speed test measures how fast your internet connection is by checking download speed, upload speed, ping, and network stability. It works for fiber, cable, DSL, WiFi, and mobile networks worldwide.",
+      "A broadband speed test measures download speed, upload speed, ping, and latency to determine your real internet performance.",
   },
   {
     question: "What is a good internet speed?",
     answer:
-      "For basic browsing, 10–25 Mbps is sufficient. HD streaming and video calls require 25–50 Mbps. For 4K streaming, gaming, and work-from-home, 100 Mbps or higher is recommended.",
+      "25–50 Mbps is good for streaming and work. 100 Mbps or higher is recommended for gaming, 4K streaming, and multiple devices.",
   },
   {
     question: "Does this speed test work worldwide?",
     answer:
-      "Yes. This broadband speed test works globally and supports users in the USA, UK, India, Europe, Asia, Africa, and all other regions.",
-  },
-  {
-    question: "Why is my WiFi speed slower than my broadband plan?",
-    answer:
-      "WiFi speeds may be slower due to router limitations, distance from the router, interference, older devices, or network congestion. A wired Ethernet connection usually gives the most accurate result.",
-  },
-  {
-    question: "How often should I test my internet speed?",
-    answer:
-      "You should test your internet speed at different times of the day, especially during peak hours, to understand your real-world connection performance.",
+      "Yes, trueinternetspeedtest works globally across fiber, DSL, cable, and mobile networks.",
   },
 ];
 
@@ -399,6 +570,11 @@ const relatedArticles = [
 export default function BroadbandSpeedTestPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+
       {/* HERO SECTION */}
       <section className="relative py-20 bg-gradient-to-b from-slate-50 to-background dark:from-[#0a0f05] dark:via-[#080f12] overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -418,27 +594,17 @@ export default function BroadbandSpeedTestPage() {
             </h1>
 
             <p className="text-lg text-slate-600 dark:text-white/70 max-w-3xl mx-auto">
-              Instantly test your broadband or WiFi internet speed anywhere in
-              the world. Measure download speed, upload speed, ping, and network
-              stability for fiber, cable, DSL, and mobile connections.
+              Instantly measure download speed, upload speed, ping, latency, and
+              network stability. Supports fiber, DSL, cable, WiFi, and mobile
+              broadband worldwide.
             </p>
           </div>
 
           <AdPlaceholder size="leaderboard" className="mb-8 hidden md:flex" />
-
           <SpeedTestWidget />
-
-          {/* SEO SUPPORTING PARAGRAPH */}
-          <p className="mt-8 text-slate-700 dark:text-muted-foreground max-w-3xl mx-auto text-center">
-            This global broadband speed test helps users worldwide check real
-            internet performance. Whether you are in the United States, United
-            Kingdom, India, Europe, or any other country, you can accurately
-            measure your internet speed online in seconds.
-          </p>
         </div>
       </section>
 
-      {/* CONTENT */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AdPlaceholder size="leaderboard" className="my-6" />
 
@@ -447,27 +613,20 @@ export default function BroadbandSpeedTestPage() {
           <h2 className="text-3xl font-bold mb-4">
             What Is a Good Broadband Speed?
           </h2>
-          <p className="text-muted-foreground max-w-3xl mb-8">
-            Internet speed requirements vary depending on usage, number of
-            devices, and country infrastructure.
-          </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8">
             {[
               {
                 title: "Basic Usage",
                 speed: "10–25 Mbps",
-                desc: "Web browsing, email, social media, and SD streaming.",
               },
               {
                 title: "Streaming & Work",
                 speed: "25–50 Mbps",
-                desc: "HD streaming, video calls, and online work.",
               },
               {
                 title: "Advanced Users",
                 speed: "100+ Mbps",
-                desc: "4K streaming, gaming, cloud work, and multiple devices.",
               },
             ].map((item) => (
               <div
@@ -477,14 +636,37 @@ export default function BroadbandSpeedTestPage() {
                 <div className="text-3xl font-extrabold text-blue-500 mb-2">
                   {item.speed}
                 </div>
-                <h3 className="font-bold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.desc}</p>
+                <h3 className="font-bold">{item.title}</h3>
               </div>
             ))}
           </div>
         </section>
 
-        <AdPlaceholder size="medium-rectangle" className="my-6" />
+        {/* COUNTRY SPEED DATA */}
+        <section className="py-14">
+          <h2 className="text-3xl font-bold mb-6">
+            Average Internet Speed by Country (2026)
+          </h2>
+          <ul className="grid sm:grid-cols-2 gap-4 text-muted-foreground">
+            <li>🇺🇸 USA: 100–300 Mbps</li>
+            <li>🇬🇧 UK: 100 Mbps+</li>
+            <li>🇮🇳 India: 50–150 Mbps</li>
+            <li>🇨🇦 Canada: 100–250 Mbps</li>
+          </ul>
+        </section>
+
+        {/* AUTHORITY SECTION */}
+        <section className="py-12 border-t mt-12">
+          <h2 className="text-2xl font-bold mb-4">
+            About trueinternetspeedtest
+          </h2>
+          <p className="text-muted-foreground max-w-3xl">
+            trueinternetspeedtest is a global internet performance platform
+            designed to provide accurate broadband and WiFi speed testing. Our
+            technology analyzes download speed, upload speed, ping, and latency
+            to give real-world results for users worldwide.
+          </p>
+        </section>
 
         <FAQSection faqs={faqs} title="Broadband Speed Test FAQs" />
         <RelatedArticles articles={relatedArticles} />

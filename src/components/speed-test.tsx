@@ -225,7 +225,7 @@
 //     jitter,
 //     ip,
 //     org: isp,
-//     server: "FastSpeedChecker Server – CDN",
+//     server: "trueinternetspeedtest Server – CDN",
 //   };
 // }
 
@@ -436,233 +436,233 @@
 //   );
 // }
 
-"use client";
+// "use client";
 
-import { useState, useCallback } from "react";
-import {
-  Wifi,
-  Download,
-  Upload,
-  Activity,
-  Globe,
-  Server,
-  Play,
-  RotateCcw,
-} from "lucide-react";
+// import { useState, useCallback } from "react";
+// import {
+//   Wifi,
+//   Download,
+//   Upload,
+//   Activity,
+//   Globe,
+//   Server,
+//   Play,
+//   RotateCcw,
+// } from "lucide-react";
 
-import { runSpeedTest } from "@/lib/speed-test"; // ⚠️ path apne project ke hisaab se adjust karo
+// import { runSpeedTest } from "@/lib/speed-test"; // ⚠️ path apne project ke hisaab se adjust karo
 
-type TestPhase = "idle" | "ping" | "download" | "upload" | "complete";
+// type TestPhase = "idle" | "ping" | "download" | "upload" | "complete";
 
-interface SpeedResult {
-  download: number;
-  upload: number;
-  ping: number;
-  jitter: number;
-  ip: string;
-  isp: string;
-  city?: string;
-  region?: string;
-  country?: string;
-  server: string;
-  calculationTime?: number;
-}
+// interface SpeedResult {
+//   download: number;
+//   upload: number;
+//   ping: number;
+//   jitter: number;
+//   ip: string;
+//   isp: string;
+//   city?: string;
+//   region?: string;
+//   country?: string;
+//   server: string;
+//   calculationTime?: number;
+// }
 
-function GaugeMeter({
-  value,
-  max,
-  label,
-  unit,
-  color,
-}: {
-  value: number;
-  max: number;
-  label: string;
-  unit: string;
-  color: string;
-}) {
-  const pct = Math.min(value / max, 1);
-  const angle = -135 + pct * 270;
+// function GaugeMeter({
+//   value,
+//   max,
+//   label,
+//   unit,
+//   color,
+// }: {
+//   value: number;
+//   max: number;
+//   label: string;
+//   unit: string;
+//   color: string;
+// }) {
+//   const pct = Math.min(value / max, 1);
+//   const angle = -135 + pct * 270;
 
-  return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="relative w-48 h-48">
-        <svg className="w-full h-full" viewBox="0 0 200 200">
-          <circle
-            cx="100"
-            cy="100"
-            r="80"
-            fill="none"
-            stroke="currentColor"
-            className="text-border"
-            strokeWidth="12"
-            strokeDasharray="339.3 84.8"
-            strokeDashoffset="-42.4"
-            strokeLinecap="round"
-          />
-          <circle
-            cx="100"
-            cy="100"
-            r="80"
-            fill="none"
-            stroke={color}
-            strokeWidth="12"
-            strokeDasharray={`${pct * 339.3} ${339.3 - pct * 339.3 + 84.8}`}
-            strokeDashoffset="-42.4"
-            strokeLinecap="round"
-          />
-        </svg>
+//   return (
+//     <div className="flex flex-col items-center gap-2">
+//       <div className="relative w-48 h-48">
+//         <svg className="w-full h-full" viewBox="0 0 200 200">
+//           <circle
+//             cx="100"
+//             cy="100"
+//             r="80"
+//             fill="none"
+//             stroke="currentColor"
+//             className="text-border"
+//             strokeWidth="12"
+//             strokeDasharray="339.3 84.8"
+//             strokeDashoffset="-42.4"
+//             strokeLinecap="round"
+//           />
+//           <circle
+//             cx="100"
+//             cy="100"
+//             r="80"
+//             fill="none"
+//             stroke={color}
+//             strokeWidth="12"
+//             strokeDasharray={`${pct * 339.3} ${339.3 - pct * 339.3 + 84.8}`}
+//             strokeDashoffset="-42.4"
+//             strokeLinecap="round"
+//           />
+//         </svg>
 
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div
-            className="absolute w-1 h-16 origin-bottom rounded-full"
-            style={{
-              background: color,
-              bottom: "50%",
-              left: "calc(50% - 2px)",
-              transform: `rotate(${angle}deg)`,
-              transformOrigin: "bottom center",
-            }}
-          />
-          <div
-            className="absolute w-4 h-4 rounded-full"
-            style={{ background: color }}
-          />
-        </div>
+//         <div className="absolute inset-0 flex items-center justify-center">
+//           <div
+//             className="absolute w-1 h-16 origin-bottom rounded-full"
+//             style={{
+//               background: color,
+//               bottom: "50%",
+//               left: "calc(50% - 2px)",
+//               transform: `rotate(${angle}deg)`,
+//               transformOrigin: "bottom center",
+//             }}
+//           />
+//           <div
+//             className="absolute w-4 h-4 rounded-full"
+//             style={{ background: color }}
+//           />
+//         </div>
 
-        <div className="absolute inset-0 flex flex-col items-center justify-end pb-8">
-          <span className="text-3xl font-bold" style={{ color }}>
-            {value > 0 ? value.toFixed(1) : "—"}
-          </span>
-          <span className="text-xs text-muted-foreground">{unit}</span>
-        </div>
-      </div>
-      <span className="text-sm text-muted-foreground">{label}</span>
-    </div>
-  );
-}
+//         <div className="absolute inset-0 flex flex-col items-center justify-end pb-8">
+//           <span className="text-3xl font-bold" style={{ color }}>
+//             {value > 0 ? value.toFixed(1) : "—"}
+//           </span>
+//           <span className="text-xs text-muted-foreground">{unit}</span>
+//         </div>
+//       </div>
+//       <span className="text-sm text-muted-foreground">{label}</span>
+//     </div>
+//   );
+// }
 
-export function SpeedTest() {
-  const [phase, setPhase] = useState<TestPhase>("idle");
-  const [download, setDownload] = useState(0);
-  const [upload, setUpload] = useState(0);
-  const [ping, setPing] = useState(0);
-  const [result, setResult] = useState<SpeedResult | null>(null);
-  const [isRunning, setIsRunning] = useState(false);
+// export function SpeedTest() {
+//   const [phase, setPhase] = useState<TestPhase>("idle");
+//   const [download, setDownload] = useState(0);
+//   const [upload, setUpload] = useState(0);
+//   const [ping, setPing] = useState(0);
+//   const [result, setResult] = useState<SpeedResult | null>(null);
+//   const [isRunning, setIsRunning] = useState(false);
 
-  const startTest = useCallback(async () => {
-    if (isRunning) return;
+//   const startTest = useCallback(async () => {
+//     if (isRunning) return;
 
-    setIsRunning(true);
-    setResult(null);
-    setDownload(0);
-    setUpload(0);
-    setPing(0);
-    setPhase("idle");
+//     setIsRunning(true);
+//     setResult(null);
+//     setDownload(0);
+//     setUpload(0);
+//     setPing(0);
+//     setPhase("idle");
 
-    try {
-      await runSpeedTest((state) => {
-        if (state.phase) setPhase(state.phase);
+//     try {
+//       await runSpeedTest((state) => {
+//         if (state.phase) setPhase(state.phase);
 
-        if (state.currentSpeed !== undefined) {
-          if (state.phase === "ping") setPing(state.currentSpeed);
-          if (state.phase === "download") setDownload(state.currentSpeed);
-          if (state.phase === "upload") setUpload(state.currentSpeed);
-        }
+//         if (state.currentSpeed !== undefined) {
+//           if (state.phase === "ping") setPing(state.currentSpeed);
+//           if (state.phase === "download") setDownload(state.currentSpeed);
+//           if (state.phase === "upload") setUpload(state.currentSpeed);
+//         }
 
-        if (state.result) {
-          setResult(state.result as SpeedResult);
-        }
-      });
-    } finally {
-      setIsRunning(false);
-    }
-  }, [isRunning]);
+//         if (state.result) {
+//           setResult(state.result as SpeedResult);
+//         }
+//       });
+//     } finally {
+//       setIsRunning(false);
+//     }
+//   }, [isRunning]);
 
-  const reset = () => {
-    setPhase("idle");
-    setDownload(0);
-    setUpload(0);
-    setPing(0);
-    setResult(null);
-  };
+//   const reset = () => {
+//     setPhase("idle");
+//     setDownload(0);
+//     setUpload(0);
+//     setPing(0);
+//     setResult(null);
+//   };
 
-  return (
-    <div className="w-full max-w-4xl mx-auto flex flex-col items-center gap-6">
-      <GaugeMeter
-        value={phase === "ping" ? ping : phase === "upload" ? upload : download}
-        max={phase === "ping" ? 200 : 500}
-        label={
-          phase === "ping"
-            ? "Ping"
-            : phase === "upload"
-              ? "Upload Speed"
-              : "Download Speed"
-        }
-        unit={phase === "ping" ? "ms" : "Mbps"}
-        color={
-          phase === "ping"
-            ? "#f59e0b"
-            : phase === "upload"
-              ? "#10b981"
-              : "#3b82f6"
-        }
-      />
+//   return (
+//     <div className="w-full max-w-4xl mx-auto flex flex-col items-center gap-6">
+//       <GaugeMeter
+//         value={phase === "ping" ? ping : phase === "upload" ? upload : download}
+//         max={phase === "ping" ? 200 : 500}
+//         label={
+//           phase === "ping"
+//             ? "Ping"
+//             : phase === "upload"
+//               ? "Upload Speed"
+//               : "Download Speed"
+//         }
+//         unit={phase === "ping" ? "ms" : "Mbps"}
+//         color={
+//           phase === "ping"
+//             ? "#f59e0b"
+//             : phase === "upload"
+//               ? "#10b981"
+//               : "#3b82f6"
+//         }
+//       />
 
-      {!isRunning && phase !== "complete" && (
-        <button
-          onClick={startTest}
-          className="px-10 py-4 rounded-full text-white bg-blue-600 hover:bg-blue-500 flex items-center gap-3"
-        >
-          <Play className="w-5 h-5" />
-          Start Speed Test
-        </button>
-      )}
+//       {!isRunning && phase !== "complete" && (
+//         <button
+//           onClick={startTest}
+//           className="px-10 py-4 rounded-full text-white bg-blue-600 hover:bg-blue-500 flex items-center gap-3"
+//         >
+//           <Play className="w-5 h-5" />
+//           Start Speed Test
+//         </button>
+//       )}
 
-      {phase === "complete" && (
-        <button
-          onClick={reset}
-          className="flex items-center gap-2 px-6 py-2 rounded-full border"
-        >
-          <RotateCcw className="w-4 h-4" />
-          Test Again
-        </button>
-      )}
+//       {phase === "complete" && (
+//         <button
+//           onClick={reset}
+//           className="flex items-center gap-2 px-6 py-2 rounded-full border"
+//         >
+//           <RotateCcw className="w-4 h-4" />
+//           Test Again
+//         </button>
+//       )}
 
-      {result && (
-        <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-4">
-          <div className="p-4 border rounded-xl">
-            <p className="text-xs text-muted-foreground">IP Address</p>
-            <p className="font-mono">{result.ip}</p>
-          </div>
+//       {result && (
+//         <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-4">
+//           <div className="p-4 border rounded-xl">
+//             <p className="text-xs text-muted-foreground">IP Address</p>
+//             <p className="font-mono">{result.ip}</p>
+//           </div>
 
-          <div className="p-4 border rounded-xl">
-            <p className="text-xs text-muted-foreground">ISP</p>
-            <p className="truncate">{result.isp}</p>
-          </div>
+//           <div className="p-4 border rounded-xl">
+//             <p className="text-xs text-muted-foreground">ISP</p>
+//             <p className="truncate">{result.isp}</p>
+//           </div>
 
-          <div className="p-4 border rounded-xl">
-            <p className="text-xs text-muted-foreground">Server</p>
-            <p className="truncate">{result.server}</p>
-          </div>
+//           <div className="p-4 border rounded-xl">
+//             <p className="text-xs text-muted-foreground">Server</p>
+//             <p className="truncate">{result.server}</p>
+//           </div>
 
-          {result.calculationTime !== undefined && (
-            <div className="p-4 border rounded-xl">
-              <p className="text-xs text-muted-foreground">Calculation Time</p>
-              <p>{result.calculationTime}s</p>
-            </div>
-          )}
+//           {result.calculationTime !== undefined && (
+//             <div className="p-4 border rounded-xl">
+//               <p className="text-xs text-muted-foreground">Calculation Time</p>
+//               <p>{result.calculationTime}s</p>
+//             </div>
+//           )}
 
-          {(result.city || result.country) && (
-            <div className="p-4 border rounded-xl md:col-span-4">
-              <p className="text-xs text-muted-foreground">Location</p>
-              <p>
-                {result.city}, {result.region} — {result.country}
-              </p>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
+//           {(result.city || result.country) && (
+//             <div className="p-4 border rounded-xl md:col-span-4">
+//               <p className="text-xs text-muted-foreground">Location</p>
+//               <p>
+//                 {result.city}, {result.region} — {result.country}
+//               </p>
+//             </div>
+//           )}
+//         </div>
+//       )}
+//     </div>
+//   );
+// }
