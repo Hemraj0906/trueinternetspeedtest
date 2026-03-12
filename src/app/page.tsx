@@ -1501,9 +1501,9 @@ const SITE_URL = "https://trueinternetspeedtest.com";
 
 export const metadata: Metadata = {
   title:
-    "Internet Speed Test (2026) – Check WiFi, 5G & Broadband Speed | TrueInternetSpeedTest™",
+    "Internet Speed Test – Check WiFi, 5G & Broadband | TrueInternetSpeedTest",
   description:
-    "Free Internet Speed Test by trueinternetspeedtest™. Check download speed, upload speed, ping & jitter instantly. Accurate broadband, fiber & 5G speed test worldwide.",
+    "Free Internet Speed Test. Check WiFi, broadband and 5G speed instantly. Measure download, upload, ping and jitter for gaming, streaming and browsing worldwide.",
   keywords: [
     "internet speed test",
     "wifi speed test",
