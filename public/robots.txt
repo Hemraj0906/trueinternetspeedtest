@@ -3,11 +3,6 @@
 
 User-agent: *
 Allow: /
-Allow: /about-us/
-Allow: /contact-us/
-Allow: /privacy-policy/
-Allow: /terms-conditions/
-Allow: /disclaimer/
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
@@ -15,10 +10,7 @@ Disallow: /private/
 Sitemap: https://trueinternetspeedtest.com/sitemap.xml
 
 
-# -----------------------------
 # Google Crawlers
-# -----------------------------
-
 User-agent: Googlebot
 Allow: /
 
@@ -35,10 +27,7 @@ User-agent: Googlebot-Video
 Allow: /
 
 
-# -----------------------------
 # Other Search Engines
-# -----------------------------
-
 User-agent: Bingbot
 Allow: /
 
@@ -55,10 +44,7 @@ User-agent: Applebot
 Allow: /
 
 
-# -----------------------------
-# AI / LLM Crawlers
-# -----------------------------
-
+# AI Crawlers
 User-agent: GPTBot
 Allow: /
 
