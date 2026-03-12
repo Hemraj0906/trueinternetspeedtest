@@ -37,33 +37,37 @@ Allow: /
 User-agent: Googlebot-Video
 Allow: /
 
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
 
 # -----------------------------
 # AI / LLM Crawlers
 # -----------------------------
 
-# OpenAI (ChatGPT)
+# OpenAI
 User-agent: GPTBot
 Allow: /
 
-# Google AI (Gemini)
+# Google AI
 User-agent: Google-Extended
 Allow: /
 
-# Anthropic Claude
+# Anthropic
 User-agent: ClaudeBot
 Allow: /
 
-# Perplexity AI
+# Perplexity
 User-agent: PerplexityBot
-Allow: /
-
-# Microsoft AI / Copilot
-User-agent: Bingbot
-Allow: /
-
-# Apple AI
-User-agent: Applebot
 Allow: /
 
 # Meta AI
@@ -72,4 +76,48 @@ Allow: /
 
 # Amazon AI
 User-agent: Amazonbot
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+
+# Bytespider (TikTok AI)
+User-agent: Bytespider
+Allow: /
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter / X
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Slack
+User-agent: Slackbot
+Allow: /
+
+# Discord
+User-agent: Discordbot
+Allow: /
+
+# Pinterest
+User-agent: Pinterestbot
+Allow: /
+
+# Ahrefs
+User-agent: AhrefsBot
+Allow: /
+
+# Semrush
+User-agent: SemrushBot
+Allow: /
+
+# MJ12
+User-agent: MJ12bot
 Allow: /
