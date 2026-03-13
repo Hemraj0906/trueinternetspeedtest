@@ -226,7 +226,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link
+        {/* <link
           rel="preconnect"
           href="https://flagcdn.com"
           crossOrigin="anonymous"
@@ -235,14 +235,14 @@ export default function RootLayout({
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
-        />
+        /> */}
 
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8PHEK20NY0"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -266,7 +266,8 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
 
-        <VisualEditsMessenger />
+        {/* <VisualEditsMessenger /> */}
+        {process.env.NODE_ENV === "development" && <VisualEditsMessenger />}
       </body>
     </html>
   );

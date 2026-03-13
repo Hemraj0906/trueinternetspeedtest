@@ -1486,6 +1486,7 @@
 // compare +new 5 site keyword analysis
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
+
 import { AdPlaceholder } from "@/components/ad-placeholder";
 import { FAQSection } from "@/components/faq-section";
 import { RelatedArticles } from "@/components/related-articles";
@@ -1500,8 +1501,7 @@ import {
 const SITE_URL = "https://trueinternetspeedtest.com";
 
 export const metadata: Metadata = {
-  title:
-    "Internet Speed Test – Check WiFi, 5G & Broadband | TrueInternetSpeedTest",
+  title: "Internet Speed Test – Check WiFi, 5G & Broadband Speed",
   description:
     "Free Internet Speed Test. Check WiFi, broadband and 5G speed instantly. Measure download, upload, ping and jitter for gaming, streaming and browsing worldwide.",
   keywords: [

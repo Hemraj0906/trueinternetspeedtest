@@ -14,16 +14,19 @@ Sitemap: https://trueinternetspeedtest.com/sitemap.xml
 User-agent: Googlebot
 Allow: /
 
-User-agent: Googlebot-Mobile
+User-agent: Googlebot-Image
 Allow: /
 
-User-agent: Googlebot-Image
+User-agent: Googlebot-Video
 Allow: /
 
 User-agent: Googlebot-News
 Allow: /
 
-User-agent: Googlebot-Video
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
 Allow: /
 
 
@@ -34,37 +37,31 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
 User-agent: YandexBot
 Allow: /
 
 User-agent: Baiduspider
 Allow: /
 
-User-agent: Applebot
-Allow: /
 
-
-# AI Crawlers
+# AI Crawlers Block
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: Google-Extended
-Allow: /
+Disallow: /
 
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
 
 User-agent: PerplexityBot
-Allow: /
-
-User-agent: Meta-ExternalAgent
-Allow: /
-
-User-agent: Amazonbot
-Allow: /
+Disallow: /
 
 User-agent: CCBot
-Allow: /
+Disallow: /
 
 User-agent: Bytespider
-Allow: /
+Disallow: /
