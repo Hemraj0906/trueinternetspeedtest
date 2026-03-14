@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useRef, useEffect } from "react";
+import { useState, useCallback, useRef, useEffect, Key } from "react";
 import Image from "next/image";
 import {
   runSpeedTest,
@@ -22,6 +22,7 @@ import {
   Share2,
   CheckCircle2,
   MapPin,
+  Clock,
 } from "lucide-react";
 
 const initialState: SpeedTestState = {
@@ -32,6 +33,22 @@ const initialState: SpeedTestState = {
   error: null,
 };
 
+type GeoData = {
+  ip: string;
+  isp: string;
+  organization: string;
+  asn: string;
+  country: string;
+  countryCode: string;
+  region: string;
+  city: string;
+  latitude: number;
+  longitude: number;
+  timezone: string;
+};
+
+
+
 export function SpeedTestWidget() {
   const [state, setState] = useState<SpeedTestState>(initialState);
   const [testCount, setTestCount] = useState(0);
@@ -39,6 +56,8 @@ export function SpeedTestWidget() {
   const isRunning = state.phase !== "idle" && state.phase !== "complete";
   const abortRef = useRef<AbortController | null>(null);
   const testInProgressRef = useRef(false);
+  const [geoData, setGeoData] = useState<any>(null);
+
 
   // Internet connection detection
   const { isOnline } = useInternetConnection();
@@ -49,6 +68,54 @@ export function SpeedTestWidget() {
       setShowNoInternet(true);
     }
   }, [isOnline, state.phase]);
+
+  // geo-api
+  
+
+useEffect(() => {
+  const loadGeo = async () => {
+    try {
+      const cached = localStorage.getItem("geoData");
+
+      if (cached) {
+        const parsed = JSON.parse(cached);
+
+        if (parsed.country && parsed.city && parsed.latitude) {
+          console.log("📦 Geo from cache:", parsed);
+          setGeoData(parsed);
+          return;
+        }
+      }
+
+      console.log("🌍 Fetching Geo...");
+
+      const res = await fetch(
+        "https://geo-api.hemrajdeshmukh0906.workers.dev/"
+      );
+
+      const data = await res.json();
+
+      console.log("✅ Response:", data);
+
+      if (data.country && data.city && data.latitude) {
+        setGeoData(data);
+        localStorage.setItem("geoData", JSON.stringify(data));
+      } else {
+        console.log("⚠️ Incomplete geo, no cache");
+      }
+    } catch (err) {
+      console.log("❌ Error:", err);
+    }
+  };
+
+  loadGeo();
+}, []);
+
+
+  //--------------->
+
+
+
 
   const handleRetry = useCallback(() => {
     setShowNoInternet(false);
@@ -281,23 +348,42 @@ export function SpeedTestWidget() {
               <Globe className="w-4 h-4 text-blue-400 shrink-0 mt-3" />
               <div>
                 <div className="text-xs text-muted-foreground">IP Address</div>
-                <div className="font-mono font-medium">{state.result.ip}</div>
+                <div className="font-mono font-medium">
+                  {/* {state.result.ip} */}
+                  {geoData?.ip}
+                </div>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <Wifi className="w-4 h-4 text-indigo-400 shrink-0 mt-3" />
+
               <div>
                 <div className="text-xs text-muted-foreground">ISP</div>
-                <div className="font-medium truncate">
-                  {state.result.isp?.replace(/PVT\.?\s*LTD\.?/i, "").trim()}
+
+                <div className="font-medium leading-tight">
+                  {geoData?.isp
+                    ?.replace(/PRIVATE\s*LIMITED/i, "")
+                    ?.replace(/PVT\.?\s*LTD\.?/i, "")
+                    ?.trim()
+                    ?.split("NETWORK")
+                    ?.map((part: string, index: Key | null | undefined) => (
+                      <div key={index}>
+                        {index === 0 ? part.trim() : "Network " + part.trim()}
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-3" />
               <div>
-                <div className="text-xs text-muted-foreground">Server</div>
-                <div className="font-medium">{state.result.server}</div>
+                <div className="text-xs text-muted-foreground relative top-2 ">
+                  Server
+                </div>
+                {/* <div className="font-medium">{state.result.server}</div> */}
+                <div className="font-medium relative top-3 ">
+                  TrueInternetSpeedTest — Cloudflare Edge
+                </div>
               </div>
             </div>
           </div>
@@ -308,29 +394,39 @@ export function SpeedTestWidget() {
             {/* <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-2"  /> */}
             <MapPin className="w-5 h-5 text-red-500 shrink-0 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)] mt-7" />
             <div>
-              <div className="text-lg text-white/150 text-muted-foreground mt-1.5">
+              <div className="text-xm  text-muted-foreground mt-1.5 relative right-14">
                 Location
               </div>
               <div className="font-medium truncate flex items-center gap-2">
                 <span>
-                  {[state.result.city, state.result.region]
-                    .filter(Boolean)
-                    .join(", ")}
-                  {state.result.country && <> — {state.result.country}</>}
+                  {[geoData?.city, geoData?.region].filter(Boolean).join(", ")}
+                  {geoData?.country && <> — {geoData?.country}</>}
                 </span>
 
                 {/* Country Flag - Only show flag image, remove duplicate countryCode text */}
                 <span className="inline-flex items-center ml-1">
-                  {state.result.countryCode && (
+                  {geoData?.countryCode && (
                     <Image
-                      src={`https://flagcdn.com/w40/${state.result.countryCode.toLowerCase()}.png`}
-                      alt={state.result.country || "Country"}
+                      src={`https://flagcdn.com/w40/${geoData?.countryCode?.toLowerCase()}.png`}
+                      alt={geoData?.country || "Country"}
                       width={20}
                       height={12}
                       className="object-cover rounded-b-none mt-1"
                     />
                   )}
                 </span>
+              </div>
+            </div>
+            {/* Timezone */}
+            <div className="flex items-center gap-2 relative left-7">
+              <Clock className="w-5 h-5 text-blue-400 shrink-0 mt-4 relative top-2 left-4"  />
+
+              <div className="text-right">
+                <div className="text-xs text-muted-foreground mt-4">Timezone</div>
+
+                <div className="font-medium relative left-4">
+                  {geoData?.timezone || "Unknown"}
+                </div>
               </div>
             </div>
           </div>
