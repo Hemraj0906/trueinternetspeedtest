@@ -1,5 +1,5 @@
-# Robots.txt for trueinternetspeedtest
-# https://trueinternetspeedtest.com
+# robots.txt for https://trueinternetspeedtest.com
+# Optimized for SEO, Crawlers, and Speed Test Tools
 
 User-agent: *
 Allow: /
@@ -8,29 +8,13 @@ Disallow: /admin/
 Disallow: /private/
 
 Sitemap: https://trueinternetspeedtest.com/sitemap.xml
+Host: https://trueinternetspeedtest.com
 
 
-# Google Crawlers
+# Major Search Engines
 User-agent: Googlebot
 Allow: /
 
-User-agent: Googlebot-Image
-Allow: /
-
-User-agent: Googlebot-Video
-Allow: /
-
-User-agent: Googlebot-News
-Allow: /
-
-User-agent: AdsBot-Google
-Allow: /
-
-User-agent: AdsBot-Google-Mobile
-Allow: /
-
-
-# Other Search Engines
 User-agent: Bingbot
 Allow: /
 
@@ -47,7 +31,7 @@ User-agent: Baiduspider
 Allow: /
 
 
-# AI Crawlers Block
+# Block AI Training Crawlers
 User-agent: GPTBot
 Disallow: /
 
@@ -64,4 +48,10 @@ User-agent: CCBot
 Disallow: /
 
 User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
 Disallow: /
