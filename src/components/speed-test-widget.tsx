@@ -76,39 +76,31 @@ export function SpeedTestWidget() {
     const loadGeo = async () => {
       try {
         const cached = localStorage.getItem("geoData");
-
         if (cached) {
           const parsed = JSON.parse(cached);
-
           if (parsed.country && parsed.city && parsed.latitude) {
-            console.log("📦 Geo from cache:", parsed);
             setGeoData(parsed);
             return;
           }
         }
-
-        console.log("🌍 Fetching Geo...");
-
-        const res = await fetch(
-          "https://geo-api.hemrajdeshmukh0906.workers.dev/"
-        );
-
+        const res = await fetch("https://geo-api.hemrajdeshmukh0906.workers.dev/");
         const data = await res.json();
-
-        console.log("✅ Response:", data);
-
         if (data.country && data.city && data.latitude) {
           setGeoData(data);
           localStorage.setItem("geoData", JSON.stringify(data));
-        } else {
-          console.log("⚠️ Incomplete geo, no cache");
         }
       } catch (err) {
-        console.log("❌ Error:", err);
+        console.log("Error loading geo", err);
       }
     };
 
-    loadGeo();
+    if (typeof window !== "undefined") {
+      if ("requestIdleCallback" in window) {
+        requestIdleCallback(() => loadGeo());
+      } else {
+        setTimeout(loadGeo, 500);
+      }
+    }
   }, []);
 
 
@@ -221,10 +213,10 @@ export function SpeedTestWidget() {
         <div className="mt-4 text-center">
           <p className="text-sm text-muted-foreground">{phaseLabel}</p>
           {isRunning && (
-            <div className="mt-2 w-48 h-1.5 bg-muted rounded-full overflow-hidden mx-auto">
+            <div className="mt-2 w-48 h-1.5 bg-muted rounded-full overflow-hidden mx-auto bg-transform">
               <div
-                className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full transition-all duration-300"
-                style={{ width: `${state.progress}%` }}
+                className="h-full w-full bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full transition-transform duration-300 origin-left will-change-transform"
+                style={{ transform: `scaleX(${state.progress / 100})` }}
               />
             </div>
           )}

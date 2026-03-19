@@ -6,9 +6,6 @@ Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://trueinternetspeedtest.com/sitemap.xml
-
-
 # =========================
 # SEARCH ENGINES
 # =========================
@@ -104,3 +101,5 @@ Allow: /
 # =========================
 # END
 # =========================
+
+Sitemap: https://trueinternetspeedtest.com/sitemap.xml
