@@ -381,7 +381,7 @@ export function SpeedTestWidget() {
               <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
               <div className="min-w-0 w-full">
                 <div className="text-xs text-muted-foreground">Server</div>
-                <div className="font-medium truncate w-full">
+                <div className="font-medium leading-tight">
                   TrueInternetSpeedTest — Cloudflare Edge
                 </div>
               </div>
@@ -393,10 +393,10 @@ export function SpeedTestWidget() {
             {/* Location */}
             <div className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-red-500 shrink-0 mt-0.5 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)]" />
-              <div className="min-w-0 w-full overflow-hidden">
+              <div className="min-w-0 w-full">
                 <div className="text-xs text-muted-foreground">Location</div>
-                <div className="font-medium flex items-center gap-1.5 w-full">
-                  <span className="truncate block">
+                <div className="font-medium flex flex-wrap items-center gap-1.5 w-full leading-tight">
+                  <span className="break-words">
                     {[geoData?.city, geoData?.region].filter(Boolean).join(", ")}
                     {geoData?.country && <> — {geoData?.country}</>}
                   </span>
@@ -406,7 +406,7 @@ export function SpeedTestWidget() {
                       alt=""
                       width={32}
                       height={22}
-                      className="object-cover rounded shadow-sm border border-border/50 shrink-0 ml-1"
+                      className="object-cover rounded shadow-sm border border-border/50 shrink-0 ml-0.5"
                       loading="lazy"
                     />
                   )}
@@ -415,11 +415,11 @@ export function SpeedTestWidget() {
             </div>
 
             {/* Timezone */}
-            <div className="flex items-start gap-2">
+            <div className="flex items-start sm:justify-end gap-2">
               <Clock className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
-              <div className="min-w-0 w-full">
-                <div className="text-xs text-muted-foreground">Timezone</div>
-                <div className="font-medium truncate">
+              <div className="min-w-0">
+                <div className="text-xs text-muted-foreground sm:text-right">Timezone</div>
+                <div className="font-medium leading-tight sm:text-right">
                   {geoData?.timezone || "Unknown"}
                 </div>
               </div>
