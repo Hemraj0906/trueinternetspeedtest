@@ -68,6 +68,26 @@ Allow: /
 User-agent: Applebot
 Allow: /
 
+# ByteDance / TikTok AI
+User-agent: Bytespider
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Diffbot AI
+User-agent: Diffbot
+Allow: /
+
+# Allen Institute AI (AI2)
+User-agent: AI2Bot
+Allow: /
+
+# OpenAI Search (SearchGPT)
+User-agent: OAI-SearchBot
+Allow: /
+
 
 # =========================
 # SOCIAL CRAWLERS

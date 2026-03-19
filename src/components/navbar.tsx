@@ -6,20 +6,12 @@ import { useTheme } from "next-themes";
 import { Menu, X, Zap, Sun, Moon } from "lucide-react";
 
 const navLinks = [
+  { href: "/wifi-speed-test-online", label: "WiFi Speed Test" },
   { href: "/gaming-speed-test", label: "Gaming" },
   { href: "/streaming-speed-test", label: "Streaming" },
   { href: "/mobile-speed-test", label: "Mobile" },
-  // { href: "/internet-speed-test-india", label: "Broadband Speed Test" },
-  { href: "/broadband-speed-test", label: "Broadband Speed Test" },
-  // { href: "/how-to-increase-wifi-speed", label: "Guides" },
-  {
-    href: "/how-to-increase-wifi-speed",
-    label: "How to Increase WiFi Speed",
-  },
-  {
-    href: "/what-is-good-internet-speed",
-    label: "What Is a Good Internet Speed?",
-  },
+  { href: "/india-speed-test", label: "India ISPs" },
+  { href: "/broadband-speed-test", label: "Broadband" },
 ];
 
 export function Navbar() {

@@ -101,7 +101,7 @@
 //         </div>
 
 //         <div className="mt-8 pt-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">
-          
+
 //           <p className="text-sm text-gray-500 dark:text-gray-400 max-w-3xl mx-auto text-center">
 //             TrueInternetSpeedTest uses the global edge network of Cloudflare to
 //             measure internet download speed, latency (ping), and overall network
@@ -125,20 +125,32 @@ import { Zap } from "lucide-react";
 const footerLinks = {
   "Speed Tests": [
     { href: "/", label: "Internet Speed Test" },
+    { href: "/wifi-speed-test-online", label: "WiFi Speed Test Online" },
     { href: "/gaming-speed-test", label: "Gaming Speed Test" },
     { href: "/streaming-speed-test", label: "Streaming Speed Test" },
     { href: "/mobile-speed-test", label: "Mobile Speed Test" },
     { href: "/broadband-speed-test", label: "Broadband Speed Test" },
   ],
+  "Global ISPs": [
+    { href: "/internet-speed-test-usa", label: "USA Speed Test" },
+    { href: "/internet-speed-test-uk", label: "UK Speed Test" },
+    { href: "/india-speed-test", label: "India Speed Test" },
+    { href: "/jio-speed-test", label: "Jio Speed Test" },
+    { href: "/airtel-speed-test", label: "Airtel Speed Test" },
+  ],
   "Learn More": [
-    {
-      href: "/what-is-good-internet-speed",
-      label: "What is Good Internet Speed?",
-    },
-    {
-      href: "/how-to-increase-wifi-speed",
-      label: "How to Increase WiFi Speed",
-    },
+    { href: "/test-my-internet-speed", label: "Test My Internet Speed" },
+    { href: "/why-is-my-upload-speed-slow", label: "Why Is Upload Speed Slow?" },
+    { href: "/why-does-my-internet-cut-out", label: "Why Does Internet Cut Out?" },
+    { href: "/how-come-my-wifi-is-so-slow", label: "How Come My WiFi Is Slow?" },
+    { href: "/blog", label: "SEO Guides & Tips" },
+    { href: "/best-free-speed-test-tools-2026", label: "Best Speed Test Tools" },
+    { href: "/internet-speed-for-gaming-guide", label: "Gaming Speed Guide" },
+    { href: "/why-is-my-internet-slow", label: "Why Is My Internet Slow?" },
+    { href: "/how-to-reduce-ping-gaming", label: "How to Reduce Ping" },
+    { href: "/fix-slow-internet-on-phone", label: "Fix Slow Phone Internet" },
+    { href: "/wifi-vs-ethernet-speed", label: "WiFi vs Ethernet Speed" },
+    { href: "/is-100-mbps-fast", label: "Is 100 Mbps Fast?" },
   ],
   Company: [
     { href: "/about-us", label: "About Us" },
@@ -155,7 +167,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* TOP GRID */}
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
           {/* BRAND */}
 
           <div className="col-span-1 md:col-span-2">

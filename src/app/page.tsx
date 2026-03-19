@@ -1501,7 +1501,7 @@ import {
 const SITE_URL = "https://trueinternetspeedtest.com";
 
 export const metadata: Metadata = {
-  title: "Internet Speed Test – Check WiFi, 5G & Broadband Speed",
+  title: "Free Internet Speed Test",
   description:
     "Free Internet Speed Test. Check WiFi, broadband and 5G speed instantly. Measure download, upload, ping and jitter for gaming, streaming and browsing worldwide.",
   keywords: [
@@ -1635,7 +1635,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
-            Free Internet Speed Test – Check Your WiFi Speed Instantly
+            Free Internet Speed Test
           </h1>
 
           <p className="text-white/70 text-lg max-w-2xl mx-auto mb-8">
