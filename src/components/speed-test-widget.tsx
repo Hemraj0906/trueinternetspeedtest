@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect, Key } from "react";
-import Image from "next/image";
+
 import {
   runSpeedTest,
   getSpeedRating,
@@ -70,46 +70,46 @@ export function SpeedTestWidget() {
   }, [isOnline, state.phase]);
 
   // geo-api
-  
 
-useEffect(() => {
-  const loadGeo = async () => {
-    try {
-      const cached = localStorage.getItem("geoData");
 
-      if (cached) {
-        const parsed = JSON.parse(cached);
+  useEffect(() => {
+    const loadGeo = async () => {
+      try {
+        const cached = localStorage.getItem("geoData");
 
-        if (parsed.country && parsed.city && parsed.latitude) {
-          console.log("📦 Geo from cache:", parsed);
-          setGeoData(parsed);
-          return;
+        if (cached) {
+          const parsed = JSON.parse(cached);
+
+          if (parsed.country && parsed.city && parsed.latitude) {
+            console.log("📦 Geo from cache:", parsed);
+            setGeoData(parsed);
+            return;
+          }
         }
+
+        console.log("🌍 Fetching Geo...");
+
+        const res = await fetch(
+          "https://geo-api.hemrajdeshmukh0906.workers.dev/"
+        );
+
+        const data = await res.json();
+
+        console.log("✅ Response:", data);
+
+        if (data.country && data.city && data.latitude) {
+          setGeoData(data);
+          localStorage.setItem("geoData", JSON.stringify(data));
+        } else {
+          console.log("⚠️ Incomplete geo, no cache");
+        }
+      } catch (err) {
+        console.log("❌ Error:", err);
       }
+    };
 
-      console.log("🌍 Fetching Geo...");
-
-      const res = await fetch(
-        "https://geo-api.hemrajdeshmukh0906.workers.dev/"
-      );
-
-      const data = await res.json();
-
-      console.log("✅ Response:", data);
-
-      if (data.country && data.city && data.latitude) {
-        setGeoData(data);
-        localStorage.setItem("geoData", JSON.stringify(data));
-      } else {
-        console.log("⚠️ Incomplete geo, no cache");
-      }
-    } catch (err) {
-      console.log("❌ Error:", err);
-    }
-  };
-
-  loadGeo();
-}, []);
+    loadGeo();
+  }, []);
 
 
   //--------------->
@@ -276,8 +276,8 @@ useEffect(() => {
               state.result
                 ? state.result.download.toFixed(1)
                 : state.phase === "download"
-                ? state.currentSpeed.toFixed(1)
-                : "--"
+                  ? state.currentSpeed.toFixed(1)
+                  : "--"
             }
             unit="Mbps"
             active={state.phase === "download"}
@@ -297,8 +297,8 @@ useEffect(() => {
               state.result
                 ? state.result.upload.toFixed(1)
                 : state.phase === "upload"
-                ? state.currentSpeed.toFixed(1)
-                : "--"
+                  ? state.currentSpeed.toFixed(1)
+                  : "--"
             }
             unit="Mbps"
             active={state.phase === "upload"}
@@ -314,8 +314,8 @@ useEffect(() => {
               state.result
                 ? state.result.ping.toFixed(0)
                 : state.phase === "ping"
-                ? state.currentSpeed.toFixed(0)
-                : "--"
+                  ? state.currentSpeed.toFixed(0)
+                  : "--"
             }
             unit="ms"
             active={state.phase === "ping"}
@@ -343,23 +343,24 @@ useEffect(() => {
       {/* Connection info */}
       {state.result && (
         <div className="mt-4 p-4 rounded-2xl bg-card border border-border/50">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
-            <div className="flex items-center gap-2">
-              <Globe className="w-4 h-4 text-blue-400 shrink-0 mt-3" />
-              <div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+            {/* IP Address */}
+            <div className="flex items-start gap-2">
+              <Globe className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+              <div className="min-w-0 w-full">
                 <div className="text-xs text-muted-foreground">IP Address</div>
-                <div className="font-mono font-medium">
+                <div className="font-mono font-medium truncate">
                   {/* {state.result.ip} */}
                   {geoData?.ip}
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <Wifi className="w-4 h-4 text-indigo-400 shrink-0 mt-3" />
 
-              <div>
+            {/* ISP */}
+            <div className="flex items-start gap-2">
+              <Wifi className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+              <div className="min-w-0 w-full">
                 <div className="text-xs text-muted-foreground">ISP</div>
-
                 <div className="font-medium leading-tight">
                   {geoData?.isp
                     ?.replace(/PRIVATE\s*LIMITED/i, "")
@@ -367,64 +368,58 @@ useEffect(() => {
                     ?.trim()
                     ?.split("NETWORK")
                     ?.map((part: string, index: Key | null | undefined) => (
-                      <div key={index}>
+                      <div key={index} className="truncate w-full">
                         {index === 0 ? part.trim() : "Network " + part.trim()}
                       </div>
                     ))}
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-3" />
-              <div>
-                <div className="text-xs text-muted-foreground relative top-2 ">
-                  Server
-                </div>
-                {/* <div className="font-medium">{state.result.server}</div> */}
-                <div className="font-medium relative top-3 ">
+
+            {/* Server */}
+            <div className="flex items-start gap-2">
+              <CheckCircle2 className="w-4 h-4 text-green-400 shrink-0 mt-0.5" />
+              <div className="min-w-0 w-full">
+                <div className="text-xs text-muted-foreground">Server</div>
+                <div className="font-medium truncate w-full">
                   TrueInternetSpeedTest — Cloudflare Edge
                 </div>
               </div>
             </div>
           </div>
 
-          {/*  location country and region and city*/}
-          {/* Location */}
-          <div className="flex items-center gap-2">
-            {/* <MapPin className="w-4 h-4 text-rose-400 shrink-0 mt-2"  /> */}
-            <MapPin className="w-5 h-5 text-red-500 shrink-0 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)] mt-7" />
-            <div>
-              <div className="text-xm  text-muted-foreground mt-1.5 relative right-14">
-                Location
-              </div>
-              <div className="font-medium truncate flex items-center gap-2">
-                <span>
-                  {[geoData?.city, geoData?.region].filter(Boolean).join(", ")}
-                  {geoData?.country && <> — {geoData?.country}</>}
-                </span>
-
-                {/* Country Flag - Only show flag image, remove duplicate countryCode text */}
-                <span className="inline-flex items-center ml-1">
-                  {geoData?.countryCode && (
-                    <Image
-                      src={`https://flagcdn.com/w40/${geoData?.countryCode?.toLowerCase()}.png`}
-                      alt={geoData?.country || "Country"}
-                      width={20}
-                      height={12}
-                      className="object-cover rounded-b-none mt-1"
+          {/* Location & Timezone */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 text-sm">
+            {/* Location */}
+            <div className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 text-red-500 shrink-0 mt-0.5 drop-shadow-[0_0_6px_rgba(239,68,68,0.6)]" />
+              <div className="min-w-0 w-full overflow-hidden">
+                <div className="text-xs text-muted-foreground">Location</div>
+                <div className="font-medium flex items-center gap-1.5 w-full">
+                  <span className="truncate block">
+                    {[geoData?.city, geoData?.region].filter(Boolean).join(", ")}
+                    {geoData?.country && <> — {geoData?.country}</>}
+                  </span>
+                  {(geoData?.countryCode || geoData?.country) && (
+                    <img
+                      src={`https://flagcdn.com/w80/${(geoData?.countryCode || geoData?.country)?.toLowerCase()}.png`}
+                      alt=""
+                      width={32}
+                      height={22}
+                      className="object-cover rounded shadow-sm border border-border/50 shrink-0 ml-1"
+                      loading="lazy"
                     />
                   )}
-                </span>
+                </div>
               </div>
             </div>
+
             {/* Timezone */}
-            <div className="flex items-center gap-2 relative left-7">
-              <Clock className="w-5 h-5 text-blue-400 shrink-0 mt-4 relative top-2 left-4"  />
-
-              <div className="text-right">
-                <div className="text-xs text-muted-foreground mt-4">Timezone</div>
-
-                <div className="font-medium relative left-4">
+            <div className="flex items-start gap-2">
+              <Clock className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+              <div className="min-w-0 w-full">
+                <div className="text-xs text-muted-foreground">Timezone</div>
+                <div className="font-medium truncate">
                   {geoData?.timezone || "Unknown"}
                 </div>
               </div>
@@ -495,11 +490,10 @@ function ResultCard({
 }: ResultCardProps) {
   return (
     <div
-      className={`relative p-3 rounded-2xl border transition-all duration-300 ${
-        active
-          ? "border-blue-500/60 bg-blue-500/10 shadow-lg shadow-blue-500/20"
-          : "border-border/50 bg-card/60"
-      }`}
+      className={`relative p-3 rounded-2xl border transition-all duration-300 ${active
+        ? "border-blue-500/60 bg-blue-500/10 shadow-lg shadow-blue-500/20"
+        : "border-border/50 bg-card/60"
+        }`}
     >
       {active && (
         <div className="absolute inset-0 rounded-2xl bg-blue-500/5 animate-pulse pointer-events-none" />

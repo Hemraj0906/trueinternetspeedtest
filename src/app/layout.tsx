@@ -192,9 +192,9 @@ export const metadata: Metadata = {
       "Test your internet speed instantly with trueinternetspeedtest. Free broadband speed test.",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "/icon.png",
+        width: 512,
+        height: 512,
         alt: "trueinternetspeedtest - Internet Speed Test",
       },
     ],
@@ -203,7 +203,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Internet Speed Test – trueinternetspeedtest",
     description: "Check your WiFi speed instantly. Free online speed test.",
-    images: ["/og-image.png"],
+    images: ["/icon.png"],
   },
   verification: {
     google: "VtNtQmPuOSderu4aizMsv0sEnGNPTZT1C39FdFc3E4o",

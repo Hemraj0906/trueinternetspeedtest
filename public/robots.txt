@@ -1,5 +1,4 @@
 # robots.txt for https://trueinternetspeedtest.com
-# Optimized for SEO, Crawlers, and Speed Test Tools
 
 User-agent: *
 Allow: /
@@ -8,10 +7,12 @@ Disallow: /admin/
 Disallow: /private/
 
 Sitemap: https://trueinternetspeedtest.com/sitemap.xml
-Host: https://trueinternetspeedtest.com
 
 
-# Major Search Engines
+# =========================
+# SEARCH ENGINES
+# =========================
+
 User-agent: Googlebot
 Allow: /
 
@@ -31,27 +32,75 @@ User-agent: Baiduspider
 Allow: /
 
 
-# Block AI Training Crawlers
+# =========================
+# AI CRAWLERS (ALL ALLOWED)
+# =========================
+
+# ChatGPT (Training + Search + Browsing)
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+# Google AI (Gemini)
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
+# Anthropic Claude
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
+# Perplexity AI
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
+# Common Crawl (VERY IMPORTANT)
 User-agent: CCBot
-Disallow: /
+Allow: /
 
-User-agent: Bytespider
-Disallow: /
-
-User-agent: Amazonbot
-Disallow: /
-
+# Meta AI (Facebook / Instagram AI)
 User-agent: Meta-ExternalAgent
-Disallow: /
+Allow: /
+
+# Amazon Alexa
+User-agent: Amazonbot
+Allow: /
+
+# Apple Siri
+User-agent: Applebot
+Allow: /
+
+
+# =========================
+# SOCIAL CRAWLERS
+# =========================
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: FacebookExternalHit
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: Pinterestbot
+Allow: /
+
+
+# =========================
+# END
+# =========================
