@@ -1,51 +1,21 @@
 {
-  "name": "trueinternetspeedtest - Internet Speed Test",
-  "short_name": "SpeedTest",
-  "description": "Check your internet speed instantly. Free broadband, WiFi, 5G speed test tool.",
+  "name": "TrueInternetSpeedTest",
+  "short_name": "TrueSpeed",
+  "description": "High-accuracy internet speed test with bufferbloat measurement.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a1f",
   "theme_color": "#3b82f6",
-  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/icon-192.png",
+      "src": "/favicon.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/favicon.png",
       "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
-  "categories": ["utilities", "productivity", "games"],
-  "lang": "en",
-  "dir": "ltr",
-  "scope": "/",
-  "prefer_related_applications": false,
-  "screenshots": [],
-  "shortcuts": [
-    {
-      "name": "Start Speed Test",
-      "short_name": "Test Speed",
-      "description": "Start a new internet speed test",
-      "url": "/?start=test",
-      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "Gaming Speed Test",
-      "short_name": "Gaming",
-      "description": "Test your connection for gaming",
-      "url": "/gaming-speed-test"
-    },
-    {
-      "name": "5G/Mobile Test",
-      "short_name": "Mobile",
-      "description": "Test your mobile data speed",
-      "url": "/mobile-speed-test"
+      "type": "image/png"
     }
   ]
 }

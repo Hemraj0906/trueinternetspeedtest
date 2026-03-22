@@ -47,6 +47,22 @@
     <mobile:mobile/>
   </url>
 
+  <url>
+    <loc>https://trueinternetspeedtest.com/wifi-speed-test-online</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <mobile:mobile/>
+  </url>
+
+  <url>
+    <loc>https://trueinternetspeedtest.com/get-app</loc>
+    <lastmod>2026-03-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+    <mobile:mobile/>
+  </url>
+
   <!-- SEO Content Pages -->
   <url>
     <loc>https://trueinternetspeedtest.com/what-is-good-internet-speed</loc>

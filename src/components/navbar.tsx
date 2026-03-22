@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Menu, X, Zap, Sun, Moon } from "lucide-react";
+import { InstallButton } from "./install-button";
 
 const navLinks = [
   { href: "/wifi-speed-test-online", label: "WiFi Speed Test" },
@@ -12,6 +13,7 @@ const navLinks = [
   { href: "/mobile-speed-test", label: "Mobile" },
   { href: "/india-speed-test", label: "India ISPs" },
   { href: "/broadband-speed-test", label: "Broadband" },
+  { href: "/get-app", label: "Get App" },
 ];
 
 export function Navbar() {
@@ -57,7 +59,7 @@ export function Navbar() {
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="p-2 rounded-full hover:bg-muted transition-colors"
+                className="p-2 rounded-full hover:bg-muted transition-colors mr-1"
                 aria-label="Toggle theme"
               >
                 {theme === "dark" ? (
@@ -67,6 +69,10 @@ export function Navbar() {
                 )}
               </button>
             )}
+
+            <div className="hidden sm:block">
+              <InstallButton />
+            </div>
 
             <button
               className="md:hidden p-2 rounded-full hover:bg-muted transition-colors"

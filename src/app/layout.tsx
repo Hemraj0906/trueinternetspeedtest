@@ -250,6 +250,7 @@ export default function RootLayout({
             gtag('config', 'G-8PHEK20NY0');
           `}
         </Script>
+        <link rel="manifest" href="/manifest.json" />
       </head>
 
       <body

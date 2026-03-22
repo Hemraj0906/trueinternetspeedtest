@@ -8,14 +8,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Core Tool (Priority 1.0)
     { url: baseUrl, lastModified: now, changeFrequency: "daily", priority: 1 },
 
-    // Speed Test Pages (Priority 0.9)
+    // ── NEW: High-Volume Tool Pages (Priority 0.95) ──────────────────────────
+    { url: `${baseUrl}/check-internet-speed`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/download-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/upload-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/ping-test-online`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
+    { url: `${baseUrl}/network-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/latency-test`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/5g-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/4g-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/fiber-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
+
+    // ── NEW: ISP-Specific Pages (Priority 0.88) ──────────────────────────────
+    { url: `${baseUrl}/vi-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.88 },
+    { url: `${baseUrl}/bsnl-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.88 },
+
+    // ── NEW: Informational Pages (Priority 0.82) ─────────────────────────────
+    { url: `${baseUrl}/good-download-speed`, lastModified: now, changeFrequency: "monthly", priority: 0.82 },
+    { url: `${baseUrl}/is-my-internet-fast-enough`, lastModified: now, changeFrequency: "monthly", priority: 0.82 },
+
+    // ── NEW: Comparison Pages (Priority 0.78) ────────────────────────────────
+    { url: `${baseUrl}/jio-fiber-vs-airtel-xstream`, lastModified: now, changeFrequency: "monthly", priority: 0.78 },
+    { url: `${baseUrl}/bsnl-vs-jio-speed-comparison`, lastModified: now, changeFrequency: "monthly", priority: 0.78 },
+
+    // Existing Speed Test Pages (Priority 0.9)
     { url: `${baseUrl}/gaming-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/streaming-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/mobile-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/broadband-speed-test`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/wifi-speed-test-online`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-
-    // High-Volume Exact Match Pages (Priority 0.9)
     { url: `${baseUrl}/test-my-internet-speed`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
 
     // Country & ISP Pages (Priority 0.85)
@@ -52,3 +73,4 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/disclaimer`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 }
+

@@ -2,91 +2,89 @@ import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
 import { SeoContentSection } from "@/components/seo-content-section";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { AlertTriangle, PowerOff, Zap, RefreshCw } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Why Does My Internet Cut Out? 5 Proven Fixes Worldwide",
-  description: "Internet keeps dropping? Find out exactly why your internet cuts out and apply 5 proven worldwide fixes for routers, modems, and ISP line issues.",
+  title: "Why Does My Internet Keep Cutting Out? – 10 Fixes (2026)",
+  description: "Wondering 'why does my internet keep cutting out'? Learn how to fix dropping WiFi and intermittent connections. 10 expert tips for router, ISP, and cable troubleshooting.",
   alternates: {
     canonical: "https://trueinternetspeedtest.com/why-does-my-internet-cut-out",
   },
+  keywords: [
+    "why does my internet keep cutting out",
+    "fix dropping wifi connection",
+    "intermittent internet troubleshooting",
+    "router keeps disconnecting fix",
+    "isp line noise troubleshooting",
+    "wifi signal drops randomly",
+    "stop internet disconnects 2026",
+  ],
 };
 
-export default function WhyDoesMyInternetCutOutPage() {
+export default function InternetCutsOutPage() {
   const content = `
-    <h2>Why Does Internet Drop Randomly?</h2>
-    <p>A connection that cuts out at random is far more frustrating than consistently slow internet. Whether you are on Xfinity in Chicago, BT in London, or Telstra in Sydney, your internet dropping repeatedly points to one of a small set of highly specific hardware or configuration problems. Run the test above to immediately check your <strong>ping jitter</strong> — high jitter is the first sign of an unstable connection about to cut out.</p>
+    <p>Is your internet dropping during critical <strong>Zoom calls</strong> or in the middle of a movie? Asking "<strong>Why does my internet keep cutting out?</strong>" is incredibly common. Intermittent connectivity is often more frustrating than slow speeds because it's harder to diagnose. This guide helps you identify if the issue is your <strong>WiFi signal</strong>, your <strong>router hardware</strong>, or your <strong>ISP line</strong>.</p>
 
-    <h2>Global Drop Causes Diagnosis Table</h2>
-    <p>Use this worldwide symptom-to-cause mapping to instantly narrow down the root of your disconnection issue:</p>
-
-    <div class="overflow-x-auto my-8">
-      <table class="w-full text-left border-collapse border border-border/50">
-        <thead>
-          <tr class="bg-muted">
-            <th class="p-4 border border-border/50 font-bold">Symptom</th>
-            <th class="p-4 border border-border/50 font-bold">Most Likely Cause</th>
-            <th class="p-4 border border-border/50 font-bold">Fix Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="p-4 border border-border/50">Drops every 5 minutes exactly</td>
-            <td class="p-4 border border-border/50 font-bold text-orange-400">Router overheating</td>
-            <td class="p-4 border border-border/50 text-green-500 font-bold">2 mins</td>
-          </tr>
-          <tr class="bg-muted/30">
-            <td class="p-4 border border-border/50">Drops only at night (8–11 PM)</td>
-            <td class="p-4 border border-border/50 font-bold text-orange-400">Neighbor WiFi interference</td>
-            <td class="p-4 border border-border/50 text-green-500 font-bold">5 mins</td>
-          </tr>
-          <tr>
-            <td class="p-4 border border-border/50">Completely random drops, no pattern</td>
-            <td class="p-4 border border-border/50 font-bold text-orange-400">Corrupted DNS cache</td>
-            <td class="p-4 border border-border/50 text-green-500 font-bold">Instant</td>
-          </tr>
-          <tr class="bg-muted/30">
-            <td class="p-4 border border-border/50">Drops during streaming or gaming only</td>
-            <td class="p-4 border border-border/50 font-bold text-red-400">ISP bandwidth throttling</td>
-            <td class="p-4 border border-border/50 text-yellow-400 font-bold">Call ISP</td>
-          </tr>
-          <tr>
-            <td class="p-4 border border-border/50">Single device drops, others fine</td>
-            <td class="p-4 border border-border/50 font-bold text-orange-400">Device WiFi adapter issue</td>
-            <td class="p-4 border border-border/50 text-green-500 font-bold">10 mins</td>
-          </tr>
-        </tbody>
-      </table>
+    <div style="background: rgba(239, 68, 68, 0.1); padding: 20px; border-radius: 12px; margin: 24px 0; border: 1px solid rgba(239, 68, 68, 0.2);">
+      <h3 style="margin-top: 0; color: #dc2626;">🚨 Critical Check:</h3>
+      <p>Does the internet cut out for EVERYONE, or just one phone? If it's everyone, your <strong>Router or ISP</strong> is failing. If it's just one device, that device's <strong>WiFi antenna or software cache</strong> is the culprit.</p>
     </div>
 
-    <h2>5 Proven Worldwide Solutions</h2>
+    <h2>I. Identifying the Root Cause of Disconnects</h2>
+    <p>To fix <strong>dropping internet</strong>, you first need to categorize the failure using our <a href="/">Internet Speed Test</a> tool during an outage:</p>
+    <ul>
+      <li><strong>Router Hard-Crash:</strong> If all the lights on your router turn red or go out, your hardware is likely overheating or has a failing power supply.</li>
+      <li><strong>Wireless Interference:</strong> If you lose connection only when someone uses the microwave or a cordless phone, your <strong>2.4GHz WiFi band</strong> is being jammed.</li>
+      <li><strong>ISP Line Noise:</strong> If your router lights stay green but you have "No Internet," the physical fiber or copper line outside your house might have a 'Micro-break' or water damage.</li>
+    </ul>
+
+    <h2>II. Top 5 Proven Fixes for Intermittent Internet</h2>
     <ol>
-      <li><strong>5GHz Channel Change:</strong> Log into your router admin page (usually 192.168.1.1) and switch the WiFi channel on 2.4GHz from "Auto" to channel 1, 6 or 11. These are the only three non-overlapping channels in the 2.4GHz band. This single fix eliminates neighbor router interference.</li>
-      <li><strong>Full Power Cycle on Modem + Router:</strong> Unplug your modem first, wait 30 seconds, plug it back. Then unplug the separate router, wait 30 seconds, plug it back. This sequence allows the modem to correctly re-register on the ISP network before the router tries to get a new IP address.</li>
-      <li><strong>Ethernet Test:</strong> Connect a laptop directly to the modem via Ethernet cable and run our <a href="/">Free Internet Speed Test</a>. If your connection stabilizes, the fault is isolated to your router's WiFi broadcast. If it still cuts out, the fault is the modem or the ISP's cable line itself.</li>
-      <li><strong>Signal Mesh Extender:</strong> If your house is large and devices at distance frequently drop, your WiFi router's radio range is the bottleneck. A mesh WiFi system like TP-Link Deco M4 creates a seamless multi-node network, eliminating dead zones.</li>
-      <li><strong>ISP Line Check:</strong> Contact your ISP and request a physical line quality test. In older buildings across the USA and UK, corroded coaxial cable connectors degrade signal quality over months and years, causing intermittent drops no router setting change can fix.</li>
+      <li><strong>The 60-Second Power Cycle:</strong> Unplug both your Modem and Router. Wait a full 60 seconds (this clears the internal capacitors). Plug the Modem in first, wait for a green signal, then plug in the Router.</li>
+      <li><strong>Check Your Cable Fittings:</strong> A loose <strong>Coaxial or Ethernet cable</strong> is the #1 cause of random disconnects. Ensure all 'F-type' connectors are finger-tight and that Ethernet cables 'Click' into place.</li>
+      <li><strong>Separate Your WiFi Bands:</strong> If your router combines 2.4GHz and 5GHz into one name, your phone might be 'Bouncing' between them. Rename them to 'MyWiFi_2.4' and 'MyWiFi_5' to force stability.</li>
+      <li><strong>Disable IPV6:</strong> Many older ISP infrastructures have poor IPv6 implementation, leading to "DNS Probes" and random timeouts. Try disabling IPv6 in your PC or Router settings.</li>
+      <li><strong>Update Router Firmware:</strong> Manufacturers release patches specifically to fix <strong>connection dropping bugs</strong>. Login to your router (usually 192.168.1.1) and check for updates.</li>
     </ol>
 
-    <h2>Related Diagnostics</h2>
-    <p>If your connection is dropping, it may also be experiencing <a href="/why-is-my-upload-speed-slow">slow upload speeds</a> or general wireless weakness. Run the <a href="/wifi-speed-test-online">WiFi Speed Test</a> to check your wireless signal quality separately from your wired connection.</p>
+    <div style="text-align: center; margin: 40px 0;">
+      <a href="/" style="background: #dc2626; color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block;">Verify Connection Stability</a>
+    </div>
+
+    <h2>III. When to Call Your ISP</h2>
+    <p>If you have replaced your cables and rebooted your router, but the <strong>internet still cuts out</strong> 5 times a day, the problem is 'Upstream.' Call your provider (Xfinity, Spectrum, BT, etc.) and ask them to check your <strong>'SnR' (Signal-to-Noise Ratio)</strong>. If this number is too low, they must send a technician to repair the outdoor line.</p>
+
+    <h2>Advanced Troubleshooting Scenarios</h2>
+    <p>Sometimes the cause is surprisingly specific:
+      <br/>• <strong>DHCP Lease Time:</strong> If your disconnects happen exactly every 24 hours, your router's lease time is improperly configured.
+      <br/>• <strong>Old Splitters:</strong> If you use a cable splitter for both TV and Internet, that 20-year-old metal box might be leaking <strong>Ingress Noise</strong> into your line.
+      <br/>• <strong>Phone-Specific Drops:</strong> See our guide on <a href="/fix-slow-internet-on-phone">fixing slow internet on phone</a> or <a href="/how-come-my-wifi-is-so-slow">why WiFi is slow on iPhone</a>.
+    </p>
+
+    <h2>The Role of Overheating</h2>
+    <p>Routers are small computers. If yours is in a closed cabinet or near a heater, it will throttle and eventually "Trip" a safety shutdown. Ensure your <strong>wireless router</strong> has at least 4 inches of clear space on all sides for airflow. If it feels hot to the touch, it’s already suffering <strong>thermal instability</strong>.</p>
   `;
 
   const faqs = [
     {
-      question: "Why does my internet keep disconnecting every few minutes?",
-      answer: "The most common reason for periodic disconnections is router overheating. Ensure your router is placed on a flat, ventilated surface, not inside a cabinet or on carpet."
+      question: "Why does my WiFi cut out only in certain rooms?",
+      answer: "This is likely a 'Physical Dead Zone.' Structural materials like steel beams or brick fireplaces can block the signal completely as you move. A <a href='/wifi-speed-test-online'>Mesh WiFi system</a> can bridge these gaps."
     },
     {
-      question: "Why does my internet cut out at night but not during the day?",
-      answer: "Evening network congestion (8–11 PM) is when thousands of neighbors simultaneously stream video. This overloads your ISP's local node, causing scheduled slowdowns and intermittent drops."
+      question: "Can weather make my internet drop out?",
+      answer: "Major storms can cause 'Line Sway' in overhead cables, leading to physical micro-fractures in the wire. High humidity can also worsen existing corrosion in outdoor junction boxes."
     },
     {
-      question: "Can a bad ethernet cable cause internet to cut out?",
-      answer: "Yes. A kinked, damaged, or low-quality Cat5e cable can cause intermittent packet loss that is indistinguishable from a full connection drop. Replace it with a new Cat6 cable."
+      question: "Why does my internet cut out during video calls?",
+      answer: "Video calls use a constant stream of both upload and download data. If your <a href='/why-is-my-upload-speed-slow'>upload speed is low</a>, the router might drop the session entirely if it cannot maintain the stream."
     },
     {
-      question: "How do I stop my WiFi from dropping on my phone?",
-      answer: "On iPhone, go to Settings → WiFi → tap your network → Forget This Network, then reconnect. On Android, go to WiFi settings and set your IP to static to prevent DHCP renewal disconnects."
+      question: "Will a new router stop my disconnects?",
+      answer: "Only if your current router is failing. If the issue is with the physical wire coming into your house from the street, a new $500 router will not help—you must contact your ISP."
+    },
+    {
+      question: "What is a 'Power Cycle' vs a 'Reset'?",
+      answer: "A Power Cycle (turning it off/on) clears glitches but keeps your settings. A 'Reset' (the tiny pinhole button) erases everything and returns the router to factory settings. Always try a Power Cycle first."
     }
   ];
 
@@ -95,19 +93,26 @@ export default function WhyDoesMyInternetCutOutPage() {
       <section className="relative py-20 bg-gradient-to-b from-red-950/20 to-background overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
           <Breadcrumb items={[{ label: "Internet Cutting Out" }]} />
+
           <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-medium mb-4">
+              <PowerOff className="w-3.5 h-3.5" />
+              Connectivity Failure Diagnosis
+            </div>
             <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-              Why Does My Internet Cut Out?
+              Why Does My Internet Keep Cutting Out?
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Run a quick speed test to check your ping and jitter — high jitter often indicates an unstable line.
+              Stop the drops. A complete guide to troubleshooting intermittent internet connections, from router placement to ISP line signal noise.
             </p>
           </div>
+
           <SpeedTestWidget />
         </div>
       </section>
+
       <SeoContentSection
-        title="5 Proven Worldwide Fixes"
+        title="Stop Intermittent Drops: Fix Your Interrupted WiFi and Internet Line"
         content={content}
         faqs={faqs}
       />
