@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Zap } from "lucide-react";
+import { Zap, Twitter, Facebook, Globe } from "lucide-react";
 import { InstallButton } from "./install-button";
 
 const footerLinks = {
@@ -88,6 +88,18 @@ export function Footer() {
               © {new Date().getFullYear()} TrueInternetSpeedTest.com — All rights reserved.
             </p>
 
+            <div className="flex items-center gap-4 mt-6">
+              <Link href="https://twitter.com" target="_blank" className="p-2 rounded-full bg-blue-500/10 hover:bg-blue-500/20 text-blue-400 transition-colors">
+                <Twitter className="w-4 h-4" />
+              </Link>
+              <Link href="https://facebook.com" target="_blank" className="p-2 rounded-full bg-blue-600/10 hover:bg-blue-600/20 text-blue-500 transition-colors">
+                <Facebook className="w-4 h-4" />
+              </Link>
+              <Link href="https://linkedin.com" target="_blank" className="p-2 rounded-full bg-blue-700/10 hover:bg-blue-700/20 text-blue-600 transition-colors">
+                <Globe className="w-4 h-4" />
+              </Link>
+            </div>
+
             <div className="mt-8 pt-8 border-t border-border/20">
               <h4 className="text-sm font-bold mb-4 uppercase tracking-wider text-blue-400">Get Our App</h4>
               <p className="text-xs text-muted-foreground mb-4">
@@ -102,6 +114,7 @@ export function Footer() {
                   Detailed Setup Guide →
                 </Link>
               </div>
+              
             </div>
           </div>
 
@@ -133,11 +146,17 @@ export function Footer() {
             performance across WiFi, mobile data (5G/4G), and broadband fiber connections,
             including streaming speed test and gaming speed test analysis.
           </p>
-          <div className="flex items-center gap-2 text-xs text-muted-foreground bg-background/50 px-3 py-1.5 rounded-full border border-border/40">
-            <span className="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse"></span>
-            All servers operational
+          <div className="flex flex-col items-center lg:items-end gap-3">
+            <div className="flex items-center gap-2 text-xs text-muted-foreground bg-background/50 px-3 py-1.5 rounded-full border border-border/40">
+              <span className="w-2 h-2 rounded-full bg-green-500 inline-block animate-pulse"></span>
+              All servers operational
+            </div>
+            <div className="text-[10px] text-muted-foreground/60 uppercase tracking-widest font-medium">
+              Sitemap Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            </div>
           </div>
         </div>
+        
       </div>
     </footer>
   );

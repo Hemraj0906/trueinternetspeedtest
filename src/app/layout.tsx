@@ -223,20 +223,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TrueInternetSpeedTest",
+    "url": "https://trueinternetspeedtest.com",
+    "logo": "https://trueinternetspeedtest.com/icon.png",
+    "sameAs": [
+      "https://twitter.com/trueinternetspeed",
+      "https://facebook.com/trueinternetspeed",
+      "https://linkedin.com/company/trueinternetspeed"
+    ],
+    "description": "Premium browser-based internet speed test tool for 4K streaming, gaming, and broadband verification."
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        {/* <link
-          rel="preconnect"
-          href="https://flagcdn.com"
-          crossOrigin="anonymous"
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        /> */}
-
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-8PHEK20NY0"

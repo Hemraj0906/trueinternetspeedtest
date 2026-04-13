@@ -63,7 +63,7 @@ export function SpeedTestWidget() {
             return;
           }
         }
-        const res = await fetch("https://geo-api.hemrajdeshmukh0906.workers.dev/");
+        const res = await fetch("https://geo-api.hemrajdeshmukh0906.workers.dev/api/ip");
         const data = await res.json();
         if (data.country && data.city) {
           setGeoData(data);
