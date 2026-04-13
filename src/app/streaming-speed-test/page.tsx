@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
-import { SeoContentSection } from "@/components/seo-content-section";
+import { FAQSection } from "@/components/faq-section";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { Tv } from "lucide-react";
+import { Tv, Globe, Zap, Play } from "lucide-react";
+import { SocialShare } from "@/components/social-share";
 
 export const metadata: Metadata = {
   title: "Streaming Speed Test – Check 4K & Netflix Internet Speed",
@@ -21,74 +22,6 @@ export const metadata: Metadata = {
 };
 
 export default function StreamingSpeedTestPage() {
-  const content = `
-    <p>Is your <strong>Netflix buffering</strong> during the most intense scene? Whether you're watching <strong>Disney+, Prime Video, or YouTube</strong>, our <strong>Streaming Speed Test</strong> measures if your connection has the sustained throughput needed for high-definition and 4K video. We analyze your <strong>download speed</strong> and <strong>connectivity stability</strong> specifically for video delivery.</p>
-
-    <div style="background: rgba(239, 68, 68, 0.1); padding: 20px; border-radius: 12px; margin: 24px 0; border: 1px solid rgba(239, 68, 68, 0.2);">
-      <h3 style="margin-top: 0; color: #dc2626;">🎬 Streaming Quality Requirement:</h3>
-      <p>For a flawless <strong>4K (Ultra HD)</strong> experience, Netflix and YouTube recommend a stable connection of <strong>25 Mbps</strong> per stream. If you have 3 family members watching 4K at once, you need at least <strong>75 Mbps</strong> available bandwidth.</p>
-    </div>
-
-    <h2>Video Streaming Speed Requirements (2026)</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Quality</th>
-          <th>Recommended Speed</th>
-          <th>Best For</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>4K Ultra HD</strong></td>
-          <td>25 Mbps</td>
-          <td>OLED TVs, 4K monitors, Home Theaters</td>
-        </tr>
-        <tr>
-          <td><strong>HD 1080p</strong></td>
-          <td>5 Mbps</td>
-          <td>Tablets, Laptops, Standard HD TVs</td>
-        </tr>
-        <tr>
-          <td><strong>SD 480p</strong></td>
-          <td>3 Mbps</td>
-          <td>Smartphones with small screens</td>
-        </tr>
-        <tr>
-          <td><strong>Live Streaming (Twitch)</strong></td>
-          <td>15 Mbps+</td>
-          <td>Real-time gaming & live sports</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <div style="text-align: center; margin: 40px 0;">
-      <a href="/" style="background: #dc2626; color: white; padding: 15px 30px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block;">Test Streaming Speed Now</a>
-    </div>
-
-    <h2>Top 3 Reasons for Streaming Buffering</h2>
-    <p>Even if you have <strong>fast internet</strong>, you might experience the dreaded "loading" wheel. Here's why:</p>
-    <ol>
-      <li><strong>Local Bandwidth Overload:</strong> If your console is downloading a 50GB game update while you're trying to watch a movie, your router is struggling to share the path.</li>
-      <li><strong>Poor WiFi Coverage:</strong> 5GHz WiFi is fast but doesn't travel through walls well. If your TV is far from the router, you'll see <strong>buffering spikes</strong>.</li>
-      <li><strong>ISP Throttling:</strong> Some ISPs (especially in the US and India) "traffic-shape" video data during peak hours (8 PM - 11 PM) to save bandwidth.</li>
-    </ol>
-
-    <h2>How to Fix Buffering for Good</h2>
-    <p>If your <strong>streaming speed test</strong> shows poor results, try these instant fixes:</p>
-    <ul>
-      <li><strong>Use Ethernet for TVs:</strong> Smart TVs and 4K sticks (FireStick, Roku) are notorious for having weak WiFi cards. A physical cable removes 90% of buffering issues.</li>
-      <li><strong>Clear Cache:</strong> If you're on a browser, clear your cache. If using an app, force stop and restart it to clear memory leaks.</li>
-      <li><strong>Router Position:</strong> Place your router at least 3 feet off the ground and in an open area—not in a cabinet or behind your TV.</li>
-    </ul>
-
-    <h2>Is My Internet Fast Enough?</h2>
-    <p>We've created a dedicated guide to help you understand if your current plan is <a href="/is-my-internet-fast-enough">fast enough for your household size</a>. If you consistently fail these tests, it might be time to <a href="/broadband-speed-test">compare broadband providers</a>. If your speed is fast but video still lags, see our guide on <a href="/why-is-my-internet-slow">troubleshooting slow internet</a>.</p>
-
-    <h2>Future of Streaming: 8K and Beyond</h2>
-    <p>As 8K resolution becomes more affordable, the bandwidth requirements will quadruple to roughly <strong>100 Mbps per stream</strong>. Investing in a <strong>WiFi 7</strong> router and a gigabit fiber connection today ensures your home is "Future-Proof" for the next decade of entertainment.</p>
-  `;
-
   const faqs = [
     {
       question: "Why does my video quality drop to blurry (SD)?",
@@ -115,31 +48,103 @@ export default function StreamingSpeedTestPage() {
   return (
     <div className="bg-background min-h-screen">
       <section className="relative py-20 bg-gradient-to-b from-red-950/20 to-background overflow-hidden">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
           <Breadcrumb items={[{ label: "Streaming Speed Test" }]} />
 
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-medium mb-4">
-              <Tv className="w-3.5 h-3.5" />
-              Video Performance Analytics
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-              Streaming Speed Test – Online Checker
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Check if your internet can handle 4K streaming on Netflix and Disney+. Get accurate download and buffer-health results instantly.
-            </p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+            Streaming Speed Test – <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Fix Buffering</span> Now
+          </h1>
+
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-500 text-xs font-medium mb-8">
+            <Tv className="w-3.5 h-3.5" />
+            Video Performance Analytics 2026
           </div>
+
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+            Check if your internet can handle 4K streaming on Netflix and Disney+. Get accurate download and buffer-health results instantly without any ads.
+          </p>
 
           <SpeedTestWidget />
         </div>
       </section>
 
-      <SeoContentSection
-        title="Streaming Performance Guide: 4K Requirements, Buffering Fixes & Tips"
-        content={content}
-        faqs={faqs}
-      />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="lg:col-span-8">
+            <section className="w-full mt-16 md:mt-24 pt-12 border-t border-border/40 pb-20">
+              <div className="max-w-4xl">
+                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-foreground leading-tight">
+                  Streaming Performance Guide: 4K Requirements, Buffering Fixes & Tips
+                </h2>
+
+                <div className="prose dark:prose-invert prose-red max-w-none mb-16 text-muted-foreground prose-headings:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-relaxed prose-a:text-red-500 hover:prose-a:text-red-400">
+                  <p>Is your <strong>Netflix buffering</strong> during the most intense scene? Whether you're watching <strong>Disney+, Prime Video, or YouTube</strong>, our <strong>Streaming Speed Test</strong> measures if your connection has the sustained throughput needed for high-definition and 4K video. We analyze your <strong>download speed</strong> and <strong>connectivity stability</strong> specifically for video delivery.</p>
+
+                  <div style={{ background: "rgba(239, 68, 68, 0.1)", padding: "25px", borderRadius: "16px", margin: "32px 0", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
+                    <h3 style={{ marginTop: 0, color: "#dc2626" }}>🎬 Streaming Quality Requirement:</h3>
+                    <p>For a flawless <strong>4K (Ultra HD)</strong> experience, YouTube recommends a stable connection of <strong>25 Mbps</strong> per stream. If you have multiple family members watching 4K at once, you need at least <strong>75 Mbps</strong> of dedicated available bandwidth.</p>
+                  </div>
+
+                  <h2>Video Streaming Speed Requirements (2026)</h2>
+                  <div className="overflow-x-auto my-8">
+                    <table className="w-full text-left border-collapse">
+                      <thead>
+                        <tr className="border-bottom-2 border-border/40">
+                          <th className="py-3 px-4 font-bold">Quality</th>
+                          <th className="py-3 px-4 font-bold">Recommended Speed</th>
+                          <th className="py-3 px-4 font-bold">Best For</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-bottom border-border/20">
+                          <td className="py-3 px-4"><strong>4K Ultra HD</strong></td>
+                          <td className="py-3 px-4">25 Mbps</td>
+                          <td className="py-3 px-4">OLED TVs & Home Theaters</td>
+                        </tr>
+                        <tr className="border-bottom border-border/20">
+                          <td className="py-3 px-4"><strong>HD 1080p</strong></td>
+                          <td className="py-3 px-4">5 Mbps</td>
+                          <td className="py-3 px-4">Laptops & Standard TVs</td>
+                        </tr>
+                        <tr className="border-bottom border-border/20">
+                          <td className="py-3 px-4"><strong>Live Sports (60fps)</strong></td>
+                          <td className="py-3 px-4">15 Mbps+</td>
+                          <td className="py-3 px-4">Real-time gaming & Twich</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+
+                  <h2>Top 3 Reasons for Streaming Buffering</h2>
+                  <p>Even if you have <strong>fast internet</strong>, you might experience the dreaded "loading" wheel. This is usually due to local bandwidth overload, poor WiFi coverage (especially 5GHz through walls), or ISP-side "traffic-shaping" during peak hours.</p>
+
+                  <h2>How to Fix Buffering for Good</h2>
+                  <p>If your <strong>streaming speed test</strong> shows poor results, try these instant fixes:</p>
+                  <ul>
+                    <li><strong>Use Ethernet for TVs:</strong> TVs have weak WiFi cards. A physical cable removes 90% of buffering.</li>
+                    <li><strong>Clear App Cache:</strong> Restart your FireStick or Roku to clear memory leaks.</li>
+                    <li><strong>Router Position:</strong> Place your router at least 3 feet off the ground and in an open area.</li>
+                  </ul>
+                </div>
+                <FAQSection faqs={faqs} />
+              </div>
+            </section>
+          </div>
+
+          <div className="lg:col-span-4 py-20 lg:sticky lg:top-24 h-fit">
+            <SocialShare 
+              title="Is your internet ready for 4K? I just checked mine here and found some buffering issues! Check yours:" 
+            />
+            <div className="bg-card/50 p-6 rounded-2xl border border-border/50 mt-8">
+              <h3 className="font-bold mb-4">Video Health Check</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Standard speed tests don't always reflect video performance. Our tool analyzes sustained throughput patterns to ensure your <strong>Video Quality</strong> remains consistent through the entire movie.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
+

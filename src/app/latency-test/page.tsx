@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
-import { SeoContentSection } from "@/components/seo-content-section";
+import { FAQSection } from "@/components/faq-section";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { Activity, Globe, Zap, Timer } from "lucide-react";
+import { SocialShare } from "@/components/social-share";
 
 export const metadata: Metadata = {
     title: "Latency Test – Check Internet Latency, Jitter & Packet Loss",
@@ -21,110 +23,102 @@ export const metadata: Metadata = {
 };
 
 export default function LatencyTestPage() {
-    const content = `
-    <h2>What Is Internet Latency?</h2>
-    <p>Latency is the time delay between sending a request and receiving a response. In plain terms: you click a link — how long until the page starts loading? You fire a shot in a game — how long until the server registers it? That delay is latency, measured in milliseconds (ms).</p>
-    <p><strong>Low latency = fast, responsive connection. High latency = slow, laggy connection.</strong> Run the test above to measure your exact latency right now.</p>
-
-    <h2>Latency vs Ping: Are They the Same?</h2>
-    <p>Latency and ping are often used interchangeably, and in most contexts they mean the same thing: the round-trip time for a data packet. Technically:</p>
-    <ul>
-      <li><strong>Latency</strong> = the total time delay in a network path (one-way or round-trip)</li>
-      <li><strong>Ping</strong> = a specific test that measures round-trip latency to a target server</li>
-    </ul>
-    <p>When gamers say "my ping is 30ms," they mean round-trip latency is 30 milliseconds. Both terms are valid and refer to the same measurement in everyday usage.</p>
-
-    <h2>What Is Jitter?</h2>
-    <p>Jitter measures the <em>variation</em> in latency over time. If your ping measures 20ms, then 50ms, then 18ms, then 80ms in rapid succession — that unpredictability is jitter.</p>
-    <p>Jitter is often more disruptive than consistently high latency. A connection with 80ms ping but 2ms jitter is more playable than one with 30ms average ping but 40ms jitter. Here's why:</p>
-    <ul>
-      <li>Online games use jitter to calculate expected timing. High jitter causes rubber-banding and teleporting enemies in gameplay.</li>
-      <li>VoIP calls (Zoom, Teams, phone calls) use jitter buffers to smooth variations. Very high jitter overwhelms these buffers, causing audio gaps and drops.</li>
-      <li>Video streaming buffers enough data that jitter rarely affects the experience unless it's extremely high.</li>
-    </ul>
-
-    <h2>What Is Packet Loss?</h2>
-    <p>Packet loss occurs when data packets sent across a network fail to reach their destination and must be retransmitted. Even 1–2% packet loss can cause noticeable degradation:</p>
-    <ul>
-      <li><strong>Gaming:</strong> 1% packet loss causes noticeable lag. 5%+ makes competitive play nearly impossible.</li>
-      <li><strong>Video calls:</strong> Pixelated video, audio dropout, and call disconnects.</li>
-      <li><strong>File transfers:</strong> Significantly slower downloads as TCP retransmits lost data.</li>
-    </ul>
-    <p>Packet loss above 0% outside of testing conditions indicates a hardware fault, congested network, or ISP issue.</p>
-
-    <h2>Latency Benchmarks: What Numbers Are Good?</h2>
-    <ul>
-      <li><strong>Under 10ms:</strong> Exceptional. Typically local data center. Unmistakably fast.</li>
-      <li><strong>10–30ms:</strong> Excellent for all activities including competitive gaming.</li>
-      <li><strong>30–60ms:</strong> Good. Most users won't notice any delay in casual gaming or video calls.</li>
-      <li><strong>60–100ms:</strong> Acceptable. Some lag noticeable in fast-paced games. Video calls may show slight audio delay.</li>
-      <li><strong>100–200ms:</strong> Poor. Significant gaming lag. Video calls deteriorate noticeably.</li>
-      <li><strong>200ms+:</strong> Unusable for gaming or real-time communication. Investigate immediately.</li>
-    </ul>
-
-    <h2>What Causes High Latency?</h2>
-    <ul>
-      <li><strong>Physical distance to server:</strong> Light travels fast, but it still takes time. From India to a US server, the minimum physical latency is ~120ms just from distance (speed of light).</li>
-      <li><strong>WiFi overhead:</strong> Wireless protocols add protocol overhead and can double latency compared to a wired connection, especially in crowded WiFi environments.</li>
-      <li><strong>Router processing delay:</strong> Overloaded or old routers with slow processors add queue processing time to every packet.</li>
-      <li><strong>ISP routing inefficiency:</strong> Some ISPs send traffic through multiple hops across suboptimal routes, adding unnecessary latency.</li>
-      <li><strong>Bufferbloat:</strong> When your connection is fully saturated (a download running), routers queue packets, causing massive latency spikes. This is "bufferbloat" and is very common and underdiagnosed.</li>
-    </ul>
-
-    <h2>How to Reduce Latency</h2>
-    <ul>
-      <li><strong>Use Ethernet:</strong> The single biggest latency reducer available. Eliminates WiFi overhead instantly.</li>
-      <li><strong>Enable QoS/SQM on your router:</strong> Smart Queue Management eliminates bufferbloat by intelligently prioritizing small latency-sensitive packets over large bulk transfers.</li>
-      <li><strong>Connect to the nearest server:</strong> In games and VPN services, always choose the server geographically closest to you.</li>
-      <li><strong>Use a gaming router:</strong> Routers with dedicated QoS and gaming VPN modes (like ASUS, NETGEAR Nighthawk) can reduce latency by 20–40% through traffic prioritization.</li>
-      <li><strong>Upgrade your router firmware:</strong> Manufacturers regularly release firmware that improves packet processing efficiency.</li>
-    </ul>
-    <p>For gaming-specific latency tips, see our <a href="/how-to-reduce-ping-gaming">how to reduce ping</a> guide, or run a full <a href="/gaming-speed-test">gaming speed test</a> for a comprehensive analysis.</p>
-    `;
-
     const faqs = [
         {
             question: "What is a good latency for internet?",
-            answer: "For general internet browsing and streaming, under 100ms latency is perfectly fine. For video calls, under 50ms is ideal. For online gaming — especially competitive multiplayer like FPS games — under 30ms is desired and under 20ms is excellent. Fiber internet in India typically delivers 5–15ms latency to local servers."
+            answer: "For general internet browsing and streaming, under 100ms latency is perfectly fine. For video calls, under 50ms is ideal. For online gaming — especially competitive multiplayer like FPS games — under 30ms is desired and under 20ms is excellent."
         },
         {
             question: "What causes jitter on my internet connection?",
-            answer: "Jitter is caused by inconsistent routing, network congestion, WiFi interference, overloaded routers, and ISP instability. WiFi is the most common cause of high jitter in residential settings. Switching to a wired Ethernet connection typically reduces jitter from 20–50ms to 1–5ms instantly."
+            answer: "Jitter is caused by inconsistent routing, network congestion, WiFi interference, overloaded routers, and ISP instability. WiFi is the most common cause of high jitter in residential settings."
         },
         {
             question: "How do I check my packet loss?",
-            answer: "You can test packet loss using our speed test (which also shows packet loss when significant loss is detected), or use the command prompt ping test: type 'ping -n 100 8.8.8.8' on Windows. If you see any 'Request timed out' responses, you have packet loss. Any loss above 0% in a home connection is unusual and should be investigated."
+            answer: "You can test packet loss using our speed test (which also shows packet loss when significant loss is detected), or use the command prompt ping test: type 'ping -n 100 8.8.8.8' on Windows."
         },
         {
             question: "Does a VPN increase or decrease latency?",
-            answer: "A VPN almost always increases latency because your traffic now travels an extra hop through the VPN server. Expect 5–30ms higher ping with a VPN. However, if your ISP routes traffic poorly (e.g., to a distant server), a VPN with a well-placed server can occasionally result in lower game server ping. Test empirically with and without the VPN."
+            answer: "A VPN almost always increases latency because your traffic now travels an extra hop through the VPN server. Expect 5–30ms higher ping with a VPN."
         },
     ];
 
     return (
         <div className="bg-background min-h-screen">
             <section className="relative py-20 bg-gradient-to-b from-yellow-950/20 to-background overflow-hidden">
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
                     <Breadcrumb items={[{ label: "Latency Test" }]} />
 
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-                            Latency Test – Measure Ping, Jitter & Packet Loss
-                        </h1>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            High latency ruining your gaming or video calls? Test your exact latency, jitter, and packet loss right now and learn how to fix it.
-                        </p>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+                        Latency Test – <span className="bg-gradient-to-r from-yellow-400 to-amber-400 bg-clip-text text-transparent">Measure Network Lag</span>
+                    </h1>
+
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-500 text-xs font-medium mb-8">
+                        <Timer className="w-3.5 h-3.5" />
+                        Millisecond Precision Diagnostics 2026
                     </div>
+
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+                        High latency ruining your gaming or video calls? Test your exact latency, jitter, and packet loss right now and discover the path to a faster connection.
+                    </p>
 
                     <SpeedTestWidget />
                 </div>
             </section>
 
-            <SeoContentSection
-                title="Complete Latency Guide: Ping, Jitter, and Packet Loss Explained"
-                content={content}
-                faqs={faqs}
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div className="lg:col-span-8">
+                        <section className="w-full mt-16 md:mt-24 pt-12 border-t border-border/40 pb-20">
+                            <div className="max-w-4xl">
+                                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-foreground leading-tight">
+                                    Complete Latency Guide: Ping, Jitter, and Packet Loss Explained
+                                </h2>
+
+                                <div className="prose dark:prose-invert prose-yellow max-w-none mb-16 text-muted-foreground prose-headings:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-relaxed prose-a:text-yellow-500 hover:prose-a:text-yellow-400">
+                                    <h3>What Is Internet Latency?</h3>
+                                    <p>Latency is the time delay between sending a request and receiving a response. In plain terms: you click a link — how long until the page starts loading? You fire a shot in a game — how long until the server registers it? That delay is latency, measured in milliseconds (ms).</p>
+                                    <p><strong>Low latency = fast, responsive connection. High latency = slow, laggy connection.</strong></p>
+
+                                    <div style={{ background: "rgba(234, 179, 8, 0.1)", padding: "25px", borderRadius: "16px", margin: "32px 0", border: "1px solid rgba(234, 179, 8, 0.2)" }}>
+                                        <h3 style={{ marginTop: 0, color: "#eab308" }}>💡 Network Logic:</h3>
+                                        <p>Many users confuse "Speed" (bandwidth) with "Latency" (reaction time). For web browsing, high bandwidth is enough, but for <strong>Video Calls</strong> and <strong>Online Gaming</strong>, low latency is the most important metric for success.</p>
+                                    </div>
+
+                                    <h2>Latency vs Ping: Are They the Same?</h2>
+                                    <p>Latency and ping are often used interchangeably. Technically, <strong>latency</strong> is the total time delay, while <strong>ping</strong> is the specific test tool used to measure it. Both refer to the same millisecond delay in everyday network troubleshooting.</p>
+
+                                    <h2>What Is Jitter?</h2>
+                                    <p>Jitter measures the <em>variation</em> in latency. If your ping jumps from 20ms to 80ms and back to 15ms in rapid succession — that unpredictability is jitter. High jitter causes "rubber-banding" in games and robotic audio in Zoom or Teams calls.</p>
+
+                                    <h2>What Causes High Latency?</h2>
+                                    <p>Latency is caused by physical distance to servers, WiFi signal interference, overloaded routers, or ISP-side routing inefficiencies. For the lowest possible latency, always use a **wired Ethernet** cable instead of WiFi.</p>
+
+                                    <h2>How to Reduce Latency</h2>
+                                    <ul>
+                                      <li><strong>Use Ethernet:</strong> Eliminates WiFi signal overhead instantly.</li>
+                                      <li><strong>Enable QoS:</strong> Prioritize small packets over large file downloads.</li>
+                                      <li><strong>Restart Equipment:</strong> A fresh modem/router state often clears packet queues.</li>
+                                    </ul>
+                                </div>
+                                <FAQSection faqs={faqs} />
+                            </div>
+                        </section>
+                    </div>
+
+                    <div className="lg:col-span-4 py-20 lg:sticky lg:top-24 h-fit">
+                        <SocialShare 
+                            title="I just measured my network lag! My latency is much lower than I expected. Check your ping for free here:" 
+                        />
+                        <div className="bg-card/50 p-6 rounded-2xl border border-border/50 mt-8">
+                            <h3 className="font-bold mb-4">Lag Diagnostics</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                Most ISPs only advertise "Download Speed" because it sounds fast. But if you have high latency, that speed won't help you in a video meeting. Our test helps you hold your ISP accountable for <strong>Response Quality</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
+

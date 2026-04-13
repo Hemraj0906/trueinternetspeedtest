@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
-import { SeoContentSection } from "@/components/seo-content-section";
+import { FAQSection } from "@/components/faq-section";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { Smartphone, Globe, Zap, Timer, Signal } from "lucide-react";
+import { SocialShare } from "@/components/social-share";
 
 export const metadata: Metadata = {
     title: "BSNL Speed Test – Check BSNL Broadband & 4G Speed",
@@ -19,102 +21,93 @@ export const metadata: Metadata = {
 };
 
 export default function BsnlSpeedTestPage() {
-    const content = `
-    <h2>BSNL Internet Speed: What to Expect in 2026</h2>
-    <p>Bharat Sanchar Nigam Limited (BSNL) is India's government-owned telecom provider and the only carrier with truly nationwide coverage — including remote areas where private carriers have no presence. BSNL offers <strong>broadband, FTTH fiber, and 4G mobile data</strong> services across India.</p>
-    <p>With the rollout of indigenous 4G (and upcoming 5G) using Indian-developed technology equipment, BSNL has been undergoing a major network revamp since 2023. But how fast is BSNL actually performing today? Run the speed test above to find out.</p>
-
-    <h2>BSNL Broadband Speeds: ADSL vs FTTH</h2>
-    <p>BSNL offers two main types of broadband:</p>
-    <ul>
-      <li><strong>BSNL ADSL/VDSL Broadband:</strong> Legacy copper-based broadband. Typical speeds: 2–20 Mbps download, 1–5 Mbps upload. Best in class was VDSL at 40 Mbps, but this depends on distance from the nearest exchange.</li>
-      <li><strong>BSNL FTTH (Bharat Fiber):</strong> Fiber to the Home. Plans offer 30–200 Mbps. Real-world speeds should be 25–180 Mbps on a wired connection. BSNL FTTH is now available in 700+ cities and towns.</li>
-    </ul>
-    <p>If you're on an older ADSL plan, consider upgrading to BSNL Bharat Fiber for dramatically better speeds at competitive pricing.</p>
-
-    <h2>BSNL 4G Speed: What's Changing?</h2>
-    <p>BSNL's 4G launch using indigenous TCS and C-DOT equipment began in late 2023 and expanded through 2024–2025. Current BSNL 4G performance:</p>
-    <ul>
-      <li><strong>Download speed:</strong> 8–30 Mbps in initial 4G cities</li>
-      <li><strong>Upload speed:</strong> 3–10 Mbps</li>
-      <li><strong>Ping:</strong> 40–80ms on average</li>
-      <li><strong>Coverage:</strong> Expanding rapidly; many rural areas now getting 4G for the first time</li>
-    </ul>
-    <p>BSNL 4G speeds are currently below Jio and Airtel in urban areas but are improving as more towers go live. BSNL's unique advantage is rural coverage depth — in many areas, it's the only available carrier.</p>
-
-    <h2>Why Is My BSNL Internet Slow?</h2>
-    <p>BSNL users frequently encounter the following issues:</p>
-    <ul>
-      <li><strong>Peak-Hour Congestion:</strong> BSNL broadband nodes are often heavily loaded in evenings. This is less of an issue for FTTH but common on ADSL.</li>
-      <li><strong>Old Modem Equipment:</strong> BSNL provides free modems with many plans, but these are sometimes outdated models with poor WiFi performance. Ask BSNL to replace an aging modem.</li>
-      <li><strong>Line Quality (ADSL):</strong> DSL speeds degrade with distance from the telephone exchange. Wet conditions and aging copper cables also impact ADSL quality.</li>
-      <li><strong>Data Plan Exhausted:</strong> BSNL mobile plans throttle to very low speeds after the data limit. Check via *123*6# on your BSNL SIM.</li>
-      <li><strong>4G Tower Assignment:</strong> BSNL's 4G tower count is still growing. In some areas, you may be connecting to a more distant tower, resulting in slower speeds.</li>
-    </ul>
-
-    <h2>How to Improve BSNL Broadband Speed</h2>
-    <ul>
-      <li><strong>Upgrade to Bharat Fiber (FTTH):</strong> If FTTH is available in your area, upgrade from ADSL for 5–10x speed improvement at similar pricing.</li>
-      <li><strong>Replace the BSNL modem:</strong> Request a newer modem from your local BSNL exchange if yours is more than 3 years old.</li>
-      <li><strong>Use a wired connection:</strong> BSNL routers often have weaker WiFi. A wired Ethernet cable from the modem directly to your PC gives much better results.</li>
-      <li><strong>Change the BSNL plan:</strong> BSNL frequently launches new promotional plans with higher speeds. Check the BSNL portal for current offers.</li>
-      <li><strong>Change DNS to 1.1.1.1:</strong> BSNL's default DNS servers are sometimes slow. Changing to Cloudflare (1.1.1.1) or Google (8.8.8.8) improves page load times significantly.</li>
-    </ul>
-    <p>For more help, see our guide on <a href="/why-is-my-internet-slow">why internet is slow</a> and run our <a href="/">full internet speed test</a> for a complete diagnosis.</p>
-
-    <h2>BSNL vs Jio vs Airtel: Which Is Better for Broadband?</h2>
-    <ul>
-      <li><strong>Speed:</strong> Jio Fiber and Airtel Xstream Fiber lead on speed in urban areas. BSNL FTTH is competitive on pricing.</li>
-      <li><strong>Pricing:</strong> BSNL is typically 20–40% cheaper than private carriers for comparable plans, making it excellent value.</li>
-      <li><strong>Rural Coverage:</strong> BSNL is unmatched in rural and remote areas.</li>
-      <li><strong>Customer Support:</strong> Private carriers (Jio/Airtel) generally offer faster issue resolution.</li>
-    </ul>
-    <p>For a detailed comparison, see our <a href="/bsnl-vs-jio-speed-comparison">BSNL vs Jio speed comparison</a> page.</p>
-    `;
-
     const faqs = [
         {
             question: "What is good BSNL broadband speed?",
-            answer: "For BSNL Bharat Fiber (FTTH), you should see 85–95% of your plan speed on a wired connection. For a 100 Mbps FTTH plan, expect 85–95 Mbps. For older BSNL ADSL connections, if you're more than 2km from the exchange, speeds of 5–15 Mbps are typical and limited by copper line technology."
+            answer: "For BSNL Bharat Fiber (FTTH), expect 85–95% of your plan speed on a wired connection. For older ADSL copper lines, 5–15 Mbps is typical if you're over 2km from the exchange."
         },
         {
             question: "How can I check my BSNL 4G data balance?",
-            answer: "Dial *123*6# from your BSNL SIM to check remaining data balance. Alternatively, use the BSNL Self Care app, or log in to selfcare.bsnl.co.in with your mobile number. You can also receive balance alerts by SMS by registering on the portal."
+            answer: "Dial *123*6# from your BSNL SIM. Alternatively, use the BSNL Self Care app or portal to see your remaining high-speed data quota."
         },
         {
             question: "Is BSNL Bharat Fiber available in my area?",
-            answer: "Visit the BSNL portal at bsnl.in and use the 'FTTH Availability' checker, or call 1800-345-1500 (toll-free). BSNL FTTH is currently available in 700+ cities and towns across India, with aggressive expansion planned through 2026."
+            answer: "Check the BSNL portal or call 1800-345-1500. BSNL FTTH is rapidly expanding through the BharatNet project to over 700 cities."
         },
         {
             question: "Why is BSNL internet slow at night?",
-            answer: "BSNL's older ADSL broadband is delivered on shared nodes. During evening peak hours (8–11 PM), many users in your area stream HD video simultaneously, congesting the node. BSNL Bharat Fiber (FTTH) is significantly less affected by this because fiber has much higher total capacity."
+            answer: "Older ADSL nodes are often shared. Peak-hour streaming (8–11 PM) can congest these legacy nodes. Upgrading to Bharat Fiber (FTTH) eliminates this issue."
         },
     ];
 
     return (
         <div className="bg-background min-h-screen">
-            <section className="relative py-20 bg-gradient-to-b from-teal-950/20 to-background overflow-hidden">
+            <section className="relative py-20 bg-gradient-to-b from-teal-950/20 to-background overflow-hidden text-center">
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
                     <Breadcrumb items={[{ label: "BSNL Speed Test" }]} />
 
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-                            BSNL Speed Test – Check Bharat Fiber & 4G Speed
-                        </h1>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            Test your real BSNL internet speed — broadband, FTTH, or 4G. Find out if your connection matches what your plan promises.
-                        </p>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+                        BSNL Speed Test – <span className="bg-gradient-to-r from-teal-400 to-emerald-400 bg-clip-text text-transparent">Check Bharat Fiber & 4G</span>
+                    </h1>
+
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-medium mb-8">
+                        <Signal className="w-3.5 h-3.5" />
+                        National Network Diagnostics 2026
                     </div>
+
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+                        Test your real BSNL internet speed — broadband, FTTH, or 4G. Find out if your connection matches what your plan promises.
+                    </p>
 
                     <SpeedTestWidget />
                 </div>
             </section>
 
-            <SeoContentSection
-                title="BSNL Internet Speed Guide: Performance, Plans & Fixes"
-                content={content}
-                faqs={faqs}
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div className="lg:col-span-8">
+                        <section className="w-full mt-16 md:mt-24 pt-12 border-t border-border/40 pb-20">
+                            <div className="max-w-4xl">
+                                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-foreground leading-tight">
+                                    BSNL Internet Speed Guide: Performance, Plans & Fixes
+                                </h2>
+
+                                <div className="prose dark:prose-invert prose-teal max-w-none mb-16 text-muted-foreground prose-headings:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-relaxed prose-a:text-teal-500 hover:prose-a:text-teal-400">
+                                    <p>BSNL is India's government-owned provider with nationwide coverage. Since 2024, BSNL has been revamping its infrastructure with indigenous 4G technology. Run the <strong>BSNL Speed Test</strong> above for a real-time health check.</p>
+
+                                    <div style={{ background: "rgba(20, 184, 166, 0.1)", padding: "25px", borderRadius: "16px", margin: "32px 0", border: "1px solid rgba(20, 184, 166, 0.2)" }}>
+                                        <h3 style={{ marginTop: 0, color: "#14b8a6" }}>📡 Upgrade Alert:</h3>
+                                        <p>If you are still on a legacy BSNL ADSL copper line, you are likely missing out on <strong>Bharat Fiber (FTTH)</strong> speeds which are 10x faster for the same price.</p>
+                                    </div>
+
+                                    <h2>BSNL 4G Network Performance</h2>
+                                    <p>BSNL 4G is expanding into rural interiors where private carriers are absent. Typical 4G speeds range from <strong>10 Mbps to 30 Mbps</strong>. While urban speeds may be lower than competitors, BSNL leads in connectivity for Tier-3 cities.</p>
+
+                                    <h2>Common BSNL Fixes</h2>
+                                    <ul>
+                                      <li><strong>Refresh Modem:</strong> Power cycle your modem daily to clear stale IP routes.</li>
+                                      <li><strong>DNS Change:</strong> Switch to <strong>8.8.8.8 (Google)</strong> to improve browsing response times on BSNL lines.</li>
+                                      <li><strong>Check Plan FUP:</strong> Many BSNL plans have strict data limits. Check via *123# or the BSNL portal.</li>
+                                    </ul>
+                                </div>
+                                <FAQSection faqs={faqs} />
+                            </div>
+                        </section>
+                    </div>
+
+                    <div className="lg:col-span-4 py-20 lg:sticky lg:top-24 h-fit">
+                        <SocialShare 
+                            title="I just checked my BSNL speed! Is Bharat Fiber live in your area? Check for free here:" 
+                        />
+                        <div className="bg-card/50 p-6 rounded-2xl border border-border/50 mt-8">
+                            <h3 className="font-bold mb-4">BSNL Network Status</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                BSNL latency often varies based on regional exchange load. If your ping is above 100ms, your local exchange might be over-provisioned.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

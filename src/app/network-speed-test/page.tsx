@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
-import { SeoContentSection } from "@/components/seo-content-section";
+import { FAQSection } from "@/components/faq-section";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { Activity, Globe, Timer, ShieldCheck, Wifi } from "lucide-react";
+import { SocialShare } from "@/components/social-share";
 
 export const metadata: Metadata = {
     title: "Network Speed Test – Check Local Network & LAN Speed",
@@ -19,101 +21,94 @@ export const metadata: Metadata = {
 };
 
 export default function NetworkSpeedTestPage() {
-    const content = `
-    <h2>What Is a Network Speed Test?</h2>
-    <p>A network speed test measures the performance of your internet connection from your device to a remote server. It tells you how fast data can travel through your entire network path — including your home network, router, and your ISP's infrastructure.</p>
-    <p>This is different from a local LAN (Local Area Network) speed test, which measures speed between devices within your home (e.g., from your PC to your NAS drive). Our test measures <strong>internet-facing network speed</strong> — the number that actually affects your browsing, streaming, and gaming experience.</p>
-
-    <h2>Components of a Network Speed Test</h2>
-    <ul>
-      <li><strong>Download Speed:</strong> Data throughput from the internet to your device. Affects streaming, downloads, and web browsing.</li>
-      <li><strong>Upload Speed:</strong> Data throughput from your device to the internet. Affects video calls, cloud sync, and sending files.</li>
-      <li><strong>Ping / Latency:</strong> Round-trip response time to the server in milliseconds. Affects gaming, VoIP, and live applications.</li>
-      <li><strong>Jitter:</strong> Variation in ping over time. High jitter causes unstable, choppy performance in real-time apps.</li>
-    </ul>
-
-    <h2>Factors That Affect Your Network Speed</h2>
-    <p>Your effective network speed is constrained by the weakest link in a long chain:</p>
-    <ul>
-      <li><strong>Your ISP plan:</strong> The maximum speed your ISP can deliver to your router/modem.</li>
-      <li><strong>Your router:</strong> Older routers have limited processing power and outdated WiFi standards that cap effective speed.</li>
-      <li><strong>Your WiFi band:</strong> 2.4 GHz WiFi is slower and more congested. 5 GHz WiFi is faster but shorter range.</li>
-      <li><strong>Your network adapter:</strong> Old laptops may have a 100 Mbps Ethernet card — a bottleneck when connected to a gigabit fiber plan.</li>
-      <li><strong>Number of connected devices:</strong> Every connected device shares available bandwidth.</li>
-      <li><strong>Time of day:</strong> ISP network congestion during peak hours reduces available speed for all users on a shared node.</li>
-    </ul>
-
-    <h2>How to Run the Most Accurate Network Speed Test</h2>
-    <ul>
-      <li><strong>Step 1:</strong> If possible, connect your device directly to the router with an Ethernet cable (Cat5e or Cat6).</li>
-      <li><strong>Step 2:</strong> Close all applications that use internet: streaming apps, cloud drives, Windows Update, etc.</li>
-      <li><strong>Step 3:</strong> Ensure no other devices on your network are actively downloading or streaming during the test.</li>
-      <li><strong>Step 4:</strong> Run the test 3 consecutive times and average the results for a reliable baseline reading.</li>
-      <li><strong>Step 5:</strong> Record results at different times of day (morning vs. evening) to detect peak-hour congestion patterns.</li>
-    </ul>
-
-    <h2>Reading Your Network Speed Test Results</h2>
-    <p>Once you have your numbers, here's how to interpret them:</p>
-    <ul>
-      <li><strong>Getting 80–100% of advertised plan speed via Ethernet?</strong> Your ISP and home network are performing excellently.</li>
-      <li><strong>Getting 50–80% via Ethernet?</strong> Minor ISP congestion or slightly outdated equipment. Usually acceptable.</li>
-      <li><strong>Getting under 50% via Ethernet?</strong> Significant issue — contact your ISP with test results as evidence.</li>
-      <li><strong>WiFi significantly lower than Ethernet?</strong> Normal to a degree, but large gaps (over 50%) indicate poor router placement, interference, or an outdated router.</li>
-    </ul>
-
-    <h2>Diagnosing Network Problems with Speed Tests</h2>
-    <p>Speed tests are a powerful diagnostic tool beyond just checking speed:</p>
-    <ul>
-      <li><strong>Run Ethernet test + WiFi test:</strong> A big gap reveals a WiFi problem, not an ISP problem.</li>
-      <li><strong>Morning vs evening comparison:</strong> Slow evenings only = ISP congestion or node oversubscription.</li>
-      <li><strong>Speed test against ISP's own server vs third-party:</strong> If your ISP's own test shows fast speeds but ours shows slow — your ISP may be prioritizing their own test traffic while throttling real-world traffic.</li>
-    </ul>
-    <p>For a full <a href="/">internet speed test</a>, run our main test. For WiFi-specific performance, try our <a href="/wifi-speed-test-online">WiFi speed test</a>. If gaming performance is your concern, the <a href="/gaming-speed-test">gaming speed test</a> provides targeted measurements.</p>
-    `;
-
     const faqs = [
         {
             question: "What is a good network speed for home use?",
-            answer: "For a typical household of 4 people streaming HD video, working from home, and gaming simultaneously, 200 Mbps download and 20 Mbps upload is comfortable. A 100 Mbps connection handles 3–4 simultaneous HD streams. For 4K content on multiple TVs, aim for 300+ Mbps."
+            answer: "For a typical household of 4, 200 Mbps download and 20 Mbps upload is comfortable. A 100 Mbps connection handles 3–4 simultaneous HD streams easily."
         },
         {
             question: "Why does my network speed test vary each time?",
-            answer: "Speed test results fluctuate naturally due to server load at the test endpoint, changing traffic conditions on your ISP's network, and normal WiFi signal variations. Running 3 tests and averaging them gives a more reliable result. Run tests at different times of day to see your consistent minimum and peak speeds."
+            answer: "Results fluctuate due to changing traffic conditions on your ISP's network, server load at the endpoint, and minor WiFi interference. Average 3 tests for a reliable baseline."
         },
         {
-            question: "How do I test speed between my own devices (local network)?",
-            answer: "To test local network (LAN) speed between two devices in your home, use tools like iPerf (free, cross-platform) on Windows, Mac, or Linux. iPerf can measure real throughput between devices on the same network without going through the internet. Gigabit Ethernet achieves 900+ Mbps in iPerf tests."
+            question: "How do I test local network (LAN) speed?",
+            answer: "To test speed between devices in your home (e.g. PC to NAS), use tools like iPerf. This measures internal throughput without going through the internet."
         },
         {
-            question: "Is a VPN speed test the same as a regular network speed test?",
-            answer: "No. When tested through a VPN, results reflect the VPN tunnel bandwidth — not your full ISP capacity. VPN encryption overhead and routing through VPN servers typically reduce measured speeds by 10–50%. Always test without VPN to see your true ISP-provided network speed."
+            question: "Is a VPN speed test different?",
+            answer: "Yes. Testing with a VPN reflects the encrypted tunnel's bandwidth, usually 10-50% slower than your true ISP capacity due to overhead."
         },
     ];
 
     return (
         <div className="bg-background min-h-screen">
-            <section className="relative py-20 bg-gradient-to-b from-indigo-950/20 to-background overflow-hidden">
+            <section className="relative py-20 bg-gradient-to-b from-indigo-950/20 to-background overflow-hidden text-center">
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
                     <Breadcrumb items={[{ label: "Network Speed Test" }]} />
 
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-                            Network Speed Test – Check Your Internet Throughput
-                        </h1>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            Diagnose your network performance in seconds. Measure real throughput, identify bottlenecks, and get actionable fixes.
-                        </p>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+                        Network Speed Test – <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Check Your Total Throughput</span>
+                    </h1>
+
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-medium mb-8">
+                        <Activity className="w-3.5 h-3.5" />
+                        Live Network Infrastructure Diagnostics 2026
                     </div>
+
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+                        Diagnose your network performance in seconds. Measure real throughput, identify bottlenecks, and get actionable fixes for your home or office setup.
+                    </p>
 
                     <SpeedTestWidget />
                 </div>
             </section>
 
-            <SeoContentSection
-                title="Network Speed Testing Guide: How to Test, Read, & Improve Results"
-                content={content}
-                faqs={faqs}
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div className="lg:col-span-8">
+                        <section className="w-full mt-16 md:mt-24 pt-12 border-t border-border/40 pb-20">
+                            <div className="max-w-4xl">
+                                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-foreground leading-tight">
+                                    Network Speed Testing Guide: How to Test & Troubleshoot
+                                </h2>
+
+                                <div className="prose dark:prose-invert prose-indigo max-w-none mb-16 text-muted-foreground prose-headings:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-relaxed prose-a:text-indigo-500 hover:prose-a:text-indigo-400">
+                                    <p>A network speed test measures the performance of your entire data path — from your device through your router, into the ISP's node, and finally to the destination server. It's the most comprehensive way to check if your internet connection is healthy.</p>
+
+                                    <div style={{ background: "rgba(99, 102, 241, 0.1)", padding: "25px", borderRadius: "16px", margin: "32px 0", border: "1px solid rgba(99, 102, 241, 0.2)" }}>
+                                        <h3 style={{ marginTop: 0, color: "#6366f1" }}>⚙️ The "Weakest Link" Rule:</h3>
+                                        <p>Your network speed is only as fast as its slowest component. Often, an old <strong>Cat5 cable</strong> (capped at 100 Mbps) or a 2.4GHz WiFi signal is what's holding back your Gigabit Internet subscription.</p>
+                                    </div>
+
+                                    <h2>Key Network Metrics</h2>
+                                    <ul>
+                                      <li><strong>Throughput:</strong> The actual volume of data moved per second.</li>
+                                      <li><strong>Latency (ms):</strong> Round-trip response time; critical for real-time apps.</li>
+                                      <li><strong>Packet Loss:</strong> Percentage of data lost during transit; causes severe stutter in video calls.</li>
+                                    </ul>
+
+                                    <h2>How to Get Accurate Results</h2>
+                                    <p>Ensure no other devices are streaming 4K video or running large updates during the test. For the absolute baseline, connect via <strong>Cat6 Ethernet</strong> to bypass WiFi interference entirely.</p>
+                                </div>
+                                <FAQSection faqs={faqs} />
+                            </div>
+                        </section>
+                    </div>
+
+                    <div className="lg:col-span-4 py-20 lg:sticky lg:top-24 h-fit">
+                        <SocialShare 
+                            title="I just audited my network speed! Is your internet performing at 100%? Check for free here:" 
+                        />
+                        <div className="bg-card/50 p-6 rounded-2xl border border-border/50 mt-8">
+                            <h3 className="font-bold mb-4">Infrastructure Check</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                Our test detects IP routing efficiency. If your speed is high but browsing feels slow, your <strong>DNS resolvers</strong> might be the bottleneck.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
+

@@ -5,6 +5,14 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const host = request.headers.get('host');
 
+  const proto = request.headers.get('x-forwarded-proto') || 'http';
+  
+  // Redirect http to https
+  if (proto === 'http' && process.env.NODE_ENV === 'production') {
+    url.protocol = 'https';
+    return NextResponse.redirect(url, 301);
+  }
+
   // Redirect www to non-www
   if (host && host.startsWith('www.')) {
     const newHost = host.replace('www.', '');

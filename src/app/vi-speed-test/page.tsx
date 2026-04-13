@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
-import { SeoContentSection } from "@/components/seo-content-section";
+import { FAQSection } from "@/components/faq-section";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { Smartphone, Globe, Zap, Timer, Activity } from "lucide-react";
+import { SocialShare } from "@/components/social-share";
 
 export const metadata: Metadata = {
     title: "Vi Speed Test – Check Vodafone Idea 4G & 5G Speed",
@@ -19,103 +21,94 @@ export const metadata: Metadata = {
 };
 
 export default function ViSpeedTestPage() {
-    const content = `
-    <h2>Is Your Vi (Vodafone Idea) Network Fast Enough?</h2>
-    <p>Vi — formerly known as Vodafone India and Idea Cellular — merged to form India's third-largest telecom operator. After years of financial restructuring, Vi has been investing in network upgrades in 2025–2026, including its 5G rollout in major cities.</p>
-    <p>But is your Vi connection actually delivering good speeds? Hit the button above to run a live Vi speed test and compare your results to the benchmarks below.</p>
-
-    <h2>Vi 4G Speed: What to Expect</h2>
-    <p>Vi's 4G network coverage and performance varies significantly by region. Here's a realistic picture:</p>
-    <ul>
-      <li><strong>Metro cities (Mumbai, Delhi, Bangalore):</strong> 15–40 Mbps average download; some peak speeds of 60+ Mbps</li>
-      <li><strong>Tier 2 cities:</strong> 8–25 Mbps; more variability due to tower density</li>
-      <li><strong>Rural areas:</strong> 2–10 Mbps; coverage can be spotty</li>
-      <li><strong>Upload speed:</strong> Typically 5–15 Mbps on 4G</li>
-      <li><strong>Ping:</strong> 30–60ms on average for 4G connections</li>
-    </ul>
-    <p>Vi consistently ranks below Jio and Airtel in independent speed surveys (TRAI Myspeed data), but has been improving following new government investments in the telecom operator.</p>
-
-    <h2>Vi 5G Speed: What Cities Are Covered?</h2>
-    <p>Vi launched its 5G services in 2025 in select Indian cities. Early speed test results show:</p>
-    <ul>
-      <li><strong>Download speeds:</strong> 100–350 Mbps in good coverage areas</li>
-      <li><strong>Upload speeds:</strong> 20–80 Mbps</li>
-      <li><strong>Ping:</strong> 15–30ms in 5G mode</li>
-    </ul>
-    <p>Vi's 5G uses NSA (Non-Standalone) architecture. Current 5G coverage cities include Mumbai, Delhi, Kolkata, Bangalore, Hyderabad, Chennai, Pune, and Ahmedabad. Coverage is expanding.</p>
-
-    <h2>Why Is My Vi Internet So Slow?</h2>
-    <p>Common reasons for slow Vi speeds include:</p>
-    <ul>
-      <li><strong>Data pack exhausted:</strong> Many Vi plans throttle speeds after the daily high-speed data limit (often 1.5–3 GB/day). Check the Vi app to see your remaining high-speed data.</li>
-      <li><strong>Network congestion:</strong> Vi has fewer towers per area than Jio in many regions. Peak hours (7–10 PM) often cause significant speed drops.</li>
-      <li><strong>SIM card age:</strong> Very old Vi SIM cards may not support the latest 4G bands. Contact Vi to get a free SIM upgrade.</li>
-      <li><strong>Phone compatibility:</strong> Ensure your phone's LTE band support matches the Vi bands in your city. Vi primarily uses Band 3, 5, and 28 for 4G.</li>
-      <li><strong>VoLTE interference:</strong> In some cases, enabling or disabling VoLTE (Voice over LTE) can affect data speed. Test with both settings.</li>
-    </ul>
-
-    <h2>How to Boost Vi 4G Speed on Your Phone</h2>
-    <ul>
-      <li><strong>Toggle airplane mode:</strong> 10 seconds in airplane mode forces a fresh tower selection when you reconnect.</li>
-      <li><strong>Update your Vi SIM:</strong> Visit a Vi store for a free 4G SIM upgrade if your current SIM is more than 3 years old.</li>
-      <li><strong>Change APN settings:</strong> Go to Settings → Mobile Network → APN → Check that "internet" is set as your Vi APN (hostname: internet). Incorrect APN severely limits speeds.</li>
-      <li><strong>Check plan validity:</strong> Expired plan recharges default to extremely slow speeds (previously called GPRS). Recharge immediately via the Vi app for full 4G speed.</li>
-    </ul>
-    <p>For a broader mobile speed comparison, check our <a href="/mobile-speed-test">mobile speed test</a> page or compare <a href="/4g-speed-test">4G speeds</a> across all carriers.</p>
-
-    <h2>Vi vs Jio vs Airtel: Which Is Fastest?</h2>
-    <p>Based on TRAI Myspeed data and independent tests as of 2026:</p>
-    <ul>
-      <li><strong>1st: Jio</strong> — Widest 4G/5G coverage; fastest average speeds nationally; best in rural areas</li>
-      <li><strong>2nd: Airtel</strong> — Most consistent speeds in urban areas; often beats Jio on latency and stability</li>
-      <li><strong>3rd: Vi</strong> — Improving but still behind; stronger in Mumbai and some metro corridors</li>
-    </ul>
-    <p>However, the "best" carrier depends on your specific location. In some cities and neighborhoods, Vi may actually outperform the others. Run this test to see your real-world Vi data speed and then run the same test on other networks if you have access to cross-compare.</p>
-    `;
-
     const faqs = [
         {
             question: "What is a good Vi speed test result?",
-            answer: "For Vi 4G, a good result is 15+ Mbps download and 5+ Mbps upload with under 60ms ping in urban areas. For Vi 5G, expect 100+ Mbps download. If you're consistently getting under 5 Mbps on 4G, check your data balance, SIM age, or consider switching towers by toggling airplane mode."
+            answer: "For Vi 4G, a good result is 15+ Mbps download and 5+ Mbps upload. For Vi 5G, expect 100–350 Mbps. If you're consistently getting under 5 Mbps on 4G, consider toggling airplane mode or checking your data balance."
         },
         {
             question: "Why is my Vi network so slow compared to Jio?",
-            answer: "Vi has fewer active cell towers per area in many regions compared to Jio's massive network investment. Additionally, Vi's network has faced underinvestment during financial difficulties. However, post-government equity infusion in 2024-2025, Vi has been actively upgrading towers and expanding 5G coverage."
+            answer: "Vi has fewer towers per area in many regions compared to Jio. However, Vi is actively upgrading its infrastructure in 2026, especially in metro areas like Mumbai and Delhi."
         },
         {
-            question: "How do I check my Vi data balance before running a speed test?",
-            answer: "Open the Vi app → Dashboard → Data Balance. Alternatively, dial *199# and follow the prompts. If your high-speed data quota is exhausted, speeds will be throttled to 64 Kbps or 1 Mbps until your next recharge or the daily reset at midnight."
+            question: "How do I check my Vi data balance?",
+            answer: "Open the Vi app or dial *199#. If your high-speed quota is exhausted, your speed will be throttled to 64 Kbps or 1 Mbps."
         },
         {
-            question: "Does Vi throttle speeds after a certain usage?",
-            answer: "Yes. Like Jio and Airtel, most Vi prepaid plans have a daily high-speed data limit (typically 1.5 GB/day on popular plans). Once exceeded, speeds drop to 64 Kbps. Postpaid plans typically have monthly data caps with unlimited low-speed data afterward. Check your specific plan terms."
+            question: "Does Vi throttle speeds after certain usage?",
+            answer: "Yes. Most Vi prepaid plans have a daily limit (e.g., 1.5GB/day). Once you cross this, speeds drop to an extremely low level until midnight."
         },
     ];
 
     return (
         <div className="bg-background min-h-screen">
-            <section className="relative py-20 bg-gradient-to-b from-red-950/20 to-background overflow-hidden">
+            <section className="relative py-20 bg-gradient-to-b from-red-950/20 to-background overflow-hidden text-center">
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
                     <Breadcrumb items={[{ label: "Vi Speed Test" }]} />
 
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-                            Vi Speed Test – Check Vodafone Idea Network Speed
-                        </h1>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            Test your real Vi 4G and 5G internet speed instantly. Find out if your network is performing well — and how to improve it if not.
-                        </p>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+                        Vi Speed Test – <span className="bg-gradient-to-r from-red-500 to-yellow-500 bg-clip-text text-transparent">Check Vodafone Idea Status</span>
+                    </h1>
+
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-medium mb-8">
+                        <Smartphone className="w-3.5 h-3.5" />
+                        Network Diagnostic Live 2026
                     </div>
+
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+                        Test your real Vi 4G and 5G internet speed instantly. Find out if your network is performing well — and how to improve it if not.
+                    </p>
 
                     <SpeedTestWidget />
                 </div>
             </section>
 
-            <SeoContentSection
-                title="Vi Speed Guide: 4G & 5G Performance & Troubleshooting"
-                content={content}
-                faqs={faqs}
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div className="lg:col-span-8">
+                        <section className="w-full mt-16 md:mt-24 pt-12 border-t border-border/40 pb-20">
+                            <div className="max-w-4xl">
+                                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-foreground leading-tight">
+                                    Vi Speed Guide: 4G & 5G Performance & Troubleshooting
+                                </h2>
+
+                                <div className="prose dark:prose-invert prose-red max-w-none mb-16 text-muted-foreground prose-headings:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-relaxed prose-a:text-red-500 hover:prose-a:text-red-400">
+                                    <p>Vi (Vodafone Idea) has been investing heavily in network upgrades through 2025 and 2026. While coverage varies by region, our <strong>Vi Speed Test</strong> helps you verify if you're getting the throughput you paid for.</p>
+
+                                    <div style={{ background: "rgba(239, 68, 68, 0.1)", padding: "25px", borderRadius: "16px", margin: "32px 0", border: "1px solid rgba(239, 68, 68, 0.2)" }}>
+                                        <h3 style={{ marginTop: 0, color: "#ef4444" }}>🚩 Vi Reality Check:</h3>
+                                        <p>If your speeds are below 2 Mbps on 4G, your SIM might be outdated. Visit a Vi store for a <strong>free USIM upgrade</strong> to unlock the latest carrier aggregation bands.</p>
+                                    </div>
+
+                                    <h2>What to expect from Vi 5G</h2>
+                                    <p>Vi's 5G rollout primarily targets metro corridors. In covered areas, customers can expect <strong>100–350 Mbps</strong> download speeds. If you're on a 5G phone but seeing 4G speeds, check your network settings or ensure you have a 5G-enabled plan.</p>
+
+                                    <h2>Vi Troubleshooting Tips</h2>
+                                    <ul>
+                                      <li><strong>APN Settings:</strong> Ensure your APN is set to "internet" (all lowercase).</li>
+                                      <li><strong>Airplane Mode:</strong> Toggling this off and on for 10 seconds restores the optimal tower connection.</li>
+                                      <li><strong>Check FUP:</strong> Many Vi plans throttle significantly after the daily high-speed quota (e.g. 1.5GB) is reached.</li>
+                                    </ul>
+                                </div>
+                                <FAQSection faqs={faqs} />
+                            </div>
+                        </section>
+                    </div>
+
+                    <div className="lg:col-span-4 py-20 lg:sticky lg:top-24 h-fit">
+                        <SocialShare 
+                            title="I just checked my Vi network speed! Is your data as fast as promised? Check for free here:" 
+                        />
+                        <div className="bg-card/50 p-6 rounded-2xl border border-border/50 mt-8">
+                            <h3 className="font-bold mb-4">Vodafone Idea Diagnostics</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                Vi uses a mix of L900 and L2100 spectrum for 4G. Our tool helps identify if your connection is hampered by signal interference or network load.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
+

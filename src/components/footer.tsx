@@ -7,6 +7,7 @@ import { InstallButton } from "./install-button";
 const footerLinks = {
   "Main Tools": [
     { href: "/", label: "Internet Speed Test" },
+    { href: "/purpose", label: "Speed Test by Purpose" },
     { href: "/check-internet-speed", label: "Check Internet Speed" },
     { href: "/download-speed-test", label: "Download Speed Test" },
     { href: "/upload-speed-test", label: "Upload Speed Test" },

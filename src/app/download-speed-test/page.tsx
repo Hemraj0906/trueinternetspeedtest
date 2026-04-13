@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { SpeedTestWidget } from "@/components/speed-test-widget";
-import { SeoContentSection } from "@/components/seo-content-section";
+import { FAQSection } from "@/components/faq-section";
 import { Breadcrumb } from "@/components/breadcrumb";
+import { Download, Globe, Zap, ArrowDownCircle } from "lucide-react";
+import { SocialShare } from "@/components/social-share";
 
 export const metadata: Metadata = {
     title: "Download Speed Test – Check Your Real Download Speed",
@@ -19,52 +21,6 @@ export const metadata: Metadata = {
 };
 
 export default function DownloadSpeedTestPage() {
-    const content = `
-    <h2>What Is Download Speed?</h2>
-    <p>Download speed measures how fast your internet connection can pull data from the internet to your device. It's measured in <strong>Megabits per second (Mbps)</strong>. Almost everything you do online depends on download speed: streaming videos, loading web pages, downloading files, playing online games, and browsing social media.</p>
-    <p>Hit the test button above to find your real download speed right now. Then compare it against the standards below.</p>
-
-    <h2>What Is a Good Download Speed?</h2>
-    <p>The "right" download speed depends on how many people are connected and what they're doing:</p>
-    <ul>
-      <li><strong>1–10 Mbps:</strong> Barely usable for one person doing basic browsing. Insufficient for HD video.</li>
-      <li><strong>10–25 Mbps:</strong> Good for a single user streaming HD Netflix or Hotstar.</li>
-      <li><strong>25–100 Mbps:</strong> Comfortable for 2–3 users streaming HD simultaneously.</li>
-      <li><strong>100–300 Mbps:</strong> Great for families with multiple devices streaming 4K + gaming simultaneously.</li>
-      <li><strong>300 Mbps+:</strong> Future-proof. Handles 4K streaming on multiple TVs, gaming, and heavy file downloads without any slowdown.</li>
-    </ul>
-    <p>Want to understand what these numbers mean for your specific situation? Read our <a href="/what-is-good-internet-speed">complete guide to good internet speed</a>.</p>
-
-    <h2>Why Is My Download Speed Slow?</h2>
-    <p>If your download speed test results are disappointing, here are the most common reasons:</p>
-    <ul>
-      <li><strong>WiFi Signal Weakness:</strong> Moving two rooms away from your router can cut download speeds by 50–70%. Walls, floors, and other obstacles absorb wireless signals drastically.</li>
-      <li><strong>Shared Bandwidth:</strong> Every device on your network shares your total bandwidth. 8 devices streaming simultaneously can each get only 1/8 of your total capacity.</li>
-      <li><strong>ISP Throttling:</strong> Some ISPs deliberately slow down video streaming (Netflix, YouTube) after you consume a certain amount of data. Use a VPN to test if this is happening.</li>
-      <li><strong>Old Router:</strong> A router from 2015 might only support WiFi 4 (802.11n), which maxes out around 150–300 Mbps even if your fiber line delivers 1 Gbps.</li>
-      <li><strong>Downloads Running in Background:</strong> Windows updates, Steam game updates, or iCloud syncing can silently consume your entire bandwidth.</li>
-    </ul>
-
-    <h2>How to Boost Your Download Speed Today</h2>
-    <p>Try these quick fixes before calling your ISP:</p>
-    <ul>
-      <li><strong>Connect via Ethernet:</strong> A direct wired connection bypasses all WiFi limitations. Most computers and smart TVs have an Ethernet port.</li>
-      <li><strong>Reboot your modem and router:</strong> Unplug both for 60 seconds. This clears RAM caches and forces a fresh connection with your ISP.</li>
-      <li><strong>Change WiFi channel:</strong> Log into your router (192.168.1.1) and switch the 2.4GHz band to a less congested channel (1, 6, or 11). Better yet, use the 5GHz band for faster speeds at shorter range.</li>
-      <li><strong>Check for background updates:</strong> Open Task Manager (Windows) or Activity Monitor (Mac) and look for processes consuming high network usage.</li>
-      <li><strong>Upgrade your router:</strong> A WiFi 6 router can more than double your effective wireless download speeds.</li>
-    </ul>
-    <p>For WiFi-specific improvements, see our <a href="/how-to-increase-wifi-speed">guide to increasing WiFi speed</a> or run a <a href="/wifi-speed-test-online">WiFi speed test</a> to compare your wireless vs your plan speed.</p>
-
-    <h2>How Does a Download Speed Test Work?</h2>
-    <p>When you start a download speed test, our server sends a series of large data chunks to your browser. The test measures how quickly your device receives them. Unlike a real download, we don't save any files — we just measure the transfer rate and calculate your Megabits per second.</p>
-    <p>For maximum accuracy, close all other tabs and apps before testing. Run the test 2–3 times and average the results for a reliable baseline.</p>
-
-    <h2>Download Speed vs Upload Speed</h2>
-    <p>Most internet plans are <em>asymmetric</em> — meaning download speeds are much higher than upload speeds. A typical home broadband plan might offer 200 Mbps download but only 20 Mbps upload. This is fine for most households where downloading (streaming, browsing) is the primary activity.</p>
-    <p>If you work from home, stream live, or frequently send large files, you need a higher upload speed. Check your <a href="/upload-speed-test">upload speed</a> separately to confirm it meets your needs.</p>
-    `;
-
     const faqs = [
         {
             question: "What download speed do I need for Netflix 4K?",
@@ -87,27 +43,86 @@ export default function DownloadSpeedTestPage() {
     return (
         <div className="bg-background min-h-screen">
             <section className="relative py-20 bg-gradient-to-b from-blue-950/20 to-background overflow-hidden">
-                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6">
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 text-center">
                     <Breadcrumb items={[{ label: "Download Speed Test" }]} />
 
-                    <div className="text-center mb-12">
-                        <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-                            Download Speed Test – Check Your Real Speed
-                        </h1>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            Is your broadband delivering what you pay for? Run a free download speed test and see the truth. No app. No ads. Just results.
-                        </p>
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+                        Download Speed Test – <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Check Real Speed</span>
+                    </h1>
+
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-medium mb-8">
+                        <ArrowDownCircle className="w-3.5 h-3.5 text-blue-400" />
+                        Accurate Throughput Measurement 2026
                     </div>
+
+                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-10">
+                        Is your broadband delivering what you pay for? Run a free download speed test and see the truth. No app. No ads. Just precision results.
+                    </p>
 
                     <SpeedTestWidget />
                 </div>
             </section>
 
-            <SeoContentSection
-                title="Download Speed Guide: What It Means & How to Improve It"
-                content={content}
-                faqs={faqs}
-            />
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    <div className="lg:col-span-8">
+                        <section className="w-full mt-16 md:mt-24 pt-12 border-t border-border/40 pb-20">
+                            <div className="max-w-4xl">
+                                <h2 className="text-2xl md:text-3xl font-bold mb-8 text-foreground leading-tight">
+                                    Download Speed Guide: What It Means & How to Improve It
+                                </h2>
+
+                                <div className="prose dark:prose-invert prose-blue max-w-none mb-16 text-muted-foreground prose-headings:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h3:mt-8 prose-h3:mb-3 prose-p:leading-relaxed prose-a:text-blue-500 hover:prose-a:text-blue-400">
+                                    <h3>What Is Download Speed?</h3>
+                                    <p>Download speed measures how fast your internet connection can pull data from the internet to your device. It's measured in <strong>Megabits per second (Mbps)</strong>. Almost everything you do online depends on download speed: streaming videos, loading web pages, downloading files, playing online games, and browsing social media.</p>
+                                    <p>Hit the test button above to find your real download speed right now. Then compare it against the standards below.</p>
+
+                                    <div style={{ background: "rgba(59, 130, 246, 0.1)", padding: "25px", borderRadius: "16px", margin: "32px 0", border: "1px solid rgba(59, 130, 246, 0.2)" }}>
+                                        <h3 style={{ marginTop: 0, color: "#3b82f6" }}>🚀 Speed Measurement Fact:</h3>
+                                        <p>Download speed is the most critical metric for modern households. A "Good" speed in 2026 is at least <strong>100 Mbps</strong>, which comfortably supports multiple 4K streams and smart home devices simultaneously.</p>
+                                    </div>
+
+                                    <h2>What Is a Good Download Speed?</h2>
+                                    <p>The "right" download speed depends on how many people are connected and what they're doing:</p>
+                                    <ul>
+                                      <li><strong>1–10 Mbps:</strong> Barely usable for basic browsing. Insufficient for HD video.</li>
+                                      <li><strong>10–25 Mbps:</strong> Good for a single user streaming HD video.</li>
+                                      <li><strong>25–100 Mbps:</strong> Comfortable for 2–3 users streaming HD simultaneously.</li>
+                                      <li><strong>100–300 Mbps:</strong> Great for families with multiple 4K TVs + gaming.</li>
+                                      <li><strong>300 Mbps+:</strong> Future-proof. Handles heavy game downloads and 8K content.</li>
+                                    </ul>
+                                    <p>Want to understand what these numbers mean for your specific situation? Read our <a href="/what-is-good-internet-speed">complete guide to good internet speed</a>.</p>
+
+                                    <h2>Why Is My Download Speed Slow?</h2>
+                                    <p>If your results are disappointing, the issue usually boils down to WiFi interference or hardware bottlenecks. Moving two rooms away from your router can cut your speeds by half. For a true check of your ISP's performance, always use an <strong>Ethernet cable</strong> during the test.</p>
+
+                                    <h2>How to Boost Your Download Speed Today</h2>
+                                    <p>Try these quick fixes before calling your ISP:</p>
+                                    <ul>
+                                      <li><strong>Connect via Ethernet:</strong> Bypasses all WiFi signal loss.</li>
+                                      <li><strong>Reboot your equipment:</strong> Power cycle your modem and router.</li>
+                                      <li><strong>Update Firmware:</strong> Ensure your router is running the latest software.</li>
+                                    </ul>
+                                </div>
+                                <FAQSection faqs={faqs} />
+                            </div>
+                        </section>
+                    </div>
+
+                    <div className="lg:col-span-4 py-20 lg:sticky lg:top-24 h-fit">
+                        <SocialShare 
+                            title="I just tested my real download speed and found something interesting! Check yours here:" 
+                        />
+                        <div className="bg-card/50 p-6 rounded-2xl border border-border/50 mt-8">
+                            <h3 className="font-bold mb-4">ISP Transparency</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                                Most ISPs advertise "theoretical" speeds. Our tool uses real data bursts to show you exactly what's reaching your device. Sharing your results helps create a more transparent internet for everyone.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
+

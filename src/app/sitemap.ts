@@ -1,10 +1,27 @@
 import { MetadataRoute } from "next";
+import { seoActivities, seoLocations } from "@/lib/seo-keywords";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://trueinternetspeedtest.com";
   const now = new Date();
 
+  const pseoUrls: MetadataRoute.Sitemap = [
+    { url: `${baseUrl}/purpose`, lastModified: now, changeFrequency: "weekly", priority: 0.95 }
+  ];
+
+  seoActivities.forEach(activity => {
+    seoLocations.forEach(location => {
+      pseoUrls.push({
+        url: `${baseUrl}/purpose/${activity.slug}/${location.slug}`,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.85
+      });
+    });
+  });
+
   return [
+    ...pseoUrls,
     // Core Tool (Priority 1.0)
     { url: baseUrl, lastModified: now, changeFrequency: "daily", priority: 1 },
 
